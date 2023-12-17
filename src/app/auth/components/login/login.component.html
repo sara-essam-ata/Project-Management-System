@@ -3,6 +3,7 @@
       <div class="logo text-center">
           <img src="../../../../assets/images/logo.svg" alt="logo" >
       </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
       <div class="col-md-6 mx-auto">
           <div class="auth-card">
               <div class="title my-4">
@@ -11,13 +12,13 @@
               </div>
               <mat-form-field appearance="fill" class="w-100">
                   <mat-label>E-mail</mat-label>
-                  <input matInput placeholder="Enter Your Email">
+                  <input formControlName="email" matInput placeholder="Enter Your Email">
               </mat-form-field>
               
               <mat-form-field appearance="fill" class="w-100">
                   <mat-label>Password</mat-label>
-                  <input matInput placeholder="Enter Your Password" [type]="hide ? 'password' : 'text'">
-                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  <input formControlName="password" matInput placeholder="Enter Your Password" [type]="hide ? 'password' : 'text'">
+                  <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                       [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
@@ -29,5 +30,6 @@
               <button class="primary w-100">Login</button>
           </div>
       </div>
+    </form>
   </div>
 </section>
