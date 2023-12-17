@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
-import { managerGuard } from '../Guards/manager.guard';
-import { employeeGuard } from '../Guards/employee.guard';
 import { SharedModule } from '../shared/shared.module';
+import { employeeGuard } from '../guards/employee.guard';
+import { managerGuard } from '../guards/manager.guard';
 
 const routes:Routes = [
   {path: '', component: DashboardComponent, children: [
