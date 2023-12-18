@@ -11,8 +11,8 @@ import { ChangepasswordComponent } from './components/changepassword/changepassw
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch:'full'},
   { path: 'login', component: LoginComponent},
-  {path: 'forget-password', component:ForgetPasswordComponent},
-  {path: 'Reset-password', component:ResetPasswordComponent},
+  {path: 'forgetPassword', component:ForgetPasswordComponent},
+  {path: 'resetPassword', component:ResetPasswordComponent},
   {path: 'ChangePassword', component:ChangepasswordComponent},
 
 
