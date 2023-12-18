@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 import { ToastrService } from 'ngx-toastr';
@@ -17,10 +17,10 @@ export class LoginComponent implements OnInit {
     private _toastr:ToastrService,
     private _Router:Router) { }
 
-  loginForm = new FormGroup({
-    email: new FormControl(null),
-    password: new FormControl(null),
-  })
+    loginForm = new FormGroup({
+      email: new FormControl(null,[Validators.required,Validators.email]),
+      password: new FormControl(null,[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
+    })
 
   message:string=''
   onSubmit(data: FormGroup)
