@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private _AuthService:AuthService,
     private _toastr:ToastrService,
-    private _Router:Router) { }
+    private _Router:Router, private dialog:MatDialog) { }
 
     loginForm = new FormGroup({
       email: new FormControl(null,[Validators.required,Validators.email]),
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
     })
     
   }
+
 
   ngOnInit() {
   }

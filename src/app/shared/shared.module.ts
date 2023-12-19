@@ -11,18 +11,22 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule} from '@angular/material/dialog';
-
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   imports: [
     CommonModule,
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,FormsModule
+    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,RouterLink,RouterLinkActive
+    ,NgxDropzoneModule
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule, FormsModule
+    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,NgxDropzoneModule,
+    MatMenuModule,MatDialogModule,FormsModule
   ],
+  
   declarations: [SharedComponent,NavbarComponent,SidebarComponent]
 })
 export class SharedModule { }
