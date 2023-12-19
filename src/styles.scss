@@ -51,6 +51,37 @@ $Project-Management-System-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+// -------Color pallette
+
+.text-main{
+  color: #0E382F;
+}
+
+.text-secondry{
+  color: #EF9B28;
+}
+.text-greyLight{
+  color: #8391A1;
+
+}
+.text-darkgrey{
+  color:#1F263E;
+
+}
+
+.bg-main{
+  background-color: #0E382F;
+}
+
+.bg-secondry{
+  background-color: #EF9B28;
+}
+.bg-dark-color{
+  background-color: #1F263E;
+}
+
+//--------components
+
 .auth-card{
     background-color: rgba(49,89,81,0.9);
     padding: 3rem 4rem;
@@ -72,8 +103,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
                 left: 0;
                 bottom: -2px;
                 z-index: 20;
-            } 
-        }   
+            }
+        }
     }
 }
 button{
@@ -88,6 +119,7 @@ button{
         opacity: 0.9;
     }
 }
+
 
 .textOrange{
     color: #EF9B28 
