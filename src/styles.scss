@@ -51,6 +51,9 @@ $Project-Management-System-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.orange-color{
+    color: #EF9B28;
+}
 .auth-card{
     background-color: rgba(49,89,81,0.9);
     padding: 3rem 4rem;

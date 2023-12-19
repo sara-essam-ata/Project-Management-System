@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { employeeGuard } from '../guards/employee.guard';
 import { managerGuard } from '../guards/manager.guard';
 
+
 const routes:Routes = [
   {path: '', component: DashboardComponent, children: [
     {
@@ -19,11 +20,11 @@ const routes:Routes = [
   ]},
 ]
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule
-  ],
-  declarations: [DashboardComponent]
+    declarations: [DashboardComponent],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        SharedModule,
+    ]
 })
 export class DashboardModule { }

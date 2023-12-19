@@ -1,0 +1,37 @@
+#sidebar{
+    background-color: #0E382F;
+    .item{
+        cursor: pointer;
+        padding: 10px 5px !important;
+        font-weight: 500;
+        margin: 0.5rem 0px;
+        color: #fff;
+        span{
+            margin-left: 10px;
+        }
+    }
+}
+.bg-active{
+    background-color: rgba(239, 155, 40, 0.3) ;
+    border-radius: 8px;
+    width: 400% !important;
+    &span{
+        color: #EF9B28 !important;
+    }
+}
+.row >div{
+    transition: all 1s;
+}
+@media (max-width: 760px) {
+    .icon-name{
+    display: none !important;
+    };
+    i{
+        padding-left: 0;
+        margin-left: 0 !important;
+        font-size: x-large;
+    }
+    img{
+        display: none;
+    }
+ }

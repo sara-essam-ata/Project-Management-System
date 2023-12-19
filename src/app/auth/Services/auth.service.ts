@@ -28,6 +28,8 @@ export class AuthService {
   
     localStorage.setItem('role' , decoded.userGroup);
     localStorage.setItem('userName' , decoded.userName);
+    localStorage.setItem('userEmail' , decoded.userEmail);
+
     
     this.getRole();
   }
