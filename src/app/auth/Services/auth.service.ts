@@ -45,4 +45,8 @@ export class AuthService {
     return this._HttpClient.post('Users/Login' , data)
   }
 
+  onRequestResetPassword(data:string){
+    return this._HttpClient.post('Users/Reset/Request', {email: data})
+  }
+
 }
