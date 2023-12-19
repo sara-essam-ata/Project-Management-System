@@ -44,7 +44,7 @@ export class AuthService {
   {
     return this._HttpClient.post('Users/Login' , data)
   }
-  onVerify(data: IRegister):Observable<any>
+  onRegister(data: FormData):Observable<any>
   {
     return this._HttpClient.post('Users/Register' , data)
   }
