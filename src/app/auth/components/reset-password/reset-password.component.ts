@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../Services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -6,6 +10,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent {
+  userEmail=localStorage.getItem('email');
   hide:boolean=false;
+  Message:string='';
+  restpassword=new FormGroup({
+    email:new FormControl(this.userEmail,[Validators.required]),
+    password:new FormControl(null),
+    confirmPassword:new FormControl(null,[Validators.required,Validators.email]),
+    seed:new FormControl(null,[Validators.required]),
 
+
+  })
+  constructor(private _AuthService:AuthService,private tostar:ToastrService,private router:Router  ){
+
+  }
+  onSubmit(data:FormGroup){
+    console.log(data);
+     this._AuthService.onRestPassword(data.value).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        this.Message=res.message;
+        
+      },error:(err)=>{
+       this.tostar.error(err.error.message,'Error');
+      },complete:()=>{
+        this.tostar.success(this.Message,'Successfully');
+        this.router.navigate(['/auth/login'])
+
+      }
+    })
+    
+    
+  }
+ 
 }
