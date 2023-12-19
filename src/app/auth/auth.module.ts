@@ -12,7 +12,7 @@ import { RegisterComponent } from './components/register/register.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch:'full'},
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
   {path: 'forgetPassword', component:ForgetPasswordComponent},
   {path: 'resetPassword', component:ResetPasswordComponent},
   {path: 'ChangePassword', component:ChangepasswordComponent},
