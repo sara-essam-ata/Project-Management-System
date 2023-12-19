@@ -11,22 +11,24 @@ import { RegisterComponent } from './components/register/register.component';
 import { VerifyComponent } from './components/verify/verify.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch:'full'},
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
-  {path: 'forgetPassword', component:ForgetPasswordComponent},
-  {path: 'resetPassword', component:ResetPasswordComponent},
-  {path: 'changePassword', component:ChangepasswordComponent},
-  {path: 'verify', component:VerifyComponent},
-
-
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'forgetPassword', component: ForgetPasswordComponent },
+  { path: 'resetPassword', component: ResetPasswordComponent },
+  { path: 'changePassword', component: ChangepasswordComponent },
+  { path: 'verify', component: VerifyComponent },
 ];
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule
+  imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
+  declarations: [
+    AuthComponent,
+    LoginComponent,
+    ForgetPasswordComponent,
+    ResetPasswordComponent,
+    ChangepasswordComponent,
+    RegisterComponent,
+    VerifyComponent,
   ],
-  declarations: [AuthComponent, LoginComponent, ForgetPasswordComponent, ResetPasswordComponent, ChangepasswordComponent, RegisterComponent]
 })
-export class AuthModule { }
+export class AuthModule {}

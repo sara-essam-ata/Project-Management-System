@@ -34,9 +34,9 @@ export class RegisterComponent {
     phoneNumber: new FormControl(null, [
       Validators.required,
       Validators.minLength(11),
-      Validators.pattern('^01[0-2]d{1,8}$'),
+      // Validators.pattern('^01[0-2]d{1,8}$'),
     ]),
-    profileImage: new FormControl(null),
+    // profileImage: new FormControl(null),
     password: new FormControl(null, [
       Validators.required,
       Validators.minLength(6),
