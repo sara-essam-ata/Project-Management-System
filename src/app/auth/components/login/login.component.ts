@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { RequestRestPasswordComponent } from '../request-rest-password/request-rest-password.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +17,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private _AuthService:AuthService,
     private _toastr:ToastrService,
-    private _Router:Router) { }
+    private _Router:Router, private dialog:MatDialog) { }
 
-  loginForm = new FormGroup({
-    email: new FormControl(null),
-    password: new FormControl(null),
-  })
+    loginForm = new FormGroup({
+      email: new FormControl(null,[Validators.required,Validators.email]),
+      password: new FormControl(null,[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
+    })
 
   message:string=''
   onSubmit(data: FormGroup)
@@ -42,6 +44,38 @@ export class LoginComponent implements OnInit {
       }
     })
     
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(RequestRestPasswordComponent, {
+       width:'100vh',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      
+      if(result){
+        this.onRestRequest(result);
+      }
+    });
+  }
+  onRestRequest(data:string){
+    this._AuthService.onRequestReset(data).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        this.message=res.message;
+        
+      },error:(err)=>{
+        this._toastr.error(err.error.message,'Error');
+
+        
+      },complete:()=>{
+        this._toastr.success(this.message,'Successfully');
+        this._Router.navigate(['/auth/resetPassword']);
+                localStorage.setItem('email',data);
+
+      }
+    })
   }
 
   ngOnInit() {

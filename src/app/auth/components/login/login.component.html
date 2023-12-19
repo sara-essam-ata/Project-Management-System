@@ -14,6 +14,11 @@
                   <mat-label>E-mail</mat-label>
                   <input formControlName="email" matInput placeholder="Enter Your Email">
               </mat-form-field>
+
+              <div class="alert alert-danger p-2" *ngIf="loginForm.controls.email.errors && loginForm.controls.email.touched">
+                <p *ngIf="loginForm.get('email')?.getError('required')" class="mb-0">Email Is Required</p>
+                <p *ngIf="loginForm.get('email')?.getError('email')" class="mb-0">Email Is Invalid</p>
+              </div>
               
               <mat-form-field appearance="fill" class="w-100">
                   <mat-label>Password</mat-label>
@@ -23,9 +28,17 @@
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
               </mat-form-field>
+
+              <div class="alert alert-danger p-2" *ngIf="loginForm.controls.password.errors && loginForm.controls.password.touched">
+                <p *ngIf="loginForm.get('password')?.getError('required')" class="mb-0">Password Is Required</p>
+                <p *ngIf="loginForm.get('password')?.getError('pattern')" class="mb-0">Please must have A,a ,@,%,$,#, From 8 , 16</p>
+              </div>
+
               <div class="d-flex justify-content-between align-items-center mb-4">
-                  <a class="text-decoration-none text-white">Register Now ?</a>
+                  <a [routerLink]="['/auth/register']" class="text-decoration-none text-white">Register Now ?</a>
                   <a [routerLink]="['/auth/forgetPassword']" class="text-decoration-none text-white">Forget Password ?</a>
+                  <a class="text-decoration-none text-white">Register Now ?</a>
+                  <a (click)="openDialog()"  class="text-decoration-none text-white">Forget Password ?</a>
               </div>
               <button class="primary w-100">Login</button>
           </div>
