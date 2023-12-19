@@ -1,3 +1,17 @@
-<p>
-  sidebar works!
-</p>
+<section id="sidebar" class="vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4">
+          <ng-container *ngFor="let item of menu">
+            <a class="d-block text-decoration-none" [routerLink]="item.link" routerLinkActive="bg-active" 
+            *ngIf="item.isActive">
+                <div class="item d-flex">
+                    <span><i [class]="item.icon"></i></span>
+                    <span class="icon-name" [ngClass]="{'d-none': !isOpened}">{{item.title}}</span>
+                </div>
+            </a>
+          </ng-container>
+      </div>
+    </div>
+  </div>
+</section>
