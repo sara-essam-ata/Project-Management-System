@@ -5,7 +5,7 @@ import { MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule} from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -13,16 +13,15 @@ import { MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule} from '@angular/material/dialog';
 
 
-
 @NgModule({
   imports: [
     CommonModule,
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,
+    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,FormsModule
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,
+    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule, FormsModule
   ],
   declarations: [SharedComponent,NavbarComponent,SidebarComponent]
 })

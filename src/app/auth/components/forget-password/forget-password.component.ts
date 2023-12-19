@@ -15,26 +15,26 @@ export class ForgetPasswordComponent implements OnInit {
     private _toastr:ToastrService,
     private _Router:Router) { }
 
-    loginForm = new FormGroup({
-      email: new FormControl(null),
-    })
-    // [Validators.required,Validators.email]
+    // forgetForm = new FormGroup({
+    //   email: new FormControl(null),
+    // })
+    // // [Validators.required,Validators.email]
 
     email:string = ''
 
-    errorMessage:string='';
+    // errorMessage:string='';
 
-  onRquestReset(data: FormGroup){
+  onRquestReset(data: string){
     
-    this._AuthService.onRequestResetPassword(data.value).subscribe({
+    this._AuthService.onRequestResetPassword(data).subscribe({
       next: (res: any)=>{
-        this.errorMessage = res.message;
+        // this.errorMessage = res.message;
       }, error: (err)=>{
         this._toastr.error(err.error.errorMessage, 'Error!');
       },complete: ()=>{
-        this._toastr.success(this.errorMessage, 'Successfully!');
+        this._toastr.success("", 'Successfully!');
         this._Router.navigate(['/auth/resetPassword']);
-        localStorage.setItem('email' , data.value);
+        localStorage.setItem('email' , data);
 
       }
     })
