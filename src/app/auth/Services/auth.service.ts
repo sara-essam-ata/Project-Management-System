@@ -48,7 +48,8 @@ export class AuthService {
     return this._HttpClient.put('Users/ChangePassword', data)
   }
 
-  onRequestResetPassword(data:string){
+  onRequestResetPassword(data:string):Observable<any>
+  {
     return this._HttpClient.post('Users/Reset/Request', {email: data})
   }
 
