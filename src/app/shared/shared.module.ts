@@ -23,7 +23,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,NgxDropzoneModule,
+    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule, NgxDropzoneModule,
     MatMenuModule,MatDialogModule,FormsModule
   ],
   
