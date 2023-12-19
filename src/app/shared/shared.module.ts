@@ -17,11 +17,12 @@ import { MatDialogModule} from '@angular/material/dialog';
   imports: [
     CommonModule,
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule
+    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,FormsModule
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     NavbarComponent,SidebarComponent, FormsModule,MatMenuModule,MatDialogModule
+
   ],
   declarations: [SharedComponent,NavbarComponent,SidebarComponent]
 })
