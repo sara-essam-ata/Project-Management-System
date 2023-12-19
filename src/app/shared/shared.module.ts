@@ -13,15 +13,16 @@ import { MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule} from '@angular/material/dialog';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule
+    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule
+    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,
   ],
   declarations: [SharedComponent,NavbarComponent,SidebarComponent]
 })
