@@ -13,6 +13,7 @@ import { MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule} from '@angular/material/dialog';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,6 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     MatMenuModule,MatDialogModule,FormsModule
   ],
   
-  declarations: [SharedComponent,NavbarComponent,SidebarComponent]
+  declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent]
 })
 export class SharedModule { }

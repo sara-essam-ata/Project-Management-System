@@ -102,7 +102,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
                 height: 4px;
                 background-color: #EF9B28;
                 position: absolute;
-                left: 0;
+                left: 0px;
                 bottom: -2px;
                 z-index: 20;
             }
@@ -120,6 +120,15 @@ button{
     &:hover{
         opacity: 0.9;
     }
+    &.outline-primary{
+      border-radius: 96px;
+      border: 1px solid #EF9B28 !important;
+      color: #EF9B28 !important;
+      &:hover{
+        opacity: 0.9;
+        color: #EF9B28;
+      }
+    }
 }
 
 .page-header{
@@ -131,5 +140,8 @@ button{
   h3{
     color: #4f4f4f;
   }
+}
+.pointer{
+  cursor: pointer;
 }
 

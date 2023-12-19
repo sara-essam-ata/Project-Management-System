@@ -19,7 +19,8 @@ export class ChangepasswordComponent {
     oldPassword: new FormControl(null,[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
     newPassword: new FormControl(null,[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
     confirmNewPassword: new FormControl(null,[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),  
-  });
+  },{validators: this.passwordMatchValidator,}
+  );
 
   onSubmit(data: FormGroup){
     this._AuthService.onChangePssword(data.value).subscribe({
@@ -32,6 +33,18 @@ export class ChangepasswordComponent {
         this.router.navigate(['/auth'])
       }
     })
+  }
+  passwordMatchValidator(control: any) {
+    let newPassword =control.get('newPassword');
+    let confirmNewPassword=control.get('confirmNewPassword')
+    if (newPassword.value == confirmNewPassword.value) {
+      return null;
+    } else {
+      control
+        .get('confirmNewPassword')
+        ?.setErrors({ invalid: 'password and confirm password not match' });
+      return { invalid: 'password and confirm password not match' };
+    }
   }
 
 }
