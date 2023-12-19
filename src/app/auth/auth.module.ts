@@ -7,10 +7,12 @@ import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch:'full'},
   { path: 'login', component: LoginComponent},
+  { path: 'register', component: LoginComponent},
   {path: 'forgetPassword', component:ForgetPasswordComponent},
   {path: 'resetPassword', component:ResetPasswordComponent},
   {path: 'ChangePassword', component:ChangepasswordComponent},
@@ -23,6 +25,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule
   ],
-  declarations: [AuthComponent, LoginComponent, ForgetPasswordComponent, ResetPasswordComponent, ChangepasswordComponent]
+  declarations: [AuthComponent, LoginComponent, ForgetPasswordComponent, ResetPasswordComponent, ChangepasswordComponent, RegisterComponent]
 })
 export class AuthModule { }
