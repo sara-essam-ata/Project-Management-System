@@ -53,4 +53,14 @@ export class AuthService {
     return this._HttpClient.post('Users/Reset/Request', {email: data})
   }
 
+  onRestPassword(data:any)
+ {
+  return this._HttpClient.post('Users/Reset', data)
+
+ }
+ onRequestReset(data:string)
+ {
+  return this._HttpClient.post('Users/Reset/Request' , {email:data})
+
+ }
 }

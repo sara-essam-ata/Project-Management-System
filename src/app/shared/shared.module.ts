@@ -21,7 +21,8 @@ import { MatDialogModule} from '@angular/material/dialog';
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule, FormsModule
+    NavbarComponent,SidebarComponent, FormsModule,MatMenuModule,MatDialogModule
+
   ],
   declarations: [SharedComponent,NavbarComponent,SidebarComponent]
 })
