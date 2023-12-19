@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
 import { ILogin, IRegister } from 'src/app/Model/auth';
-import { IChangePassword, ILogin } from 'src/app/Model/auth';
+import { IChangePassword } from 'src/app/Model/auth';
 
 
 @Injectable({

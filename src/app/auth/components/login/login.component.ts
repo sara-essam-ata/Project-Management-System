@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { RequestRestPasswordComponent } from '../request-rest-password/request-rest-password.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -45,38 +44,7 @@ export class LoginComponent implements OnInit {
     })
     
   }
-  openDialog(): void {
-    const dialogRef = this.dialog.open(RequestRestPasswordComponent, {
-       width:'100vh',
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
-      
-      if(result){
-        this.onRestRequest(result);
-      }
-    });
-  }
-  onRestRequest(data:string){
-    this._AuthService.onRequestReset(data).subscribe({
-      next:(res:any)=>{
-        console.log(res);
-        this.message=res.message;
-        
-      },error:(err)=>{
-        this._toastr.error(err.error.message,'Error');
-
-        
-      },complete:()=>{
-        this._toastr.success(this.message,'Successfully');
-        this._Router.navigate(['/auth/resetPassword']);
-                localStorage.setItem('email',data);
-
-      }
-    })
-  }
 
   ngOnInit() {
   }

@@ -23,14 +23,10 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,NgxDropzoneModule
-    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,FormsModule
+    NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,NgxDropzoneModule,
+    MatMenuModule,MatDialogModule,FormsModule
   ],
-  exports: [
-    MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    NavbarComponent,SidebarComponent, FormsModule,MatMenuModule,MatDialogModule
-
-  ],
+  
   declarations: [SharedComponent,NavbarComponent,SidebarComponent]
 })
 export class SharedModule { }
