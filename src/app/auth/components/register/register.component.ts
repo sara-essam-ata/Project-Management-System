@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../Services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
-import { IRegister } from 'src/app/Model/auth';
+import { IRegister } from 'src/app/Models/auth';
 import { VerifyComponent } from '../verify/verify.component';
 
 @Component({

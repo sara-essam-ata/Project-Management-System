@@ -78,6 +78,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .bg-dark-color{
   background-color: #1F263E;
 }
+.bg-gray{
+  background-color: #f5f5f5;
+}
 
 //--------components
 
@@ -119,4 +122,14 @@ button{
     }
 }
 
+.page-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+  h3{
+    color: #4f4f4f;
+  }
+}
 
