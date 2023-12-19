@@ -45,8 +45,8 @@
                   </button>
               </mat-form-field>
                 <mat-form-field appearance="fill" class="w-100">
-                    <mat-label>Password</mat-label>
-                    <input formControlName="password" matInput placeholder="Enter Your Password" [type]="hide ? 'password' : 'text'">
+                    <mat-label>Confirm Password</mat-label>
+                    <input formControlName="confirmPassword" matInput placeholder="Enter Your Password" [type]="hide ? 'password' : 'text'">
                     <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                         [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -55,7 +55,7 @@
               </div>
               <div class="d-flex justify-content-between align-items-center mb-4">
                   <a [routerLink]="['/auth/register']" class="text-decoration-none text-white">Log in?</a>
-                  <a [routerLink]="['/auth/forgetPassword']" class="text-secondry">Have Code?</a>
+                  <a [routerLink]="['/auth/verify']" class="text-secondry">Have Code?</a>
               </div>
               <button class="primary w-100">Register</button>
           </div>

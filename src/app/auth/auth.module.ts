@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
 import { RegisterComponent } from './components/register/register.component';
+import { VerifyComponent } from './components/verify/verify.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch:'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   {path: 'forgetPassword', component:ForgetPasswordComponent},
   {path: 'resetPassword', component:ResetPasswordComponent},
-  {path: 'ChangePassword', component:ChangepasswordComponent},
+  {path: 'changePassword', component:ChangepasswordComponent},
+  {path: 'verify', component:VerifyComponent},
 
 
 ];
