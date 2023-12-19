@@ -145,7 +145,7 @@
                 *ngIf="registerForm.get('password')?.hasError('required')"
                 >password is required
               </span>
-              <span *ngIf="registerForm.get('password')?.hasError('pattern')">password must have capital, small charachters and numbers with minLength 8.</span>
+              <!-- <span *ngIf="registerForm.get('password')?.hasError('pattern')">password must have capital, small charachters and numbers with minLength 8.</span> -->
             </span>
           </div>
           <div class="col-md-6">
@@ -218,13 +218,13 @@
               class="text-decoration-none text-white"
               >Log in?</a
             >
-            <a [routerLink]="['/auth/verify']" class="text-secondry"
+            <a (click)="  openDialog()" class="text-secondry"
               >Have Code?</a
             >
           </div>
           <div class="text-center">
 
-            <button class="primary w-75">Register</button>
+            <button type="submit" class="primary w-75">Register</button>
           </div>
         </div>
       </div>

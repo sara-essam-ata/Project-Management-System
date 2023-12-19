@@ -4,6 +4,7 @@ import { AuthService } from '../../Services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 import { IRegister } from 'src/app/Model/auth';
+import { VerifyComponent } from '../verify/verify.component';
 
 @Component({
   selector: 'app-register',
@@ -89,9 +90,18 @@ export class RegisterComponent {
         this.toastr.error(err.error.message, 'Error!');
       },
       complete: () => {
-        this.toastr.success(this.message, 'Hello');
+        this.toastr.success(this.message, 'Succeded');
+        this.openDialog();
       },
     });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(VerifyComponent, {
+      data: {},
+      width: '40%',
+    });
+
   }
   files: File[] = [];
 
