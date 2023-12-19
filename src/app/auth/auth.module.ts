@@ -7,8 +7,12 @@ import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
+
 import { RegisterComponent } from './components/register/register.component';
 import { VerifyComponent } from './components/verify/verify.component';
+
+import { RequestRestPasswordComponent } from './components/request-rest-password/request-rest-password.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -30,5 +34,7 @@ const routes: Routes = [
     RegisterComponent,
     VerifyComponent,
   ],
+
+  declarations: [AuthComponent, LoginComponent, ForgetPasswordComponent, ResetPasswordComponent, ChangepasswordComponent, RequestRestPasswordComponent]
 })
 export class AuthModule {}
