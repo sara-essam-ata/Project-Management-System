@@ -14,7 +14,7 @@ import { VerifyComponent } from '../verify/verify.component';
 export class RegisterComponent {
   hide = true;
   hideConfirm = true;
-  userEmail = localStorage.getItem('email');
+  verifyEmail:any;
   message: string = '"Welcome In PMS"';
   pathHttps: string = 'https://upskilling-egypt.com:443/';
 
@@ -82,8 +82,10 @@ export class RegisterComponent {
     myData.append('confirmPassword', data.value.confirmPassword);
 
     this._authService.onRegister(myData).subscribe({
-      next: (res: any) => {
+      next: (res: IRegister) => {
         console.log(res);
+        this.verifyEmail = localStorage.setItem('verifyEmail', res.email);
+
       },
       error: (err: any) => {
         console.log(err);

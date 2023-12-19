@@ -1,1 +1,57 @@
-<p>verify works!</p>
+<div class="card-auth">
+  <h2>Verify Your Account</h2>
+  <p>Please Enter Your Email And Check Your Inbox</p>
+  <!-- <form [formGroup]="verifyForm" (ngSubmit)="onSubmit(verifyForm)">
+    <div class="col-md-6">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>E-mail</mat-label>
+        <input
+          formControlName="email"
+          matInput
+          placeholder="Enter Your Email"
+        />
+      </mat-form-field>
+      <span
+        class="text-danger  mb-3"
+        *ngIf="
+          registerForm.get('email')?.invalid &&
+          (registerForm.get('email')?.dirty ||
+            registerForm.get('email')?.touched)
+        "
+      >
+        <span *ngIf="registerForm.get('email')?.hasError('required')"
+          >Email is required</span
+        >
+        <span *ngIf="registerForm.get('email')?.hasError('pattern')"
+          >Invalid email format</span
+        >
+      </span>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Code</mat-label>
+        <input
+          formControlName="otp"
+          matInput
+          placeholder="Enter Your Code"
+        />
+      </mat-form-field>
+      <span
+      class="text-danger  mb-3"
+      *ngIf="
+        registerForm.get('country')?.invalid &&
+        (registerForm.get('country')?.dirty ||
+          registerForm.get('otp')?.touched)
+      "
+    >
+      <span *ngIf="registerForm.get('otp')?.hasError('required')"
+        >otp is required</span
+      >
+    </span>
+  </div>
+    <div class="text-end">
+      <a (click)="onNoClick()" routerLink="/auth/login" class="text-main">Log in?</a>
+    </div>
+    <button type="submit" class="primary my-2 w-100">Verify</button>
+    </form> -->
+</div>

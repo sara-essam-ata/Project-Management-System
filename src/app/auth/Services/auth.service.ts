@@ -48,4 +48,7 @@ export class AuthService {
   {
     return this._HttpClient.post('Users/Register' , data)
   }
+  onVerify(data:any){
+    return this._HttpClient.put('Users/verify', data);
+  }
 }
