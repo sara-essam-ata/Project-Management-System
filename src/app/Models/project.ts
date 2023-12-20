@@ -1,3 +1,8 @@
+export interface IProject {
+    title: string,
+    description: string,
+}
+
 export interface IListProject {
     id: number,
     title: string,
