@@ -7,7 +7,6 @@ import { LoginComponent } from './components/login/login.component';
 import { SharedModule } from '../shared/shared.module';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ChangepasswordComponent } from './components/changepassword/changepassword.component';
-
 import { RegisterComponent } from './components/register/register.component';
 import { VerifyComponent } from './components/verify/verify.component';
 
@@ -18,7 +17,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent },
   { path: 'resetPassword', component: ResetPasswordComponent },
-  { path: 'verify', component: VerifyComponent },  
+  { path: 'verify', component: VerifyComponent },
   { path: 'change-password', component: ChangepasswordComponent },
 
 ];

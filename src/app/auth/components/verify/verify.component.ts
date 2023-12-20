@@ -11,22 +11,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./verify.component.scss'],
 })
 export class VerifyComponent {
-  verifyEmail = localStorage.getItem('verifyEmail');
+  verifyEmail = localStorage.getItem('email');
   verifyForm = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.email]),
+    email: new FormControl(this.verifyEmail, [Validators.required, Validators.email]),
     code: new FormControl(null,[Validators.required, Validators.pattern('[a-zA-Z0-9]{4}')])
   });
   message: string = '"Welcome"';
   constructor(
-    public dialogRef: MatDialogRef<VerifyComponent>,
     private _authService: AuthService,
     private toastr: ToastrService,
     private _router: Router
   ) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 
   onSubmit(data: FormGroup) {
     console.log(data.value);
@@ -39,7 +34,6 @@ export class VerifyComponent {
       },
       complete: () => {
         this.toastr.success(this.message, 'Hello');
-        this.dialogRef.close();
         this._router.navigate(['/auth/login']);
       },
     });
