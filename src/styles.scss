@@ -100,7 +100,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
                 height: 4px;
                 background-color: #EF9B28;
                 position: absolute;
-                left: 0;
+                left: 0px;
                 bottom: -2px;
                 z-index: 20;
             }
@@ -118,6 +118,7 @@ button{
     &:hover{
         opacity: 0.9;
     }
+<<<<<<< HEAD
     &.out-secondray{
       border-radius: 96px;
       background-color: #fff;
@@ -131,6 +132,16 @@ button{
       background-color:#0E382F ;
       color: #fff;
      
+=======
+    &.outline-primary{
+      border-radius: 96px;
+      border: 1px solid #EF9B28 !important;
+      color: #EF9B28 !important;
+      &:hover{
+        opacity: 0.9;
+        color: #EF9B28;
+      }
+>>>>>>> a937a6ea8bec824987b14a1443a16b8bc04fdd08
     }
 }
 
@@ -148,6 +159,9 @@ button{
   h3{
     color: #4f4f4f;
   }
+}
+.pointer{
+  cursor: pointer;
 }
 
 .form-card{

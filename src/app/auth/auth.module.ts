@@ -18,8 +18,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent },
   { path: 'resetPassword', component: ResetPasswordComponent },
-  { path: 'changePassword', component: ChangepasswordComponent },
-  { path: 'verify', component: VerifyComponent },
+  { path: 'verify', component: VerifyComponent },  
+  { path: 'change-password', component: ChangepasswordComponent },
+
 ];
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes), SharedModule],
