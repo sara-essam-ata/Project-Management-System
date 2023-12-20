@@ -15,6 +15,8 @@ export class AddUpdateProjectComponent implements OnInit {
     private _toastr:ToastrService,
     private _Router:Router) { }
 
+  
+
   getProjectById(id: number){
     this._ProjectsService.onProjectById(id).subscribe({
       next: (res)=> {
