@@ -14,4 +14,14 @@ export class ProjectsService {
     onGetManagerProjects():Observable<any>{
         return this._HttpClient.get('Project/manager')
     }
+
+    onProjectById(id: number): Observable<any>
+    {
+        return this._HttpClient.get(`Project/${id}`)
+    }
+
+    editProject(data: any, id:number) : Observable<any>
+    {
+        return this._HttpClient.put(`Project/${id}`, data)
+    }
 }
