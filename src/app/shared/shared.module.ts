@@ -26,6 +26,7 @@ import { LogoutComponent } from './logout/logout.component';
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,NgxDropzoneModule,
     MatMenuModule,MatDialogModule,FormsModule,RouterModule
+ 
   ],
 
   declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent]
