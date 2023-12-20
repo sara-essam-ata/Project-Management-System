@@ -75,7 +75,7 @@
             <span *ngIf="registerForm.get('phoneNumber')?.errors?.['pattern']"
                 class="mb-0">phoneNumber starts with 011/012/015/010 and length 11 number </span>
             </span>
-           
+
           </div>
             <div class="col-md-6">
               <mat-form-field appearance="fill" class="w-100">
@@ -159,9 +159,8 @@
             </div>
           </div>
           <div class="d-flex justify-content-between align-items-center my-3">
-            <a [routerLink]="['/auth/login']"
-              class="text-decoration-none text-white">Log in?</a>
-            <a (click)="  openDialog()" class="text-secondry text-decoration-none pointer">Have Code?</a>
+            <a [routerLink]="['/auth/login']" class="text-decoration-none text-white">Log in?</a>
+            <a [routerLink]="['/auth/verify']" class="text-secondry text-decoration-none pointer">Have Code?</a>
           </div>
           <div class="text-center">
             <button type="submit" class="primary w-75">Register</button>

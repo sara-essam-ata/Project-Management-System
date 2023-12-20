@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 import { IRegister } from 'src/app/Models/auth';
 import { VerifyComponent } from '../verify/verify.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -49,7 +50,8 @@ export class RegisterComponent {
   constructor(
     private _authService: AuthService,
     private toastr: ToastrService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _Router:Router
   ) {}
 
   passwordMatchValidator(control: any) {
@@ -87,18 +89,11 @@ export class RegisterComponent {
       },
       complete: () => {
         this.toastr.success(this.message, 'Succeded');
-        this.openDialog();
+        this._Router.navigate(['/auth/verify'])
       },
     });
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(VerifyComponent, {
-      data: {},
-      width: '40%',
-    });
-
-  }
   files: File[] = [];
 
   onSelect(event: any) {

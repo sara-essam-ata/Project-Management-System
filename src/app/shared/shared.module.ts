@@ -11,7 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule} from '@angular/material/dialog';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { LogoutComponent } from './logout/logout.component';
 
@@ -19,15 +19,15 @@ import { LogoutComponent } from './logout/logout.component';
   imports: [
     CommonModule,
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
-    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,RouterLink,RouterLinkActive
+    ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,RouterLink,RouterLinkActive,RouterModule
     ,NgxDropzoneModule
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,NgxDropzoneModule,
-    MatMenuModule,MatDialogModule,FormsModule
+    MatMenuModule,MatDialogModule,FormsModule,RouterModule
   ],
-  
+
   declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent]
 })
 export class SharedModule { }
