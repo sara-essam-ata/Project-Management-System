@@ -35,7 +35,7 @@
                 <mat-icon>visibility</mat-icon>
                 <span>View</span>
               </button>
-              <button mat-menu-item>
+              <button mat-menu-item  [routerLink]="['/dashboard/manager/projects/edit' , item.id]">
                 <mat-icon>edit-square</mat-icon>
                 <span>Edit</span>
               </button>
