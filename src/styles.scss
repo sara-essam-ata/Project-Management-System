@@ -118,21 +118,8 @@ button{
     &:hover{
         opacity: 0.9;
     }
-<<<<<<< HEAD
-    &.out-secondray{
-      border-radius: 96px;
-      background-color: #fff;
-      color: #0E382F;
-      border:1px solid #000;
-      transition: all 0.5;
-    
-    }
-    &:hover{
-      opacity: 0.9;
-      background-color:#0E382F ;
-      color: #fff;
+  
      
-=======
     &.outline-primary{
       border-radius: 96px;
       border: 1px solid #EF9B28 !important;
@@ -141,7 +128,6 @@ button{
         opacity: 0.9;
         color: #EF9B28;
       }
->>>>>>> a937a6ea8bec824987b14a1443a16b8bc04fdd08
     }
 }
 
