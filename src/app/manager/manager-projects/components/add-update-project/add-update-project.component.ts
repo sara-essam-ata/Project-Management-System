@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/auth/Services/auth.service';
 import { ProjectsService } from '../../services/projects.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { IProject } from 'src/app/Models/project';
 
 @Component({
   selector: 'app-add-update-project',
@@ -11,25 +12,79 @@ import { ProjectsService } from '../../services/projects.service';
 })
 export class AddUpdateProjectComponent implements OnInit {
 
-  constructor(private _ProjectsService:ProjectsService,
-    private _toastr:ToastrService,
-    private _Router:Router) { }
+  projectId: any;
+  isUpdatePage: boolean = false;
+  projectData: IProject | any;
 
-  
+  constructor(private _ProjectsService: ProjectsService,
+    private toastr: ToastrService,
+    private router: Router,
+    private _ActivatedRoute: ActivatedRoute) {
 
-  getProjectById(id: number){
+    // console.log(_ActivatedRoute.snapshot.params['id']);
+    this.projectId = _ActivatedRoute.snapshot.params['id'];
+    if (this.projectId) {
+      this.isUpdatePage = true;
+      this.getProjectById(this.projectId);
+    } else {
+      this.isUpdatePage = false
+    }
+  }
+
+  projectForm = new FormGroup({
+    title: new FormControl(null),
+    description: new FormControl(null),
+  })
+
+  onSubmit(data: FormGroup) {
+
+    // let myData = new FormData();
+    // myData.append('title', data.value.title);
+    // myData.append('description', data.value.description);
+
+    if (this.projectId) {
+      // Update
+      this._ProjectsService.editProject(data.value, this.projectId).subscribe({
+        next: (res) => {
+          console.log(res);
+        }, error: (err) => {
+          this.toastr.error('Project Not Update', 'Ok');
+        }, complete: () => {
+          this.router.navigate(['/dashboard/manager/projects'])
+          this.toastr.success('Project Update Successfully', 'Ok');
+        }
+      })
+    } else {
+      // Add
+      // console.log(data.value);
+      this._ProjectsService.onAddProject(data.value).subscribe({
+        next: (res) => {
+          console.log(res);
+
+        }, error: (err) => {
+          this.toastr.error(err.error.message, 'Error');
+        }, complete: () => {
+          this.router.navigate(['dashboard/manager/projects'])
+        }
+      })
+    }
+  }
+
+  getProjectById(id: number) {
     this._ProjectsService.onProjectById(id).subscribe({
-      next: (res)=> {
-        
-      }, error: (err)=>{
-
-      }, complete: ()=>{
-        
+      next: (res) => {
+        this.projectData = res;
+      }, error: (err) => {
+        this.toastr.error(err.error.message, 'Error!')
+      }, complete: () => {
+        this.projectForm.patchValue({
+          title: this.projectData?.title,
+          description: this.projectData?.description
+        })
       }
     })
   }
 
   ngOnInit() {
   }
-
 }

@@ -16,18 +16,17 @@ export class ProjectsService {
         return this._HttpClient.get('Project/manager')
     }
 
-
     onProjectById(id: number): Observable<any>
     {
         return this._HttpClient.get(`Project/${id}`)
     }
 
-    editProject(data: IProject, id:number) : Observable<any>
+    editProject(data: any, id:number) : Observable<any>
     {
         return this._HttpClient.put(`Project/${id}`, data)
     }
 
-    onAddProject(data:IProject):Observable<any>{
+    onAddProject(data:any):Observable<any>{
         return this._HttpClient.post('Project',data)
 
     }

@@ -8,7 +8,7 @@ import { AddUpdateProjectComponent } from './components/add-update-project/add-u
 const routes:Routes = [
   {path:'', component:ManagerProjectsComponent},
   {path:'add', component:AddUpdateProjectComponent},
-  {path:'update/:id', component:AddUpdateProjectComponent}
+  {path:'edit/:id', component:AddUpdateProjectComponent}
 
   ]
 @NgModule({
