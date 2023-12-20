@@ -5,8 +5,10 @@
       </div>
       <div class="col-md-6 mx-auto">
         <div class="auth-card">
-          <span>Please Enter Your Email And Check Your Inbox</span>
-          <h3>Verify Your Account</h3>
+          <div class="title">
+            <span>Please Enter Your Email And Check Your Inbox</span>
+            <h3>Verify Your Account</h3>
+          </div>
             <form [formGroup]="verifyForm" (ngSubmit)="onSubmit(verifyForm)">
                 <mat-form-field appearance="fill" class="w-100">
                   <mat-label>E-mail</mat-label>
@@ -33,7 +35,7 @@
                 class="mb-0">code is invalid></span>
               </span>
               <div class="text-end me-3">
-                <a (click)="onNoClick()" routerLink="/auth/login" class="text-decoration-none pointer text-white">Log in?</a>
+                <a  routerLink="/auth/login" class="text-decoration-none pointer text-white">Log in?</a>
               </div>
               <button type="submit" class="primary mt-3 w-100">Verify</button>
               </form>

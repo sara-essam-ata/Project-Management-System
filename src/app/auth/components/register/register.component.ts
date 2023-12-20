@@ -80,7 +80,7 @@ export class RegisterComponent {
     this._authService.onRegister(myData).subscribe({
       next: (res: IRegister) => {
         console.log(res);
-        this.verifyEmail = localStorage.setItem('verifyEmail', res.email);
+        this.verifyEmail = localStorage.setItem('email', res.email);
 
       },
       error: (err: any) => {
