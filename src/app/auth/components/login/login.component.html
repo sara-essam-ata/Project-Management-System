@@ -15,10 +15,10 @@
                   <input formControlName="email" matInput placeholder="Enter Your Email">
               </mat-form-field>
 
-              <div class="alert alert-danger p-2" *ngIf="loginForm.controls.email.errors && loginForm.controls.email.touched">
-                <p *ngIf="loginForm.get('email')?.getError('required')" class="mb-0">Email Is Required</p>
-                <p *ngIf="loginForm.get('email')?.getError('email')" class="mb-0">Email Is Invalid</p>
-              </div>
+              <span class="text-danger p-2" *ngIf="loginForm.controls.email.errors && loginForm.controls.email.touched">
+                <span *ngIf="loginForm.get('email')?.getError('required')" class="mb-0">Email Is Required</span>
+                <span *ngIf="loginForm.get('email')?.getError('email')" class="mb-0">Email Is Invalid</span>
+              </span>
               
               <mat-form-field appearance="fill" class="w-100">
                   <mat-label>Password</mat-label>
@@ -29,10 +29,10 @@
                   </button>
               </mat-form-field>
 
-              <div class="alert alert-danger p-2" *ngIf="loginForm.controls.password.errors && loginForm.controls.password.touched">
-                <p *ngIf="loginForm.get('password')?.getError('required')" class="mb-0">Password Is Required</p>
-                <p *ngIf="loginForm.get('password')?.getError('pattern')" class="mb-0">Please must have A,a ,@,%,$,#, From 8 , 16</p>
-              </div>
+              <span *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched " class="text-danger mb-3"  >
+                <span *ngIf="loginForm.get('password')?.errors?.['required']">password is required</span>
+                <span *ngIf="loginForm.get('password')?.errors?.['pattern']">Password must have capital,small letters,sympols,number and pass length(8-16)</span>
+              </span>
 
               <div class="d-flex justify-content-between align-items-center mb-4">
                   <a [routerLink]="['/auth/register']" class="text-decoration-none text-white">Register Now ?</a>

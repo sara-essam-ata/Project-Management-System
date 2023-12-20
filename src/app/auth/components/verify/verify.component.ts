@@ -13,11 +13,8 @@ import { Router } from '@angular/router';
 export class VerifyComponent {
   verifyEmail = localStorage.getItem('verifyEmail');
   verifyForm = new FormGroup({
-    email: new FormControl(null, [
-      Validators.required,
-      Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}'),
-    ]),
-    code: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    code: new FormControl(null,[Validators.required, Validators.pattern('[a-zA-Z0-9]{4}')])
   });
   message: string = '"Welcome"';
   constructor(
