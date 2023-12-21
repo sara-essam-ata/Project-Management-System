@@ -21,8 +21,7 @@ export class ManagerProjectsComponent implements OnInit {
     this._ProjectsService.onGetManagerProjects().subscribe({
       next:(res)=>{
         console.log(res);
-        this.listProjects = res
-        
+        this.listProjects = res.data
       }
     })
   }
