@@ -1,18 +1,17 @@
 <section>
-  <div class="page-header shadow-lg">
+  <div class="page-header">
     <div>
-      <a routerLink="../" class="text-decoration-none text-muted">
+      <a routerLink="../" >
         <i class="fa-solid fa-angle-left"></i>
         <span>View All Projects</span>
       </a>
-      <h3>Add a new projects</h3>
-     
+      <h5>Add a new projects</h5>
     </div>
-  
   </div>
+
   <div class="container">
     <form [formGroup]="projectForm" (ngSubmit)="onSubmit(projectForm)">
-      <div class="form-card">
+      <div class="form-card ">
         <div class="mt-5">
           <mat-form-field appearance="outline" class="w-100">
             <mat-label>Title</mat-label>
@@ -30,8 +29,8 @@
         </div>
         <hr>
         <div class="d-flex justify-content-between">
-          <button [routerLink]="['/dashboard/manager/projects']" type="button" class="out-secondray">Cancel</button>
-          <button class="primary">Save</button>
+          <button [routerLink]="['/dashboard/manager/projects']" type="button" class="outline-primary w-25">Cancel</button>
+          <button class="primary w-25">Save</button>
         </div>
 
       </div>
