@@ -15,18 +15,20 @@ import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { LogoutComponent } from './logout/logout.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { MatSelectModule} from '@angular/material/select';
+import { MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   imports: [
     CommonModule,
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,RouterLink,RouterLinkActive,RouterModule
-    ,NgxDropzoneModule
+    ,NgxDropzoneModule,MatSelectModule,MatPaginatorModule
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,NgxDropzoneModule,
-    MatMenuModule,MatDialogModule,FormsModule,RouterModule
+    MatMenuModule,MatDialogModule,FormsModule,RouterModule,MatSelectModule,MatPaginatorModule
  
   ],
 
