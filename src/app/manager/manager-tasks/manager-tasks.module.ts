@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ManagerTasksComponent } from './manager-tasks.component';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { AddUpdateTaskComponent } from './components/add-update-task/add-update-task.component';
 
 const routes:Routes = [
-  {path:'', component:ManagerTasksComponent}
+  {path:'', component:ManagerTasksComponent},
+  {path:'add', component:AddUpdateTaskComponent}
   ]
 
 @NgModule({
@@ -14,6 +16,6 @@ const routes:Routes = [
     RouterModule.forChild(routes),
     SharedModule,
   ],
-  declarations: [ManagerTasksComponent]
+  declarations: [ManagerTasksComponent, AddUpdateTaskComponent]
 })
 export class ManagerTasksModule { }
