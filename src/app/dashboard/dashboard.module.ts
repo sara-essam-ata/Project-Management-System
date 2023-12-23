@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { employeeGuard } from '../guards/employee.guard';
-import { managerGuard } from '../guards/manager.guard';
+import { managerGuard } from '../Guards/manager.guard';
+import { employeeGuard } from '../Guards/employee.guard';
 
 
 const routes:Routes = [

@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
       next: (res)=>{
         console.log(res);
         this.message = res.message
-        localStorage.setItem('userToken',res.token);
-        
+        localStorage.setItem('email',res.email);
+
       }, error: (err)=>{
         this._toastr.error(err.error.message , 'Error!');
 
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         this._toastr.success('Logged In' , 'Successfully');
       }
     })
-    
+
   }
 
 
