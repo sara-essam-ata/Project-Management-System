@@ -59,21 +59,22 @@ export class ManagerProjectsComponent implements OnInit {
       }
     })
   }
+  
+  // openDeleteProject(projectData:any): void {
+  //   console.log(projectData);
+    
+  //   const dialogRef = this.dialog.open(DeleteDialogComponent, {
+  //     data: projectData,
+  //     width:'40%'
+  //   });
 
-  // View
-  openViewDialog(listProjects: any): void {
-    const dialogRef = this.dialog.open(ViewProjectComponent, {
-      data: this.listProjects,
-      width: '60%',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // console.log(result);
-      if (result) {
-        this.getMyProjects();
-      }
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //     // console.log(result);
+  //     if (result) {
+  //       this.getMyProjects();
+  //     }
+  //   });
+  // }
 
 }

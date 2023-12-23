@@ -16,12 +16,19 @@
         .bg-active{
             background-color: rgba(239, 155, 40, 0.3) ;
             border-radius: 8px;
-            width: 400% !important;
             &span{
                 color: #EF9B28 !important;
             }
         }
     }
+    .bg-active{
+      background-color: rgba(239, 155, 40, 0.3) ;
+      border-radius: 8px;
+      &span{
+          color: #EF9B28 !important;
+      }
+  }
+    
     .position-left{
       padding: 10px 5px;
       border-radius: .5rem 0 0 .5rem;
