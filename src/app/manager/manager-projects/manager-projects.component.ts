@@ -4,7 +4,6 @@ import { IListProject } from 'src/app/Models/project';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { ViewProjectComponent } from './components/view-project/view-project.component';
 
 @Component({
   selector: 'app-manager-projects',
