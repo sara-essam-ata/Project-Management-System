@@ -17,7 +17,7 @@ export class UsersComponent implements OnInit {
   listUsers: Employee[] = [];
 
   pageSize:number = 10;
-  pageNumber:number = 1;
+  pageNumber:number=1;
   userData:Employee|any;
   userId:any
   isActive: any;
@@ -50,8 +50,8 @@ export class UsersComponent implements OnInit {
   
   handlePageEvent(e:PageEvent){
     console.log(e);
-    
-      this.pageSize=e.pageSize;
+
+      this.pageSize = e.pageSize;
       this.pageNumber=e.pageIndex;  
   
       this.getAllUsers()  
