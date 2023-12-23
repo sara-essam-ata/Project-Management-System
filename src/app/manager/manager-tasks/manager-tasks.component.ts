@@ -1,3 +1,4 @@
+import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { IListTasks } from 'src/app/Models/project';
 import { TaskService } from './services/task.service';
@@ -30,34 +31,34 @@ export class ManagerTasksComponent implements OnInit {
     })
   }
 
-  //   // Delete
-  // openDeleteDialog(listTasks: any): void {
-  //   const dialogRef = this.dialog.open(DeleteDialogComponent, {
-  //     data: this.listTasks,
-  //     width: '40%',
-  //   });
+    // Delete
+  openDeleteDialog(listTasks: any): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      data: this.listTasks,
+      width: '40%',
+    });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     console.log(result);
-  //     if (result) {
-  //       console.log(result.id);
-  //       this.onDeleteCategory(result.id);
-  //     }
-  //   });
-  // }
-  // onDeleteCategory(id: number) {
-  //   this._TaskService.onDeleteTask(id).subscribe({
-  //     next: (res) => {
-  //       console.log(res);
-  //     }, error: (err) => {
-  //       console.log(err);
-  //     }, complete: () => {
-  //       this.toastr.success('Project Deleted Successfully', 'Ok');
-  //       this.getAllTasks()
-  //     }
-  //   })
-  // }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if (result) {
+        console.log(result.id);
+        this.onDeleteCategory(result.id);
+      }
+    });
+  }
+  onDeleteCategory(id: number) {
+    this._TaskService.onDeleteTask(id).subscribe({
+      next: (res) => {
+        console.log(res);
+      }, error: (err) => {
+        console.log(err);
+      }, complete: () => {
+        this.toastr.success('Project Deleted Successfully', 'Ok');
+        this.getAllTasks()
+      }
+    })
+  }
 
 
 
