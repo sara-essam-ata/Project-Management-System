@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -16,10 +16,11 @@ interface IMenu{
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+  @Output() isOpenedValue = new EventEmitter<boolean>();
+  isOpened:boolean =true;
 
   constructor(private _AuthService:AuthService, private router:Router,
     private toastr:ToastrService,public dialog: MatDialog) { }
- isOpened:boolean=true;
 
  isManager() : boolean {
    return this._AuthService.role == 'Manager'? true : false;
@@ -50,7 +51,7 @@ export class SidebarComponent implements OnInit {
    },
    {
      title: 'Projects',
-     icon: 'fa-solid fa-bowl-food',
+     icon: 'fa-solid fa-calendar-day',
      link: '/dashboard/manager/projects',
      isActive: this.isManager()
    },
@@ -68,8 +69,8 @@ export class SidebarComponent implements OnInit {
    },
    {
      title: 'Tasks',
-     icon: 'fa-solid fa-heart',
-     link: '/dashboard/employee/favourites',
+     icon: 'fa-solid fa-list-check',
+     link: '/dashboard/user/favourites',
      isActive: this.isEmployee()
    },
    {
@@ -79,6 +80,10 @@ export class SidebarComponent implements OnInit {
     isActive: this.isEmployee()
   },
  ]
- 
+ onClicked() {
+  this.isOpened = !this.isOpened;
+  this.isOpenedValue.emit(this.isOpened);
+  console.log(this.isOpened)
+}
 
 }
