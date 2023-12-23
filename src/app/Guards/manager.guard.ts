@@ -7,7 +7,7 @@ export const managerGuard: CanActivateFn = ( state) => {
   const authService= inject(AuthService);
 
   const token = localStorage.getItem('userToken');
-  const role  = localStorage.getItem('Manager')
+  const role  = localStorage.getItem('role')
 
   if(token !== null && role == 'Manager')
   {
