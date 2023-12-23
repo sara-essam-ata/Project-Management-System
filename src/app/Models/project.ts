@@ -27,7 +27,7 @@ export interface TableData {
     pageSize: number;
     totalNumberOfPages: number;
     totalNumberOfRecords: number;
-    data:Employee
+    data:Employee;
 }
 export interface Employee{
     id: number,

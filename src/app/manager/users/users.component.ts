@@ -23,8 +23,6 @@ export class UsersComponent implements OnInit {
   isActive: any;
   constructor(
     private _UsersService:UsersService,
-    private ActivatedRoute:ActivatedRoute,
-    private dialog:MatDialog
 
   ) { 
        

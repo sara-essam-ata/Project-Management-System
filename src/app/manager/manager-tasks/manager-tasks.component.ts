@@ -1,10 +1,11 @@
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { Component, OnInit } from '@angular/core';
-import { IListTasks } from 'src/app/Models/project';
+import { IListTasks, TableData } from 'src/app/Models/project';
 import { TaskService } from './services/task.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-manager-tasks',
@@ -12,6 +13,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./manager-tasks.component.scss']
 })
 export class ManagerTasksComponent implements OnInit {
+   tableData:TableData|any;
+   pageSize:Number=10;
+   pageNumber:number=1;
 
   listTasks: IListTasks[] = [];
   constructor(private _TaskService:TaskService,
@@ -23,12 +27,20 @@ export class ManagerTasksComponent implements OnInit {
     this.getAllTasks()
   }
   getAllTasks(){
+  
     this._TaskService.onGetManagerTasks().subscribe({
       next:(res)=>{
         console.log(res);
-        this.listTasks = res.data
+        this.tableData=res;
+        this.listTasks = this.tableData.data;
       }
     })
+  }
+  handlePageEvent(e:PageEvent){
+    console.log(e);
+
+      this.pageSize = e.pageSize;
+      this.pageNumber=e.pageIndex;  
   }
 
     // Delete

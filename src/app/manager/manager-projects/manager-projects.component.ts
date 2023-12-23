@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from './services/projects.service';
-import { IListProject } from 'src/app/Models/project';
+import { IListProject, TableData } from 'src/app/Models/project';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { ViewProjectComponent } from './components/view-project/view-project.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-manager-projects',
@@ -12,8 +13,10 @@ import { ViewProjectComponent } from './components/view-project/view-project.com
   styleUrls: ['./manager-projects.component.scss']
 })
 export class ManagerProjectsComponent implements OnInit {
-
+  tableData:TableData|any;
   listProjects: IListProject[] = [];
+  pageSize:number = 10;
+  pageNumber:number=1;
   constructor(
     private _ProjectsService:ProjectsService,
     private dialog: MatDialog,
@@ -24,10 +27,12 @@ export class ManagerProjectsComponent implements OnInit {
     this.getMyProjects()
   }
   getMyProjects() {
+    
     this._ProjectsService.onGetManagerProjects().subscribe({
       next: (res) => {
         console.log(res);
-        this.listProjects = res.data
+        this.tableData=res;
+        this.listProjects = this.tableData.data
       }
     })
   }
@@ -58,6 +63,15 @@ export class ManagerProjectsComponent implements OnInit {
         this.getMyProjects();
       }
     })
+  }
+   
+  handlePageEvent(e:PageEvent){
+    console.log(e);
+
+      this.pageSize = e.pageSize;
+      this.pageNumber=e.pageIndex;  
+  
+      this.getMyProjects()  
   }
   
   // openDeleteProject(projectData:any): void {
