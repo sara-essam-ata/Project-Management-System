@@ -14,6 +14,7 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { LogoutComponent } from './logout/logout.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { MatSelectModule} from '@angular/material/select';
 import { MatPaginatorModule} from '@angular/material/paginator';
 
@@ -31,6 +32,6 @@ import { MatPaginatorModule} from '@angular/material/paginator';
  
   ],
 
-  declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent]
+  declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent, DeleteDialogComponent]
 })
 export class SharedModule { }
