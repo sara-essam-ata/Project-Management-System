@@ -35,3 +35,6 @@ export interface ITask {
     employeeId: number,
     projectId: number
 }
+export interface ITaskId {
+    id: number,
+}

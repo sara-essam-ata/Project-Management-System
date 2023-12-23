@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ITask } from 'src/app/Models/project';
+import { ITask, ITaskId } from 'src/app/Models/project';
 
 @Injectable({
     providedIn: 'root'
@@ -29,5 +29,10 @@ export class TaskService {
     onAddTask(data: ITask):Observable<any>{
         return this._HttpClient.post('Task', data)
     }
-
+    ongetTaskbyId(id: ITaskId):Observable<any>{
+        return this._HttpClient.get(`Task/${id}`)
+    }
+    editTask(id: ITaskId,data:string):Observable<any>{
+        return this._HttpClient.put(`Task/${id}`,data)
+    }
 }
