@@ -22,6 +22,13 @@ export interface IListTasks {
     employee: Employee
 }
 
+export interface TableData {
+    pageNumber: number;
+    pageSize: number;
+    totalNumberOfPages: number;
+    totalNumberOfRecords: number;
+    data:Employee
+}
 export interface Employee{
     id: number,
     userName: string,
@@ -44,10 +51,7 @@ export interface ITask {
     employeeId: number,
     projectId: number
 }
-
-export interface TableData {
-    pageNumber: number,
-    pageSize: number,
-    totalNumberOfPages: number,
-    totalNumberOfRecords: number
+export interface ITaskId {
+    id: number,
 }
+

@@ -76,5 +76,4 @@ export class ManagerProjectsComponent implements OnInit {
   //     }
   //   });
   // }
-
 }
