@@ -2,15 +2,33 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-4">
+        <div>
+          <a
+            (click)="onClicked()"
+            [ngClass]="isOpened ? 'position-left' : 'position-right'"
+            ><i
+              class="fa-solid"
+              [class]="isOpened ? 'fa-chevron-left' : 'fa-chevron-right'"
+            ></i
+          ></a>
+        </div>
+        <div class="mt-5">
           <ng-container *ngFor="let item of menu">
-            <a class="d-block text-decoration-none" [routerLink]="item.link" routerLinkActive="bg-active" 
-            *ngIf="item.isActive">
-                <div class="item d-flex">
-                    <span><i [class]="item.icon"></i></span>
-                    <span class="icon-name" [ngClass]="{'d-none': !isOpened}">{{item.title}}</span>
-                </div>
+            <a
+              class="d-block text-decoration-none"
+              [routerLink]="item.link"
+              routerLinkActive="bg-active"
+              *ngIf="item.isActive"
+            >
+              <div class="item d-flex">
+                <span><i [class]="item.icon"></i></span>
+                <span class="icon-name" [ngClass]="{ 'd-none': !isOpened }">{{
+                  item.title
+                }}</span>
+              </div>
             </a>
           </ng-container>
+        </div>
       </div>
     </div>
   </div>

@@ -1,6 +1,9 @@
 #sidebar{
     background-color: #0E382F;
-    position: sticky;
+    position: relative;
+    *{
+      transition: all .5s ease;
+    }
     .item{
         cursor: pointer;
         padding: 10px 5px !important;
@@ -10,29 +13,49 @@
         span{
             margin-left: 10px;
         }
+        .bg-active{
+            background-color: rgba(239, 155, 40, 0.3) ;
+            border-radius: 8px;
+            width: 400% !important;
+            &span{
+                color: #EF9B28 !important;
+            }
+        }
+    }
+
+    .position-left{
+      padding: 10px 5px;
+      border-radius: .5rem 0 0 .5rem;
+      background: #EF9B28;
+      color: #fff;
+      position: absolute;
+      right: 0;
+      top: 20px;
+      cursor: pointer;
+
+    }
+    .position-right{
+      padding: 10px 5px;
+      border-radius: 0 .5rem .5rem 0;
+      background: #EF9B28;
+      position: absolute;
+      right: -20px;
+      top: 20px;
+      color: #fff;
+      cursor: pointer;
+
     }
 }
-.bg-active{
-    background-color: rgba(239, 155, 40, 0.3) ;
-    border-radius: 8px;
-    width: 400% !important;
-    &span{
-        color: #EF9B28 !important;
-    }
-}
-.row >div{
-    transition: all 1s;
-}
-@media (max-width: 760px) {
-    .icon-name{
-    display: none !important;
-    };
-    i{
-        padding-left: 0;
-        margin-left: 0 !important;
-        font-size: x-large;
-    }
-    img{
-        display: none;
-    }
- }
+// @media (max-width: 760px) {
+//     .icon-name{
+//     display: none !important;
+//     };
+//     i{
+//         padding-left: 0;
+//         margin-left: 0 !important;
+//         font-size: x-large;
+//     }
+//     img{
+//         display: none;
+//     }
+//  }
