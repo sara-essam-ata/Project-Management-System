@@ -31,7 +31,7 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item>
+              <button mat-menu-item (click)="openViewDialog(item)" >
                 <mat-icon>visibility</mat-icon>
                 <span>View</span>
               </button>
@@ -39,7 +39,7 @@
                 <mat-icon>edit-square</mat-icon>
                 <span>Edit</span>
               </button>
-              <button (click)="openDeleteProject(item)" mat-menu-item>
+              <button (click)="openDeleteDialog(item)" mat-menu-item>
                 <mat-icon>delete</mat-icon>
                 <span >Delete</span>
               </button>
