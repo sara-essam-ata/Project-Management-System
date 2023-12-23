@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit {
    },
    {
      title: 'Users',
-     icon: 'fa-solid fa-layer-group',
+     icon: 'fa-solid fa-users',
      link: '/dashboard/manager/users',
      isActive: this.isManager()
    },
@@ -64,7 +64,7 @@ export class SidebarComponent implements OnInit {
    {
      title: 'Projects',
      icon: 'fa-solid fa-calendar-day',
-     link: '/dashboard/user/recipes',
+     link: '/dashboard/employee/recipes',
      isActive: this.isEmployee()
    },
    {
@@ -72,7 +72,13 @@ export class SidebarComponent implements OnInit {
      icon: 'fa-solid fa-list-check',
      link: '/dashboard/user/favourites',
      isActive: this.isEmployee()
-   }
+   },
+   {
+    title: 'Tasks',
+    icon: 'fa-solid fa-heart',
+    link: '/dashboard/employee/favourites',
+    isActive: this.isEmployee()
+  },
  ]
  onClicked() {
   this.isOpened = !this.isOpened;

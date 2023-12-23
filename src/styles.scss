@@ -158,4 +158,13 @@ button{
 .pointer{
   cursor: pointer;
 }
+.table{
+  width: 100%;
+  thead{
+    // height: 50px !important;
+    background-color: rgba(49, 89, 81, 0.9) !important;
+    color: #fff;
+    padding: 10px 15px !important;
+  }
+}
 

@@ -1,0 +1,11 @@
+<div class="auth-card">
+  <div class="text-center text-white">  
+    <h3 class="mb-2">Block {{userName}}</h3>  
+    <p>are you sure you want to block  ? if you are sure just click on block </p> 
+  </div>
+  <div class="d-flex justify-content-between">
+    <button (click)="onClose()" cdkFocusInitial class=" outline-primary me-2">Cancle</button>
+    <button  [mat-dialog-close]="data"  cdkFocusInitial class="primary">Block</button>
+  </div>
+  
+  </div>
