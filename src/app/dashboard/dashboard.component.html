@@ -1,7 +1,7 @@
 <section id="dashboard">
   <div class="container-fluid">
     <div class="row">
-      <app-navbar class="nav-bar py-2"></app-navbar>
+      <app-navbar class="nav-bar py-2 shadow-sm"></app-navbar>
       <div class="px-0 side-bar" [class]="receivedBoolean?'col-md-2':'col-md-1'">
         <app-sidebar (isOpenedValue)="handleBooleanChange($event)"></app-sidebar>
       </div>
