@@ -50,7 +50,7 @@ export class ManagerProjectsComponent implements OnInit {
     })
   }
   
-  openDeleteProject(projectData:any): void {
+  openDeleteDialog(projectData:any): void {
     console.log(projectData);
     
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
