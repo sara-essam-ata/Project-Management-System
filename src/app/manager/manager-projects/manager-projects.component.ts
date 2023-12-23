@@ -50,35 +50,4 @@ export class ManagerProjectsComponent implements OnInit {
     });
   }
 
-
-  // Delete
-  // openDeleteDialog(listProjects: any): void {
-  //   const dialogRef = this.dialog.open(DeleteDialogComponent, {
-  //     data: this.listProjects,
-  //     width: '40%',
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     console.log(result);
-  //     if (result) {
-  //       console.log(result.id);
-  //       this.onDeleteCategory(result.id);
-  //     }
-  //   });
-  // }
-  // onDeleteCategory(id: number) {
-  //   this._ProjectsService.onDeleteProject(id).subscribe({
-  //     next: (res) => {
-  //       console.log(res);
-  //     }, error: (err) => {
-  //       console.log(err);
-  //     }, complete: () => {
-  //       this.toastr.success('Project Deleted Successfully', 'Ok');
-  //       this.getMyProjects()
-  //     }
-  //   })
-  // }
-
-
 }

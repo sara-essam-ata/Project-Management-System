@@ -29,8 +29,5 @@ export class ProjectsService {
 
     }
 
-    onDeleteProject(id: number): Observable<any> {
-        return this._HttpClient.delete(`Project/${id}`)
-
-    }
+    
 }
