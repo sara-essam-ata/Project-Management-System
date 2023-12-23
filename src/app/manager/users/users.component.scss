@@ -1,0 +1,12 @@
+.status{
+    padding: 8px 15px;
+    border-radius: 16px;
+    color: #fff;
+    &.active{
+        background-color: #009247;
+    }
+    &.notActive{
+        background-color: rgba(146, 46, 37, 0.7);
+        ;
+    }
+}

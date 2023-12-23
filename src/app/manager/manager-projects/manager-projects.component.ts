@@ -1,9 +1,11 @@
+import { TableData } from './../../Models/project';
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from './services/projects.service';
 import { IListProject } from 'src/app/Models/project';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-manager-projects',
@@ -11,7 +13,9 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./manager-projects.component.scss']
 })
 export class ManagerProjectsComponent implements OnInit {
-
+  TableData:TableData|any;
+  pageSize:number = 10;
+  pageNumber:number = 1;
   listProjects: IListProject[] = [];
   Message:string='';
   constructor(
@@ -22,6 +26,7 @@ export class ManagerProjectsComponent implements OnInit {
     this.getMyProjects()
   }
   getMyProjects(){
+
     this._ProjectsService.onGetManagerProjects().subscribe({
       next:(res)=>{
         console.log(res);
@@ -31,7 +36,7 @@ export class ManagerProjectsComponent implements OnInit {
   }
 
 
-  
+ 
   
   ondeletProject(id:number){
     this._ProjectsService.deleteProject(id).subscribe({
