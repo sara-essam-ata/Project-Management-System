@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent implements OnInit {
 
-  router: any;
-
   constructor( public dialogRef: MatDialogRef<LogoutComponent>,
     private Router:Router
      ) {}
