@@ -19,14 +19,9 @@ export class SidebarComponent implements OnInit {
   @Output() isOpenedValue = new EventEmitter<boolean>();
   isOpened:boolean =true;
 
-<<<<<<< HEAD
   constructor(private _AuthService: AuthService, private router: Router,
     private toastr: ToastrService, public dialog: MatDialog) { }
-  isOpened: boolean = true;
-=======
-  constructor(private _AuthService:AuthService, private router:Router,
-    private toastr:ToastrService,public dialog: MatDialog) { }
->>>>>>> 8ab05b2171a4a965595798b0b79fe91b51319c76
+
 
   isManager(): boolean {
     return this._AuthService.role == 'Manager' ? true : false;
@@ -34,7 +29,6 @@ export class SidebarComponent implements OnInit {
   isEmployee(): boolean {
     return this._AuthService.role == 'Employee' ? true : false;
   }
-<<<<<<< HEAD
   ngOnInit() {
     if (this.isManager()) {
       this.router.navigate(['/dashboard/manager/home'])
@@ -43,47 +37,7 @@ export class SidebarComponent implements OnInit {
       this.router.navigate(['/dashboard/employee/home'])
     }
   }
-  menu: IMenu[] = [
-    {
-      title: 'Home',
-      icon: 'fa-solid fa-house',
-      link: '/dashboard/manager/home',
-      isActive: this.isManager() || this.isEmployee()
-    },
-    {
-      title: 'Users',
-      icon: 'fa-solid fa-layer-group',
-      link: '/dashboard/manager/users',
-      isActive: this.isManager()
-    },
-    {
-      title: 'Projects',
-      icon: 'fa-solid fa-bowl-food',
-      link: '/dashboard/manager/projects',
-      isActive: this.isManager()
-    },
-    {
-      title: 'Tasks',
-      icon: 'fa-solid fa-list-check',
-      link: '/dashboard/manager/tasks',
-      isActive: this.isManager()
-    },
-    {
-      title: 'Projects',
-      icon: 'fa-solid fa-calendar-day',
-      link: '/dashboard/user/recipes',
-      isActive: this.isEmployee()
-    },
-    {
-      title: 'Tasks',
-      icon: 'fa-solid fa-heart',
-      link: '/dashboard/user/favourites',
-      isActive: this.isEmployee()
-    }
-  ]
 
-=======
- }
  menu:IMenu[]=[
    {
      title: 'Home',
@@ -133,6 +87,5 @@ export class SidebarComponent implements OnInit {
   this.isOpenedValue.emit(this.isOpened);
   console.log(this.isOpened)
 }
->>>>>>> 8ab05b2171a4a965595798b0b79fe91b51319c76
 
 }
