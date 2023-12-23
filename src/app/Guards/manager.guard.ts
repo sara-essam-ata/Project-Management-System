@@ -1,22 +1,3 @@
-// import { CanActivateFn, Router } from '@angular/router';
-// import { inject } from '@angular/core';
-
-// export const managerGuard: CanActivateFn = ( state) => {
-//   const route = inject(Router);
-
-//   const token = localStorage.getItem('userToken');
-//   const role  = localStorage.getItem('Manager')
-
-//   if(token !== null && role == 'Manager')
-//   {
-//     return true
-//   } else 
-//   {
-//     route.navigate(['/dashboard']);
-//     return false;
-//   }
-  
-// };
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
