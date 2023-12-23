@@ -1,7 +1,6 @@
 <section id="sidebar" class="vh-100">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-4">
         <div>
           <a
             (click)="onClicked()"
@@ -20,7 +19,7 @@
               routerLinkActive="bg-active"
               *ngIf="item.isActive"
             >
-              <div class="item d-flex">
+              <div class="item d-flex" [class]="isOpened?'':'justify-content-center'">
                 <span><i [class]="item.icon"></i></span>
                 <span class="icon-name" [ngClass]="{ 'd-none': !isOpened }">{{
                   item.title
@@ -28,7 +27,6 @@
               </div>
             </a>
           </ng-container>
-        </div>
       </div>
     </div>
   </div>
