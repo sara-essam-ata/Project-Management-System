@@ -38,10 +38,6 @@ export class AddUpdateProjectComponent implements OnInit {
 
   onSubmit(data: FormGroup) {
 
-    // let myData = new FormData();
-    // myData.append('title', data.value.title);
-    // myData.append('description', data.value.description);
-
     if (this.projectId) {
       // Update
       this._ProjectsService.editProject(data.value, this.projectId).subscribe({

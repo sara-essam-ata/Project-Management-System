@@ -24,8 +24,19 @@ export class ProjectsService {
         return this._HttpClient.put(`Project/${id}`, data)
     }
 
+<<<<<<< HEAD
     onAddProject(data: any): Observable<any> {
         return this._HttpClient.post('Project', data)
+=======
+    
+    deleteProject( id:number) : Observable<any>
+    {
+        return this._HttpClient.delete(`Project/${id}`)
+    }
+
+    onAddProject(data:any):Observable<any>{
+        return this._HttpClient.post('Project',data)
+>>>>>>> 8ab05b2171a4a965595798b0b79fe91b51319c76
 
     }
 
