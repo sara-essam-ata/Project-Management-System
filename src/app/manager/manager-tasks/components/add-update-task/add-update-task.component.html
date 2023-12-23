@@ -1,0 +1,58 @@
+<section>
+  <div class="page-header">
+    <div>
+      <a routerLink="../" >
+        <i class="fa-solid fa-angle-left"></i>
+        <span>View All Projects</span>
+      </a>
+      <h5>Add a new projects</h5>
+    </div>
+  </div>
+
+  <div class="container">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit(taskForm)">
+      <div class="form-card ">
+        <div class="mt-5">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Title</mat-label>
+            <input formControlName="title" matInput>
+          </mat-form-field>
+        </div>
+
+        <div class="my-3">
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Description</mat-label>
+            <input formControlName="description" matInput>
+            <textarea matInput></textarea>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>User</mat-label>
+              <mat-select formControlName="employeeId">
+              <mat-option *ngFor="let user of listUsers" [value]="user.id" >{{user.userName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Project</mat-label>
+              <mat-select formControlName="projectId">
+                <mat-option *ngFor="let project of listProjects" [value]="project.id" >{{project.title}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        
+        <hr>
+        <div class="d-flex justify-content-between">
+          <button [routerLink]="['/dashboard/manager/tasks']" type="button" class="outline-primary w-25">Cancel</button>
+          <button class="primary w-25">Save</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</section>
