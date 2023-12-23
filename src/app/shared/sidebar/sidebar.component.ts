@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/Services/auth.service';
 
-interface IMenu{
-  title:string,
-  icon:string,
-  link:string,
-  isActive:Boolean
+interface IMenu {
+  title: string,
+  icon: string,
+  link: string,
+  isActive: Boolean
 }
 @Component({
   selector: 'app-sidebar',
@@ -19,23 +19,25 @@ export class SidebarComponent implements OnInit {
   @Output() isOpenedValue = new EventEmitter<boolean>();
   isOpened:boolean =true;
 
-  constructor(private _AuthService:AuthService, private router:Router,
-    private toastr:ToastrService,public dialog: MatDialog) { }
+  constructor(private _AuthService: AuthService, private router: Router,
+    private toastr: ToastrService, public dialog: MatDialog) { }
 
- isManager() : boolean {
-   return this._AuthService.role == 'Manager'? true : false;
- }
- isEmployee() : boolean {
-   return this._AuthService.role == 'Employee'? true : false;
- }
- ngOnInit() {
-  if(this.isManager()){
-    this.router.navigate(['/dashboard/manager/home'])
+
+  isManager(): boolean {
+    return this._AuthService.role == 'Manager' ? true : false;
   }
-  else if(this.isEmployee()){
-    this.router.navigate(['/dashboard/employee/home'])
+  isEmployee(): boolean {
+    return this._AuthService.role == 'Employee' ? true : false;
   }
- }
+  ngOnInit() {
+    if (this.isManager()) {
+      this.router.navigate(['/dashboard/manager/home'])
+    }
+    else if (this.isEmployee()) {
+      this.router.navigate(['/dashboard/employee/home'])
+    }
+  }
+
  menu:IMenu[]=[
    {
      title: 'Home',

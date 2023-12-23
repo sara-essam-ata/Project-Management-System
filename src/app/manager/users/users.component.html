@@ -1,10 +1,6 @@
 <section>
   <div class="page-header shadow-sm">
     <h3>Tasks</h3>
-    <button routerLink="/dashboard/manager/tasks/add" class="primary px-3">
-      <span class="fa-solid fa-plus mx-2"></span>
-      <span>Add New Task</span>
-    </button>
   </div>
   <div class="table-card container py-5">
     <div>
@@ -30,20 +26,19 @@
           <td>{{user.phoneNumber}}</td>
           <td>{{user.email}}</td>
           <td>{{user.creationDate|date:'dd-MM-yyyy'}}</td>
-          <td>
+          <td>              
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-user>
+              <button mat-menu-item  [routerLink]="['/dashboard/manager/tasks/view' , user.id]">
                 <mat-icon>visibility</mat-icon>
                 <span>View</span>
               </button>
-              <button mat-menu-user  >
+              <button mat-menu-item  [routerLink]="['/dashboard/manager/tasks/edit' , user.id]">
                 <mat-icon>block</mat-icon>
-                <span *ngIf="user.isActivated">Block</span>
-                <span *ngIf="!user.isActivated">Unblock</span>
-              </button>
+                <span>Block</span>
+              </button>              
             </mat-menu>
           </td>
         </tr>

@@ -35,4 +35,10 @@ export class TaskService {
     editTask(id: ITaskId,data:string):Observable<any>{
         return this._HttpClient.put(`Task/${id}`,data)
     }
+
+    onDeleteTask(id: number): Observable<any> {
+        return this._HttpClient.delete(`Task/${id}`)
+
+    }
+
 }
