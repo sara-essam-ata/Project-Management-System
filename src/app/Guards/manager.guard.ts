@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
-=======
 import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
->>>>>>> 8ab05b2171a4a965595798b0b79fe91b51319c76
 import { AuthService } from '../auth/Services/auth.service';
 
 export const managerGuard: CanActivateFn = ( state) => {
