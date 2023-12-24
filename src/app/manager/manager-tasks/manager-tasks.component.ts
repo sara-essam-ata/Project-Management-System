@@ -16,6 +16,7 @@ export class ManagerTasksComponent implements OnInit {
    tableData:TableData|any;
    pageSize:Number=10;
    pageNumber:number=1;
+   searchValue:string='';
 
   listTasks: IListTasks[] = [];
   constructor(private _TaskService:TaskService,
@@ -27,7 +28,7 @@ export class ManagerTasksComponent implements OnInit {
     this.getAllTasks()
   }
   getAllTasks(){
-  
+
     this._TaskService.onGetManagerTasks().subscribe({
       next:(res)=>{
         console.log(res);
@@ -40,7 +41,7 @@ export class ManagerTasksComponent implements OnInit {
     console.log(e);
 
       this.pageSize = e.pageSize;
-      this.pageNumber=e.pageIndex;  
+      this.pageNumber=e.pageIndex;
   }
 
     // Delete

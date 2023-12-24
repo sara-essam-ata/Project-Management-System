@@ -10,7 +10,7 @@
     <div class="bg-whiteColor p-3 d-flex">
       <input
         [(ngModel)]="searchValue"
-        (keyup.enter)="getMyTasks()"
+        (keyup.enter)="getAllTasks()"
         type="text"
         class="form-control rounded-pill w-25"
         placeholder="Search Here"
@@ -96,7 +96,7 @@
     </table>
     <div>
       <mat-paginator [length]="tableData?.totalNumberOfRecords "
-      [pageSizeOptions]="[5,10, 50, 100]" 
+      [pageSizeOptions]="[5,10, 50, 100]"
       aria-label="Select page"
       [pageSize]="tableData?.pageSize"
        (page)="handlePageEvent($event)"  [pageIndex]="tableData?.pageNumber"
@@ -104,7 +104,7 @@
 
 
       </mat-paginator>
-      
+
     </div>
   </div>
 </section>
