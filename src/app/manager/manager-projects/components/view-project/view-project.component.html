@@ -1,28 +1,37 @@
-<div class="card-auth p-5">
-  <h4 class="d-flex align-items-center justify-content-between mb-5">
-    <div class="col-3">
-      <div class="text-center">
-        <img src="../../../assets/images/logo.svg" alt="logo" >
-      </div>
+<section>
+  <div class="page-header">
+    <div>
+      <a (click)="onNoClick()" class="cursor">
+        <i class="fa-solid fa-angle-left"></i>
+        <span>View Project</span>
+      </a>
     </div>
-      <span (click)="onNoClick()"><i class="fa-solid fa-xmark" style="color: #f00a0a;"></i></span>
-  </h4>
+  </div>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Category Date</th>
-        <th>Modification Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{data.name}}</td>
-        <td>{{data.creationDate  }}</td>
-        <!-- <td>{{data.modificationDate | date: "dd-yy-yyyy , hh:mm:a" }}</td> -->
-      </tr>
-    </tbody>
-  </table>
+  <div class="container">
+    <form [formGroup]="projectForm">
+      <div class="form-card ">
+        <div class="mt-5">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label class="text-dark">Title</mat-label>
+            <input [(ngModel)]="data.title" formControlName="title" class="text-dark" matInput>
+          </mat-form-field>
+        </div>
 
-</div>
+        <div class="my-3">
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label class="text-dark">Description</mat-label>
+            <input [(ngModel)]="data.description" formControlName="description" class="text-dark" matInput>
+            <!-- <textarea matInput></textarea> -->
+          </mat-form-field>
+        </div>
+        <hr>
+        <div class="text-center">
+          <button (click)="onNoClick()" type="button" class="primary w-25">Cancel</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</section>

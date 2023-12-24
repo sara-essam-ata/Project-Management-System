@@ -4,6 +4,7 @@ import { ManagerProjectsComponent } from './manager-projects.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddUpdateProjectComponent } from './components/add-update-project/add-update-project.component';
+import { ViewProjectComponent } from './components/view-project/view-project.component';
 
 const routes:Routes = [
   {path:'', component:ManagerProjectsComponent},
@@ -17,6 +18,6 @@ const routes:Routes = [
     RouterModule.forChild(routes),
     SharedModule,
   ],
-  declarations: [ManagerProjectsComponent,AddUpdateProjectComponent]
+  declarations: [ManagerProjectsComponent,AddUpdateProjectComponent,ViewProjectComponent]
 })
 export class ManagerProjectsModule { }
