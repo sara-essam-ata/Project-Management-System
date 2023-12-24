@@ -82,20 +82,20 @@ export class ManagerProjectsComponent implements OnInit {
         this.router.navigate(['/dashboard/manager/projects'])
       });
     }
-
+    handlePageEvent(e:PageEvent){
+      console.log(e);
+  
+        this.pageSize = e.pageSize;
+        this.pageNumber=e.pageIndex;  
+    
+        this.getMyProjects()  
+    }
 }
 
 
 
    
-  handlePageEvent(e:PageEvent){
-    console.log(e);
-
-      this.pageSize = e.pageSize;
-      this.pageNumber=e.pageIndex;  
   
-      this.getMyProjects()  
-  }
   
   // openDeleteProject(projectData:any): void {
   //   console.log(projectData);
@@ -113,4 +113,5 @@ export class ManagerProjectsComponent implements OnInit {
   //     }
   //   });
   // }
-}
+
+
