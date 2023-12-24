@@ -38,7 +38,7 @@
       </div>
     </div>
     <table class="table table-striped">
-      <thead>
+      <thead >
         <th>Title</th>
         <th>Description</th>
         <th>Creation Date</th>
@@ -84,7 +84,7 @@
     </table>
     <div>
       <mat-paginator [length]="tableData?.totalNumberOfRecords "
-      [pageSizeOptions]="[5,10, 50, 100]" 
+      [pageSizeOptions]="[5,10, 50, 100]"
       aria-label="Select page"
       [pageSize]="tableData?.pageSize"
        (page)="handlePageEvent($event)"  [pageIndex]="tableData?.pageNumber"
@@ -92,7 +92,7 @@
 
 
       </mat-paginator>
-      
+
     </div>
   </div>
 </section>
