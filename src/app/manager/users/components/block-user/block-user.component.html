@@ -1,11 +1,14 @@
 <div class="auth-card">
   <div class="text-center text-white">  
-    <h3 class="mb-2">Block {{userName}}</h3>  
-    <p>are you sure you want to block  ? if you are sure just click on block </p> 
+    <h3 class="mb-2"><span>{{data.isActivated?'Block ':'Unblock '}}</span>
+      <span class="text-secondry">{{data.userName}}</span></h3>  
+    <p>are you sure you want to block {{data.userName}} ? if you are sure just click on block </p> 
   </div>
-  <div class="d-flex justify-content-between">
+  <div class="d-flex justify-content-around mt-4">
     <button (click)="onClose()" cdkFocusInitial class=" outline-primary me-2">Cancle</button>
-    <button  [mat-dialog-close]="data"  cdkFocusInitial class="primary">Block</button>
+    <button  [mat-dialog-close]="data.id"  cdkFocusInitial class="primary">
+      <span>{{data.isActivated?'Block':'Unblock'}}</span>
+    </button>
   </div>
   
   </div>

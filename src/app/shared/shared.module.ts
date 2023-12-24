@@ -16,7 +16,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 import { LogoutComponent } from './logout/logout.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { MatSelectModule} from '@angular/material/select';
-import { MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   imports: [
