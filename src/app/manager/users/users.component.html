@@ -40,6 +40,19 @@
         </tr>
       </tbody>
     </table>
+
+    <div>
+      <mat-paginator [length]="tableData?.totalNumberOfRecords "
+      [pageSizeOptions]="[5,10, 50, 100]" 
+      aria-label="Select page"
+      [pageSize]="tableData?.pageSize"
+       (page)="handlePageEvent($event)"  [pageIndex]="tableData?.pageNumber"
+       >
+
+
+      </mat-paginator>
+      
+    </div>
   </div>
 </section>
 

@@ -34,12 +34,6 @@ $Project-Management-System-theme: mat.define-light-theme((
 @include mat.all-component-themes($Project-Management-System-theme);
 
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Montserrat:wght@300;500;600&family=Nunito:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@400;600;700&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@100;300;500&family=Work+Sans:wght@200;300;400;500;600;700&display=swap');
-
-// end mat override
-
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Montserrat', sans-serif; }
 
 // start mat override
 .mdc-text-field--filled:not(.mdc-text-field--disabled){
@@ -51,6 +45,12 @@ body { margin: 0; font-family: 'Montserrat', sans-serif; }
 .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
     color: #fff !important;
 }
+
+// end mat override
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 // -------Color pallette
 .text-main{
   color: #0E382F;
@@ -157,14 +157,5 @@ button{
 }
 .pointer{
   cursor: pointer;
-}
-.table{
-  width: 100%;
-  thead{
-    // height: 50px !important;
-    background-color: rgba(49, 89, 81, 0.9) !important;
-    color: #fff;
-    padding: 10px 15px !important;
-  }
 }
 
