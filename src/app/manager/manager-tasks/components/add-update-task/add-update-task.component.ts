@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-update-task.component.scss']
 })
 export class AddUpdateTaskComponent implements OnInit {
-
+  pageSize:Number=10;
+  pageNumber:number=1;
   listProjects: IListProject[] = [];
   listUsers: Employee[] = [];
   constructor(private _TaskService:TaskService,
@@ -55,7 +56,12 @@ export class AddUpdateTaskComponent implements OnInit {
     })
   }
   getMyProjects(){
-    this._ProjectsService.onGetManagerProjects().subscribe({
+    let parms = {
+      pageSize: this.pageSize,
+      pageNumber: this.pageNumber,
+
+    }
+    this._ProjectsService.onGetManagerProjects(parms).subscribe({
       next:(res)=>{
         console.log(res);
         this.listProjects = res.data

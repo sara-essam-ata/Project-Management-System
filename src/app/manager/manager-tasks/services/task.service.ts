@@ -12,8 +12,8 @@ export class TaskService {
         private _HttpClient:HttpClient
     ) { }
 
-    onGetManagerTasks():Observable<any>{
-        return this._HttpClient.get('Task/manager')
+    onGetManagerTasks(parms:any):Observable<any>{
+        return this._HttpClient.get('Task/manager',{params:parms})
     }
 
     // onProjectById(id: number): Observable<any>
