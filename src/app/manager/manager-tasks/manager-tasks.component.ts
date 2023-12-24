@@ -17,7 +17,8 @@ export class ManagerTasksComponent implements OnInit {
    pageSize:Number=10;
    pageNumber:number=1;
    searchValue:string='';
-
+   statusID:number =0;
+   statusData=['All','ToDo','InProgress','Done']
   listTasks: IListTasks[] = [];
   constructor(private _TaskService:TaskService,
     private toastr: ToastrService,
@@ -28,15 +29,47 @@ export class ManagerTasksComponent implements OnInit {
     this.getAllTasks()
   }
   getAllTasks(){
-    let parms = {
-      pageSize: this.pageSize,
-      pageNumber: this.pageNumber,
+    let parms = {}
+  //   parms ={
+  //     pageNumber:this.pageNumber,
+  //     pageSize:this.pageNumber,
+  //     status:this.searchValue
+
+  // }
+     if(this.statusID==1){
+      parms ={
+        pageNumber:this.pageNumber,
+        pageSize:this.pageSize,
+        status: this.statusData[1]
+      }
+      console.log(this.statusData[1])
+    }else if(this.statusID==2){
+      parms ={
+        pageNumber:this.pageNumber,
+        pageSize:this.pageSize,
+        status: this.statusData[2]
+    }
+    }else if(this.statusID==3){
+      parms ={
+        pageNumber:this.pageNumber,
+        pageSize:this.pageSize,
+        status: this.statusData[3]
+    }
+    }
+    else{
+      parms ={
+        pageNumber:this.pageNumber,
+        pageSize:this.pageSize,
+        status:this.searchValue
 
     }
+  }
     this._TaskService.onGetManagerTasks(parms).subscribe({
+
       next:(res)=>{
         console.log(res);
         this.tableData=res;
+        console.log(this.searchValue);
         this.listTasks = this.tableData.data;
       }
     })
@@ -77,7 +110,5 @@ export class ManagerTasksComponent implements OnInit {
       }
     })
   }
-
-
 
 }
