@@ -15,6 +15,7 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./manager-projects.component.scss']
 })
 export class ManagerProjectsComponent implements OnInit {
+  searchValue:string='';
   tableData:TableData|any;
   listProjects: IListProject[] = [];
   pageSize:number = 10;
@@ -31,7 +32,7 @@ export class ManagerProjectsComponent implements OnInit {
   }
 
   getMyProjects() {
-    
+
     this._ProjectsService.onGetManagerProjects().subscribe({
       next: (res) => {
         console.log(res);
@@ -76,7 +77,7 @@ export class ManagerProjectsComponent implements OnInit {
         data: listProjects,
         width: '60%',
       });
-  
+
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
         this.router.navigate(['/dashboard/manager/projects'])
@@ -84,22 +85,22 @@ export class ManagerProjectsComponent implements OnInit {
     }
     handlePageEvent(e:PageEvent){
       console.log(e);
-  
+
         this.pageSize = e.pageSize;
-        this.pageNumber=e.pageIndex;  
-    
-        this.getMyProjects()  
+        this.pageNumber=e.pageIndex;
+
+        this.getMyProjects()
     }
 }
 
 
 
-   
-  
-  
+
+
+
   // openDeleteProject(projectData:any): void {
   //   console.log(projectData);
-    
+
   //   const dialogRef = this.dialog.open(DeleteDialogComponent, {
   //     data: projectData,
   //     width:'40%'
