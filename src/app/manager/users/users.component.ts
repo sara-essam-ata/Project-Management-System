@@ -16,7 +16,7 @@ import { PageEvent } from '@angular/material/paginator';
 export class UsersComponent implements OnInit {
   tableData:TableData|any;
   listUsers: Employee[] = [];
-
+Messgage:string='';
   pageSize:number = 10;
   pageNumber:number=1;
   userData:Employee|any;
@@ -65,11 +65,12 @@ export class UsersComponent implements OnInit {
   activateUser(id:number){
     this._UsersService.onActivateUser(id).subscribe({
       next:(res)=>{
+       this.Messgage=res.message;
       },error:(err)=>{
-        this.toastr.error('error')
+        this.toastr.error(err.error.message, 'error')
       },complete:()=>{
         this.getAllUsers()
-        this.toastr.success('success')
+        this.toastr.success( this.Messgage ,'User Active now');
       }
     })
   }
