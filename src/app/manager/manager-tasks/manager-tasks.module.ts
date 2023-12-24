@@ -8,7 +8,9 @@ import { AddUpdateTaskComponent } from './components/add-update-task/add-update-
 const routes:Routes = [
   {path:'', component:ManagerTasksComponent},
   {path:'add', component:AddUpdateTaskComponent},
-  {path:'view/:id', component:AddUpdateTaskComponent}
+  {path:'view/:id', component:AddUpdateTaskComponent},
+  {path:'edit/:id', component:AddUpdateTaskComponent}
+
 
   ]
 

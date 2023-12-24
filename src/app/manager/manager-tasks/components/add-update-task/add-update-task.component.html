@@ -1,11 +1,15 @@
 <section>
   <div class="page-header">
     <div>
-      <a routerLink="../" >
+      <a routerLink="/dashboard/manager/tasks" >
         <i class="fa-solid fa-angle-left"></i>
         <span>View All Tasks</span>
       </a>
-      <h5>Add a new task</h5>
+      <h5>
+        <span *ngIf="isAddMode==true">Add a new task</span>
+        <span *ngIf="isEditMode==true">Edit {{taskData?.title}}</span>
+        <span *ngIf="isViewMode==true">{{taskData?.title}}</span>
+      </h5>
     </div>
   </div>
 
@@ -49,7 +53,8 @@
         <hr>
         <div class="d-flex justify-content-between">
           <button [routerLink]="['/dashboard/manager/tasks']" type="button" class="outline-primary w-25">Cancel</button>
-          <button class="primary w-25">Save</button>
+          <button  class="primary w-25"  *ngIf="isAddMode==true">Add</button>
+          <button class="primary w-25"   *ngIf="isEditMode==true">Update</button>
         </div>
 
       </div>
