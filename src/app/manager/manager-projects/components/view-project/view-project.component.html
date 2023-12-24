@@ -1,7 +1,7 @@
 <section>
   <div class="page-header">
     <div>
-      <a (click)="onNoClick()">
+      <a (click)="onNoClick()" class="cursor">
         <i class="fa-solid fa-angle-left"></i>
         <span>View Project</span>
       </a>
@@ -13,16 +13,16 @@
       <div class="form-card ">
         <div class="mt-5">
           <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Title</mat-label>
-            <input [(ngModel)]="data.title" formControlName="title" matInput>
+            <mat-label class="text-dark">Title</mat-label>
+            <input [(ngModel)]="data.title" formControlName="title" class="text-dark" matInput>
           </mat-form-field>
         </div>
 
         <div class="my-3">
 
           <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Description</mat-label>
-            <input [(ngModel)]="data.description" formControlName="description" matInput>
+            <mat-label class="text-dark">Description</mat-label>
+            <input [(ngModel)]="data.description" formControlName="description" class="text-dark" matInput>
             <!-- <textarea matInput></textarea> -->
           </mat-form-field>
         </div>
