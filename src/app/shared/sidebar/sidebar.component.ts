@@ -45,6 +45,7 @@ export class SidebarComponent implements OnInit {
      link: '/dashboard/manager/home',
      isActive: this.isManager() || this.isEmployee()
    },
+
    {
      title: 'Users',
      icon: 'fa-solid fa-users',
