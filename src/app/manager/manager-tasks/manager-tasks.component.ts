@@ -27,8 +27,12 @@ export class ManagerTasksComponent implements OnInit {
     this.getAllTasks()
   }
   getAllTasks(){
-  
-    this._TaskService.onGetManagerTasks().subscribe({
+    let parms = {
+      pageSize: this.pageSize,
+      pageNumber: this.pageNumber,
+
+    }
+    this._TaskService.onGetManagerTasks(parms).subscribe({
       next:(res)=>{
         console.log(res);
         this.tableData=res;
@@ -41,6 +45,7 @@ export class ManagerTasksComponent implements OnInit {
 
       this.pageSize = e.pageSize;
       this.pageNumber=e.pageIndex;  
+      this.getAllTasks();
   }
 
     // Delete

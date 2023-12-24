@@ -28,8 +28,12 @@ export class ManagerProjectsComponent implements OnInit {
     this.getMyProjects()
   }
   getMyProjects() {
-    
-    this._ProjectsService.onGetManagerProjects().subscribe({
+    let parms = {
+      pageSize: this.pageSize,
+      pageNumber: this.pageNumber,
+
+    }
+    this._ProjectsService.onGetManagerProjects(parms).subscribe({
       next: (res) => {
         console.log(res);
         this.tableData=res;
