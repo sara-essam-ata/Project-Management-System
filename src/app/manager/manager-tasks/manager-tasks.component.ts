@@ -16,6 +16,7 @@ export class ManagerTasksComponent implements OnInit {
    tableData:TableData|any;
    pageSize:Number=10;
    pageNumber:number=1;
+   searchValue:string='';
 
   listTasks: IListTasks[] = [];
   constructor(private _TaskService:TaskService,

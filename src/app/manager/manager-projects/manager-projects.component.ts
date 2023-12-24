@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 
 import { ViewProjectComponent } from './components/view-project/view-project.component';
+import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({
@@ -14,6 +15,7 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./manager-projects.component.scss']
 })
 export class ManagerProjectsComponent implements OnInit {
+  searchValue:string='';
   tableData:TableData|any;
   listProjects: IListProject[] = [];
   pageSize:number = 10;
@@ -22,11 +24,13 @@ export class ManagerProjectsComponent implements OnInit {
     private _ProjectsService:ProjectsService,
     private dialog: MatDialog,
     private toastr: ToastrService,
+    private router:Router,
   ) { }
 
   ngOnInit() {
     this.getMyProjects()
   }
+
   getMyProjects() {
     let parms = {
       pageSize: this.pageSize,
@@ -53,11 +57,12 @@ export class ManagerProjectsComponent implements OnInit {
       console.log('The dialog was closed');
       if (result) {
         console.log(result.id);
-        this.onDeleteCategory(result.id);
+        this.onDeleteProject(result.id);
       }
     });
   }
-  onDeleteCategory(id: number) {
+
+  onDeleteProject(id: number) {
     this._ProjectsService.deleteProject(id).subscribe({
       next: (res) => {
         console.log(res);
@@ -69,19 +74,37 @@ export class ManagerProjectsComponent implements OnInit {
       }
     })
   }
-   
-  handlePageEvent(e:PageEvent){
-    console.log(e);
 
-      this.pageSize = e.pageSize;
-      this.pageNumber=e.pageIndex;  
-  
-      this.getMyProjects()  
-  }
-  
+    // View
+    openViewDialog(listProjects: any): void {
+      const dialogRef = this.dialog.open(ViewProjectComponent, {
+        data: listProjects,
+        width: '60%',
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.router.navigate(['/dashboard/manager/projects'])
+      });
+    }
+    handlePageEvent(e:PageEvent){
+      console.log(e);
+
+        this.pageSize = e.pageSize;
+        this.pageNumber=e.pageIndex;
+
+        this.getMyProjects()
+    }
+}
+
+
+
+
+
+
   // openDeleteProject(projectData:any): void {
   //   console.log(projectData);
-    
+
   //   const dialogRef = this.dialog.open(DeleteDialogComponent, {
   //     data: projectData,
   //     width:'40%'
@@ -95,4 +118,5 @@ export class ManagerProjectsComponent implements OnInit {
   //     }
   //   });
   // }
-}
+
+

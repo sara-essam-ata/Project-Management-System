@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -8,17 +9,31 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ViewProjectComponent implements OnInit {
 
+  projectId: any;
+
   constructor(public dialogRef: MatDialogRef<ViewProjectComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
+    @Inject(MAT_DIALOG_DATA) public data: any) {
 
-    projectName: string ='';
-
-    onNoClick(): void {
-      this.dialogRef.close();
-    }
-
+    this.disableFormControls();
+  }
 
   ngOnInit() {
   }
 
+  projectForm = new FormGroup({
+    title: new FormControl(null),
+    description: new FormControl(null),
+  })
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  disableFormControls() {
+    this.projectForm.get('title')?.disable();
+    this.projectForm.get('description')?.disable();
+  }
+
 }
+
+

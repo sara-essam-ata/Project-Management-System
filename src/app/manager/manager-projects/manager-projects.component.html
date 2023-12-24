@@ -8,40 +8,74 @@
   </div>
   <div class="table-card container py-5">
     <div>
-      <!-- search -->
+      <div class="bg-whiteColor p-3 d-flex">
+        <input
+          [(ngModel)]="searchValue"
+          (keyup.enter)="getMyProjects()"
+          type="text"
+          class="form-control rounded-pill w-25"
+          placeholder="Search Here"
+          aria-label="search"
+          aria-describedby="basic-addon1"
+        />
+        <div>
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            aria-label="Example icon-button with a menu"
+          >
+            <mat-icon>list</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>title</mat-icon> <span>Title</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>schedule</mat-icon> <span>Date</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
     </div>
     <table class="table table-striped">
-      <thead>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Creation Date</th>
-          <th>Modificaion Date</th>
-          <th>Num of tasks</th>
-          <th>Actions</th>
+      <thead >
+        <th>Title</th>
+        <th>Description</th>
+        <th>Creation Date</th>
+        <th>Modificaion Date</th>
+        <th>Num of tasks</th>
+        <th>Actions</th>
       </thead>
       <tbody>
         <tr *ngFor="let item of listProjects">
-          <td>{{item.title}}</td>
-          <td>{{item.description}}</td>
-          <td>{{item.creationDate|date:'dd-MM-yyyy'}}</td>
-          <td>{{item.modificationDate|date:'dd-MM-yyyy'}}</td>
-          <td>{{item?.task?.length}}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.creationDate | date : "dd-MM-yyyy" }}</td>
+          <td>{{ item.modificationDate | date : "dd-MM-yyyy" }}</td>
+          <td>{{ item?.task?.length }}</td>
           <td>
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <button
+              mat-icon-button
+              [matMenuTriggerFor]="menu"
+              aria-label="Example icon-button with a menu"
+            >
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item  >
+              <button mat-menu-item (click)="openViewDialog(item)" >
                 <mat-icon>visibility</mat-icon>
                 <span>View</span>
               </button>
-              <button mat-menu-item  [routerLink]="['/dashboard/manager/projects/edit' , item.id]">
+              <button
+                mat-menu-item
+                [routerLink]="['/dashboard/manager/projects/edit', item.id]"
+              >
                 <mat-icon>edit-square</mat-icon>
                 <span>Edit</span>
               </button>
               <button (click)="openDeleteDialog(item)" mat-menu-item>
                 <mat-icon>delete</mat-icon>
-                <span >Delete</span>
+                <span>Delete</span>
               </button>
             </mat-menu>
           </td>
@@ -50,7 +84,7 @@
     </table>
     <div>
       <mat-paginator [length]="tableData?.totalNumberOfRecords "
-      [pageSizeOptions]="[5,10, 50, 100]" 
+      [pageSizeOptions]="[5,10, 50, 100]"
       aria-label="Select page"
       [pageSize]="tableData?.pageSize"
        (page)="handlePageEvent($event)"  [pageIndex]="tableData?.pageNumber"
@@ -58,8 +92,7 @@
 
 
       </mat-paginator>
-      
+
     </div>
   </div>
 </section>
-
