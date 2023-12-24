@@ -14,11 +14,8 @@ export class UsersService {
     onGetUsers(parms:any):Observable<any>{
         return this._HttpClient.get('Users', {params: parms})
     }
-    onGetUserById(id:number){
-        return this._HttpClient.get(`Users/${id}`)
-    }
-    onActivateUser(id:number,isActive:boolean):Observable<any>{
-        return this._HttpClient.put(`Users/${id}`,isActive)
+    onActivateUser(id:number):Observable<any>{
+        return this._HttpClient.put(`Users/${id}`,{})
     }
 
 }

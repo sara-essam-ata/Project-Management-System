@@ -42,7 +42,7 @@ export class ManagerProjectsComponent implements OnInit {
   openDeleteDialog(listProjects: any): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       data: listProjects,
-      width: '40%',
+      width: '35%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
