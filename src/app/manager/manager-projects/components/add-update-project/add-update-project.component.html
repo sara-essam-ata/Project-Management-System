@@ -5,7 +5,10 @@
         <i class="fa-solid fa-angle-left"></i>
         <span>View All Projects</span>
       </a>
-      <h5>Add a new projects</h5>
+      <h5>
+        <span *ngIf="isUpdatePage==false">Add a new project</span>
+        <span *ngIf="isUpdatePage==true">update {{projectData?.title}} project</span>
+      </h5>
     </div>
   </div>
 
