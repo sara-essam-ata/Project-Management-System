@@ -1,6 +1,6 @@
 <section>
   <div class="page-header shadow-sm">
-    <h3>Tasks</h3>
+    <h3>Users</h3>
   </div>
   <div class="table-card container py-5">
     <div>
@@ -31,19 +31,28 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item  [routerLink]="['/dashboard/manager/tasks/view' , user.id]">
-                <mat-icon>visibility</mat-icon>
-                <span>View</span>
-              </button>
-              <button mat-menu-item  [routerLink]="['/dashboard/manager/tasks/edit' , user.id]">
+              <button mat-menu-item (click)="openBlockDialog(user)" >
                 <mat-icon>block</mat-icon>
-                <span>Block</span>
+                <span>{{user.isActivated?'Block':'Unblock'}}</span>
               </button>              
             </mat-menu>
           </td>
         </tr>
       </tbody>
     </table>
+
+    <div>
+      <mat-paginator [length]="tableData?.totalNumberOfRecords "
+      [pageSizeOptions]="[5,10, 50, 100]" 
+      aria-label="Select page"
+      [pageSize]="tableData?.pageSize"
+       (page)="handlePageEvent($event)"  [pageIndex]="tableData?.pageNumber"
+       >
+
+
+      </mat-paginator>
+      
+    </div>
   </div>
 </section>
 
