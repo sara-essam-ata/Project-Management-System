@@ -4,6 +4,7 @@ import { UsersService } from './services/users.service';
 import { ActivatedRoute } from '@angular/router';
 import { BlockUserComponent } from './components/block-user/block-user.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -21,7 +22,8 @@ export class UsersComponent implements OnInit {
   constructor(
     private _UsersService:UsersService,
     private ActivatedRoute:ActivatedRoute,
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private toastr:ToastrService
 
   ) { 
        
@@ -40,6 +42,30 @@ export class UsersComponent implements OnInit {
       next:(res)=>{
         console.log(res);
         this.listUsers = res.data
+      }
+    })
+  }
+  openBlockDialog(item:Employee): void {
+    const dialogRef = this.dialog.open(BlockUserComponent, {
+      data: item,
+      width:'35%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed',result);
+      if(result){
+        this.activateUser(result)
+      }
+    });
+  }
+  activateUser(id:number){
+    this._UsersService.onActivateUser(id).subscribe({
+      next:(res)=>{
+      },error:(err)=>{
+        this.toastr.error('error')
+      },complete:()=>{
+        this.getAllUsers()
+        this.toastr.success('success')
       }
     })
   }
