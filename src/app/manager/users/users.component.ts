@@ -15,6 +15,8 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class UsersComponent implements OnInit {
   tableData:TableData|any;
+  searchValue:string='';
+
   listUsers: Employee[] = [];
 Messgage:string='';
   pageSize:number = 10;
@@ -28,8 +30,8 @@ Messgage:string='';
     private dialog:MatDialog,
     private toastr:ToastrService
 
-  ) { 
-       
+  ) {
+
     }
 
   ngOnInit() {
@@ -74,14 +76,14 @@ Messgage:string='';
       }
     })
   }
-  
+
   handlePageEvent(e:PageEvent){
     console.log(e);
 
       this.pageSize = e.pageSize;
-      this.pageNumber=e.pageIndex;  
-  
-      this.getAllUsers()  
+      this.pageNumber=e.pageIndex;
+
+      this.getAllUsers()
   }
   }
 
