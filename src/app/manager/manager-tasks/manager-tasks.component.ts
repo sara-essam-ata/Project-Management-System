@@ -29,42 +29,43 @@ export class ManagerTasksComponent implements OnInit {
     this.getAllTasks()
   }
   getAllTasks(){
-    let params = {}
-  //   params ={
+    let parms = {}
+  //   parms ={
   //     pageNumber:this.pageNumber,
   //     pageSize:this.pageNumber,
   //     status:this.searchValue
 
   // }
      if(this.statusID==1){
-      params ={
+      parms ={
         pageNumber:this.pageNumber,
         pageSize:this.pageSize,
         status: this.statusData[1]
       }
       console.log(this.statusData[1])
     }else if(this.statusID==2){
-      params ={
+      parms ={
         pageNumber:this.pageNumber,
         pageSize:this.pageSize,
         status: this.statusData[2]
     }
     }else if(this.statusID==3){
-      params ={
+      parms ={
         pageNumber:this.pageNumber,
         pageSize:this.pageSize,
         status: this.statusData[3]
     }
     }
     else{
-      params ={
+      parms ={
         pageNumber:this.pageNumber,
         pageSize:this.pageSize,
         status:this.searchValue
 
     }
   }
-    this._TaskService.onGetManagerTasks(params).subscribe({
+    this._TaskService.onGetManagerTasks(parms).subscribe({
+
       next:(res)=>{
         console.log(res);
         this.tableData=res;
@@ -77,7 +78,8 @@ export class ManagerTasksComponent implements OnInit {
     console.log(e);
 
       this.pageSize = e.pageSize;
-      this.pageNumber=e.pageIndex;
+      this.pageNumber=e.pageIndex;  
+      this.getAllTasks();
   }
 
     // Delete

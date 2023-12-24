@@ -12,8 +12,8 @@ export class ProjectsService {
         private _HttpClient: HttpClient
     ) { }
 
-    onGetManagerProjects(): Observable<any> {
-        return this._HttpClient.get('Project/manager')
+    onGetManagerProjects(parms:any): Observable<any> {
+        return this._HttpClient.get('Project/manager', {params:parms})
     }
 
     onProjectById(id: number): Observable<any> {
