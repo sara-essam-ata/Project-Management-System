@@ -48,7 +48,7 @@ export class AddUpdateTaskComponent implements OnInit {
        else{
         this.isAddMode=true;
         this.isEditMode=false;
-        this.isViewMode=false;
+        this.isViewMode=false
        }
      }
 

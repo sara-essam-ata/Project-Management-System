@@ -14,7 +14,7 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class ManagerTasksComponent implements OnInit {
    tableData:TableData|any;
-   pageSize:Number=10;
+   pageSize:number=10;
    pageNumber:number=1;
    searchValue:string='';
    statusID:number =0;
@@ -62,11 +62,9 @@ export class ManagerTasksComponent implements OnInit {
         pageNumber:this.pageNumber,
         pageSize:this.pageSize,
         status:this.searchValue
-
     }
   }
     this._TaskService.onGetManagerTasks(parms).subscribe({
-
       next:(res)=>{
         console.log(res);
         this.tableData=res;
@@ -77,7 +75,6 @@ export class ManagerTasksComponent implements OnInit {
   }
   handlePageEvent(e:PageEvent){
     console.log(e);
-
       this.pageSize = e.pageSize;
       this.pageNumber=e.pageIndex;  
       this.getAllTasks();

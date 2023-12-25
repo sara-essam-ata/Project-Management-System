@@ -44,10 +44,10 @@ export class AddUpdateProjectComponent implements OnInit {
         next: (res) => {
           console.log(res);
         }, error: (err) => {
-          this.toastr.error('Project Not Update', 'Ok');
+          this.toastr.error('upate failed');
         }, complete: () => {
           this.router.navigate(['/dashboard/manager/projects'])
-          this.toastr.success('Project Update Successfully', 'Ok');
+          this.toastr.success('Project Updateed Successfully');
         }
       })
     } else {
@@ -61,6 +61,8 @@ export class AddUpdateProjectComponent implements OnInit {
           this.toastr.error(err.error.message, 'Error');
         }, complete: () => {
           this.router.navigate(['dashboard/manager/projects'])
+          this.toastr.success('Project Added Successfully');
+
         }
       })
     }
