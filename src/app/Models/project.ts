@@ -36,6 +36,8 @@ export interface Employee{
     phoneNumber: string,
     email: string,
     creationDate: string,
+    imagePath:string
+    country:string,
     group: Group
 }
 export interface Group {
