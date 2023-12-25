@@ -7,6 +7,24 @@
     </button>
   </div>
   <div class="table-card container py-5">
+
+    <div class="bg-whiteColor p-3 d-flex">
+      <input [(ngModel)]="searchValue" (keyup.enter)="getAllTasks()" type="text" class="form-control rounded-pill w-25"
+        placeholder="Search Here" aria-label="search" aria-describedby="basic-addon1" />
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>list</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>title</mat-icon> <span>Title</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>schedule</mat-icon> <span>Date</span>
+          </button>
+        </mat-menu>
+      </div>
+
     <div class="bg-whiteColor p-3">
         <div class="w-100">
           <mat-form-field class="bg-gray rounded-pill w-50">
@@ -19,6 +37,7 @@
           </mat-form-field>
           <!-- <h2>{{statusID}}</h2> -->
         </div>
+
     </div>
     <table class="table table-striped custom-table">
       <thead>
