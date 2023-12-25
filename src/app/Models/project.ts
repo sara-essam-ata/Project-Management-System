@@ -48,10 +48,9 @@ export interface Group {
 export interface ITask {
     title: string,
     description: string,
-    employeeId: number,
-    projectId: number
-}
-export interface ITaskId {
-    id: number,
-}
+    // employeeId: number,
+    // projectId: number,
+    employee: Employee,
+    project: IProject
 
+}

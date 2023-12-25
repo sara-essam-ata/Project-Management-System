@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { ITask, ITaskId } from 'src/app/Models/project';
+import { ITask} from 'src/app/Models/project';
 
 @Injectable({
     providedIn: 'root'
@@ -16,23 +17,13 @@ export class TaskService {
         return this._HttpClient.get('Task/manager',{params:parms})
     }
 
-    // onProjectById(id: number): Observable<any>
-    // {
-    //     return this._HttpClient.get(`Project/${id}`)
-    // }
-
-    // editProject(data: any, id:number) : Observable<any>
-    // {
-    //     return this._HttpClient.put(`Project/${id}`, data)
-    // }
-
-    onAddTask(data: ITask):Observable<any>{
+    onAddTask(data: FormGroup):Observable<any>{
         return this._HttpClient.post('Task', data)
     }
-    ongetTaskbyId(id: ITaskId):Observable<any>{
+    ongetTaskbyId(id: number):Observable<any>{
         return this._HttpClient.get(`Task/${id}`)
     }
-    editTask(id: ITaskId,data:string):Observable<any>{
+    onEditTask(id: number,data:FormGroup):Observable<any>{
         return this._HttpClient.put(`Task/${id}`,data)
     }
 
