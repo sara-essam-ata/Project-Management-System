@@ -47,7 +47,7 @@ export class ManagerTasksComponent implements OnInit {
     // Delete
   openDeleteDialog(listTasks: any): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: this.listTasks,
+      data: listTasks,
       width: '40%',
     });
 
@@ -56,18 +56,19 @@ export class ManagerTasksComponent implements OnInit {
       console.log(result);
       if (result) {
         console.log(result.id);
-        this.onDeleteCategory(result.id);
+        this.onDeleteTask(result.id);
       }
     });
   }
-  onDeleteCategory(id: number) {
+  onDeleteTask(id: number) {
     this._TaskService.onDeleteTask(id).subscribe({
       next: (res) => {
         console.log(res);
       }, error: (err) => {
+        this.toastr.error(err.error.message,'Error!')
         console.log(err);
       }, complete: () => {
-        this.toastr.success('Project Deleted Successfully', 'Ok');
+        this.toastr.success('Task Deleted Successfully', 'Ok');
         this.getAllTasks()
       }
     })
