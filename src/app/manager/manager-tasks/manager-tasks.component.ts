@@ -95,13 +95,13 @@ export class ManagerTasksComponent implements OnInit {
         this.deleteTask(result.id);
       }
     });
-  }
+   } 
   deleteTask(id: number) {
     this._TaskService.onDeleteTask(id).subscribe({
       next: (res) => {
         console.log(res);
       }, error: (err) => {
-        this.toastr.error('error')
+        this.toastr.error(err.error.message,'Error!')
       }, complete: () => {
         this.toastr.success('Project Deleted Successfully');
         this.getAllTasks()

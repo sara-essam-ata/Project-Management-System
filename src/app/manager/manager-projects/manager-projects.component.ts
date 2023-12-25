@@ -67,6 +67,7 @@ export class ManagerProjectsComponent implements OnInit {
       next: (res) => {
         console.log(res);
       }, error: (err) => {
+        this.toastr.error(err.error.message,'Error!')
         console.log(err);
       }, complete: () => {
         this.toastr.success('Project Deleted Successfully', 'Ok');
