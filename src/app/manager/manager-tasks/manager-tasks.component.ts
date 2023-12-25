@@ -1,6 +1,6 @@
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { Component, OnInit } from '@angular/core';
-import { IListTasks, TableData } from 'src/app/Models/project';
+import { IListTasks, ITask, TableData } from 'src/app/Models/project';
 import { TaskService } from './services/task.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,7 +14,7 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class ManagerTasksComponent implements OnInit {
    tableData:TableData|any;
-   pageSize:Number=10;
+   pageSize:number=10;
    pageNumber:number=1;
    searchValue:string='';
    statusID:number =0;
@@ -28,14 +28,15 @@ export class ManagerTasksComponent implements OnInit {
   ngOnInit() {
     this.getAllTasks()
   }
+  
   getAllTasks(){
     let parms = {}
-  //   parms ={
-  //     pageNumber:this.pageNumber,
-  //     pageSize:this.pageNumber,
-  //     status:this.searchValue
+    parms ={
+      pageNumber:this.pageNumber,
+      pageSize:this.pageNumber,
+      status:this.searchValue
 
-  // }
+  }
      if(this.statusID==1){
       parms ={
         pageNumber:this.pageNumber,
@@ -61,11 +62,9 @@ export class ManagerTasksComponent implements OnInit {
         pageNumber:this.pageNumber,
         pageSize:this.pageSize,
         status:this.searchValue
-
     }
   }
     this._TaskService.onGetManagerTasks(parms).subscribe({
-
       next:(res)=>{
         console.log(res);
         this.tableData=res;
@@ -76,17 +75,16 @@ export class ManagerTasksComponent implements OnInit {
   }
   handlePageEvent(e:PageEvent){
     console.log(e);
-
       this.pageSize = e.pageSize;
       this.pageNumber=e.pageIndex;  
       this.getAllTasks();
   }
 
     // Delete
-  openDeleteDialog(listTasks: any): void {
+  openDeleteDialog(data: ITask): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: listTasks,
-      width: '40%',
+      data: data,
+      width: '35%',      
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -94,22 +92,22 @@ export class ManagerTasksComponent implements OnInit {
       console.log(result);
       if (result) {
         console.log(result.id);
-        this.onDeleteTask(result.id);
+        this.deleteTask(result.id);
       }
     });
-  }
-  onDeleteTask(id: number) {
+   } 
+  deleteTask(id: number) {
     this._TaskService.onDeleteTask(id).subscribe({
       next: (res) => {
         console.log(res);
       }, error: (err) => {
         this.toastr.error(err.error.message,'Error!')
-        console.log(err);
       }, complete: () => {
-        this.toastr.success('Task Deleted Successfully', 'Ok');
+        this.toastr.success('Task Deleted Successfully');
         this.getAllTasks()
       }
     })
   }
+
 
 }

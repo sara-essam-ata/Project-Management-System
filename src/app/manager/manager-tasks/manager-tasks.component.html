@@ -7,7 +7,7 @@
     </button>
   </div>
   <div class="table-card container py-5">
-<<<<<<< HEAD
+
     <div class="bg-whiteColor p-3 d-flex">
       <input [(ngModel)]="searchValue" (keyup.enter)="getAllTasks()" type="text" class="form-control rounded-pill w-25"
         placeholder="Search Here" aria-label="search" aria-describedby="basic-addon1" />
@@ -24,7 +24,7 @@
           </button>
         </mat-menu>
       </div>
-=======
+
     <div class="bg-whiteColor p-3">
         <div class="w-100">
           <mat-form-field class="bg-gray rounded-pill w-50">
@@ -37,7 +37,7 @@
           </mat-form-field>
           <!-- <h2>{{statusID}}</h2> -->
         </div>
->>>>>>> 8ab74fe11734a7703e0bf91685cfaa048dc9b5fb
+
     </div>
     <table class="table table-striped custom-table">
       <thead>
@@ -86,13 +86,14 @@
       </tbody>
     </table>
     <div>
-      <mat-paginator [length]="tableData?.totalNumberOfRecords " [pageSizeOptions]="[5,10, 50, 100]"
-        aria-label="Select page" [pageSize]="tableData?.pageSize" (page)="handlePageEvent($event)"
-        [pageIndex]="tableData?.pageNumber">
-
-
+      <mat-paginator [length]="tableData?.totalNumberOfRecords "
+      [pageSizeOptions]="[5,10, 50, 100]"
+      aria-label="Select page"
+      [pageSize]="tableData?.pageSize"
+      (page)="handlePageEvent($event)"  
+      [pageIndex]="tableData?.pageNumber"
+       >
       </mat-paginator>
-
     </div>
   </div>
 </section>
