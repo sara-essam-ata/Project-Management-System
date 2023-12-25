@@ -103,7 +103,7 @@ export class ManagerTasksComponent implements OnInit {
       }, error: (err) => {
         this.toastr.error(err.error.message,'Error!')
       }, complete: () => {
-        this.toastr.success('Project Deleted Successfully');
+        this.toastr.success('Task Deleted Successfully');
         this.getAllTasks()
       }
     })
