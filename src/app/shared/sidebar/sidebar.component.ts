@@ -43,7 +43,7 @@ export class SidebarComponent implements OnInit {
      title: 'Home',
      icon: 'fa-solid fa-house',
      link: '/dashboard/manager/home',
-     isActive: this.isManager() || this.isEmployee()
+     isActive: this.isManager()
    },
 
    {
@@ -65,23 +65,23 @@ export class SidebarComponent implements OnInit {
      isActive: this.isManager()
    },
    {
-     title: 'Projects',
-     icon: 'fa-solid fa-calendar-day',
-     link: '/dashboard/employee/recipes',
-     isActive: this.isEmployee()
-   },
-   {
-     title: 'Tasks',
-     icon: 'fa-solid fa-list-check',
-     link: '/dashboard/user/favourites',
-     isActive: this.isEmployee()
-   },
-   {
-    title: 'Tasks',
-    icon: 'fa-solid fa-heart',
-    link: '/dashboard/employee/favourites',
+    title: 'Home',
+    icon: 'fa-solid fa-house',
+    link: '/dashboard/employee/home',
     isActive: this.isEmployee()
   },
+  {
+    title: 'Projects',
+    icon: 'fa-solid fa-diagram-project',
+    link: '/dashboard/employee/projects',
+    isActive: this.isEmployee()
+  },
+  {
+    title: 'Tasks',
+    icon: 'fa-solid fa-list-check',
+    link: '/dashboard/employee/tasks',
+    isActive: this.isEmployee()
+  }
  ]
  onClicked() {
   this.isOpened = !this.isOpened;

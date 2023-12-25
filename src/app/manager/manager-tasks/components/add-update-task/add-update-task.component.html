@@ -19,7 +19,7 @@
         <div class="mt-5">
           <mat-form-field appearance="outline" class="w-100">
             <mat-label>Title</mat-label>
-            <input formControlName="title" matInput>
+            <input formControlName="title" matInput class="text-dark">
           </mat-form-field>
         </div>
 
@@ -27,7 +27,7 @@
 
           <mat-form-field appearance="outline" class="w-100">
             <mat-label>Description</mat-label>
-            <input formControlName="description" matInput>
+            <input formControlName="description" matInput class="text-dark">
             <textarea matInput></textarea>
           </mat-form-field>
         </div>
@@ -35,7 +35,7 @@
           <div class="col-6">
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>User</mat-label>
-              <mat-select formControlName="employeeId">
+              <mat-select formControlName="employeeId" class="text-dark">
               <mat-option *ngFor="let user of listUsers" [value]="user.id" >{{user.userName}}</mat-option>
               </mat-select>
             </mat-form-field>
@@ -43,7 +43,7 @@
           <div class="col-6">
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>Project</mat-label>
-              <mat-select formControlName="projectId">
+              <mat-select formControlName="projectId" class="text-dark">
                 <mat-option *ngFor="let project of listProjects" [value]="project.id" >{{project.title}}</mat-option>
               </mat-select>
             </mat-form-field>
