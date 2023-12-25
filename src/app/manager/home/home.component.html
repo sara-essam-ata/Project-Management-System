@@ -4,7 +4,7 @@
     <h3>You can add project and assign tasks to your team</h3>
   </div>
 </section>
-<section id="home-data">
+<!-- <section id="home-data">
     <div class="d-flex justify-content-between gap-4">
       <div class="w-50">
         <div class="content-header">
@@ -19,9 +19,73 @@
           <p>Lorem ipsum dolor sit amet,consecteture</p>
         </div>
         <div>
-          <!-- CHARTS HERE -->
+           CHARTS HERE 
         </div>
       </div>
 
     </div>
+</section> -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="chart-card">
+          <h4>Tasks</h4>
+         <div class="row">
+          <div class="col-md-6">
+            <div class="chart-item bg-itemOne">
+              <div class="chart-icon">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <h5 class="my-3">Activated Employee</h5>
+              <span>{{userCount.activatedEmployeeCount}}</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="chart-item bg-itemTwo">
+              <div class="chart-icon">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <h5 class="my-3">Deactivated Employee</h5>
+              <span>{{userCount.deactivatedEmployeeCount}}</span>
+            </div>
+          </div>
+         </div>
+
+         <div class="row mt-2">
+          <div class="col-md-6">
+            <div class="chart-item bg-itemTwo">
+              <div class="chart-icon">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <h5 class="my-3">Tasks Number</h5>
+              <span>{{tasksCount}}</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="chart-item">
+              <div class="chart-icon">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <h5 class="my-3">Projects Number</h5>
+              <span>{{projectsCount}}</span>
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="chart-card">
+          <h3>Progress</h3>
+          <p>Lorem ipsum dolor sit amet,consecteture</p>
+          <div class="w-75 mx-auto">
+            <canvas id="canvas">{{chart}}</canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+

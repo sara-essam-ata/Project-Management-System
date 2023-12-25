@@ -11,6 +11,35 @@
     margin-top: 1rem;
 }
 
+
+.chart-card{
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem opx;
+  border-radius: 16px;
+}
+
+.chart-item{
+  border-radius: 16px;
+  padding: 1rem;
+  background-color: #F5F5F5;
+  .chart-icon{
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+}
+.bg-itemOne{
+  background-color: #E5E6F4;
+}
+.bg-itemTwo{
+  background-color: #F4E5ED;
+}
+
+
 #home-data{
   margin-top: 2rem;
   padding: 0 1rem;
