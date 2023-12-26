@@ -38,11 +38,11 @@ export class RegisterComponent {
     ]),
     password: new FormControl(null, [
       Validators.required,
-      Validators.pattern('^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$%^&*-]).{8,16}$')
+      Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')
     ]),
     confirmPassword: new FormControl(null, [
       Validators.required,
-      Validators.pattern('^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$%^&*-]).{8,16}$')
+      Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')
     ]),
   },{validators: this.passwordMatchValidator,}
   );

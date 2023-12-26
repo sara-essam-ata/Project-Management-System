@@ -1,9 +1,15 @@
 input {
-  --mdc-filled-text-field-disabled-input-text-color: rgba(0, 0, 0, 1);
-}
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    color: black !important;
+}}
+// .mdc-floating-label--required:not(.mdc-floating-label--hide-required-marker)::after {
+//   display: none !important;
+// }
 
 img {
+  margin-top: 30px;
   border-radius: 50%;
+  box-shadow: 0 0 5px 5px #aaa;
 }
 
 
