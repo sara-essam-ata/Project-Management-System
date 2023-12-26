@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { EmployeeComponent } from './employee.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { UserProfileComponent } from '../shared/user-profile/user-profile.component';
 
  const routes:Routes=[
 {path:'',redirectTo:'home',pathMatch:'full'},
 {path:'home',component:HomeComponent},
+{path:'profile',component:UserProfileComponent},
+
 {
   path: 'projects',
   loadChildren: () => import('./components/Employee-projects/Employee-projects.module').then(m => m.EmployeeProjectsModule)
