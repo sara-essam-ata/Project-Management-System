@@ -4,10 +4,13 @@ import { EmployeeComponent } from './employee.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from '../shared/shared.module';
+import { UserProfileComponent } from '../shared/user-profile/user-profile.component';
 
  const routes:Routes=[
 {path:'',redirectTo:'home',pathMatch:'full'},
 {path:'home',component:HomeComponent},
+{path:'profile',component:UserProfileComponent},
+
 {
   path: 'projects',
   loadChildren: () => import('./Employee-projects/Employee-projects.module').then(m => m.EmployeeProjectsModule)

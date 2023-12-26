@@ -9,7 +9,8 @@ import { ViewProjectComponent } from './components/view-project/view-project.com
 const routes:Routes = [
   {path:'', component:ManagerProjectsComponent},
   {path:'add', component:AddUpdateProjectComponent},
-  {path:'edit/:id', component:AddUpdateProjectComponent}
+  {path:'edit/:id', component:AddUpdateProjectComponent},
+
 
   ]
 @NgModule({

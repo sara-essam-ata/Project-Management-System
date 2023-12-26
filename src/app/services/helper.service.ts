@@ -19,4 +19,8 @@ getTaskCount():Observable<any>
 {
   return this._HttpClient.get('Task/count')
 }
+getCurrentUser():Observable<any>
+{
+  return this._HttpClient.get('Users/currentUser')
+}
 }
