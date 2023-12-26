@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TableData, IListProject } from 'src/app/Models/project';
-import { EmployeeProjectsService } from '../services/EmployeeProjects.service';
 import { PageEvent } from '@angular/material/paginator';
+import { EmployeeProjectsService } from './services/EmployeeProjects.service';
 
 @Component({
   selector: 'app-Employee-projects',
@@ -33,6 +33,9 @@ export class EmployeeProjectsComponent implements OnInit {
         console.log(res);
         this.tableData=res;
         this.listProjects = this.tableData.data
+      },error:(err)=>{
+
+      },complete:()=>{
       }
     })
   }
