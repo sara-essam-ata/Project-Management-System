@@ -79,7 +79,7 @@ export class ManagerProjectsComponent implements OnInit {
   }
 
     // View
-    openViewDialog(listProjects: any): void {
+    openViewDialog(listProjects: IListProject): void {
       const dialogRef = this.dialog.open(ViewProjectComponent, {
         data: listProjects,
         width: '60%',
