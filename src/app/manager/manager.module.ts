@@ -10,6 +10,7 @@ const routes:Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'profile',component:UserProfileComponent},
+  {path:'updateProfile',component:UserProfileComponent},
 
   {
     path: 'projects',
