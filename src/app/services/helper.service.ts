@@ -27,4 +27,7 @@ export class HelperService {
   {
     return this._HttpClient.get('Users/currentUser')
   }
+  onUpdateCurrentUser(data:any):Observable<any>{
+    return this._HttpClient.put('Users/',data)
+  }
 }
