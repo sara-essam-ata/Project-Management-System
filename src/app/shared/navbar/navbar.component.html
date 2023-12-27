@@ -11,8 +11,8 @@
             <img *ngIf="!userData?.profileImage" src="../../../assets/images/dummy-avatar-profile.jpg">
           </div>
           <div class="ms-2">
-            <h6 class="m-0">{{userData.userName}}</h6>
-            <span class="text-muted">{{userData.email}}</span>
+            <h6 class="m-0">{{userData?.userName}}</h6>
+            <span class="text-muted">{{userData?.email}}</span>
           </div>
           <div>
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
