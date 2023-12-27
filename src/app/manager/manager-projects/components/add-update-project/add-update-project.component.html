@@ -33,7 +33,12 @@
         <hr>
         <div class="d-flex justify-content-between">
           <button [routerLink]="['/dashboard/manager/projects']" type="button" class="outline-primary w-25">Cancel</button>
-          <button class="primary w-25">Save</button>
+          <button  *ngIf="isLoading== false" class="primary w-25">Save</button>
+          <button *ngIf="isLoading ==true" class="primary w-25">
+
+            <app-button-loader class="position-relative"></app-button-loader>
+
+          </button>
         </div>
 
       </div>

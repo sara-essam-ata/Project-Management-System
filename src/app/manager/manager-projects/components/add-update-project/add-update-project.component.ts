@@ -15,6 +15,7 @@ export class AddUpdateProjectComponent implements OnInit {
   projectId: any;
   isUpdatePage: boolean = false;
   projectData: IProject | any;
+  isLoading:boolean=false;
 
   constructor(private _ProjectsService: ProjectsService,
     private toastr: ToastrService,
@@ -37,15 +38,19 @@ export class AddUpdateProjectComponent implements OnInit {
   })
 
   onSubmit(data: FormGroup) {
-
+    this.isLoading=true;
     if (this.projectId) {
       // Update
       this._ProjectsService.editProject(data.value, this.projectId).subscribe({
         next: (res) => {
           console.log(res);
         }, error: (err) => {
+          this.isLoading=false;
+
           this.toastr.error('upate failed');
         }, complete: () => {
+          this.isLoading=false;
+
           this.router.navigate(['/dashboard/manager/projects'])
           this.toastr.success('Project Updateed Successfully');
         }
@@ -58,8 +63,12 @@ export class AddUpdateProjectComponent implements OnInit {
           console.log(res);
 
         }, error: (err) => {
+          this.isLoading=false;
+
           this.toastr.error(err.error.message, 'Error');
         }, complete: () => {
+          this.isLoading=false;
+
           this.router.navigate(['dashboard/manager/projects'])
           this.toastr.success('Project Added Successfully');
 
