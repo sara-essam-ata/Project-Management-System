@@ -10,25 +10,24 @@ import Chart from 'chart.js/auto';
 export class HomeComponent implements OnInit {
 
   chart: any = [];
-  userCount:any;
-
+  tasksCount:any;
+  usersCount:any;
   userName = localStorage.getItem('userName');
-  tasksCount = localStorage.getItem('TasksCount')
   projectsCount = localStorage.getItem('projectsCount')
+  tasksNumber = localStorage.getItem('tasksNumber')
 
   constructor(private _helperService:HelperService) { }
 
   ngOnInit(): void {
-    this.grtTaskCount()
+    this.getTasksCount()    
+    this.getUsersCount()
   }
 
-  grtTaskCount(){
-    this._helperService.getTaskCount().subscribe({
+  getTasksCount(){
+    this._helperService.onGetTasksCount().subscribe({
       next: (res)=>{
         console.log(res);
-        this.userCount = res;
-        // console.log(this.taskCount?.toDo, this.taskCount?.inProgress, this.taskCount?.done);
-   
+        this.tasksCount = res;   
       }, error: (err)=>{
         console.log(err);
         
@@ -43,7 +42,7 @@ export class HomeComponent implements OnInit {
             ],
             datasets: [{
               label: 'My First Dataset',
-              data: [this.userCount?.toDo, this.userCount?.inProgress, this.userCount?.done],
+              data: [this.tasksCount?.toDo, this.tasksCount?.inProgress, this.tasksCount?.done],
               backgroundColor: [
                 'rgb(255, 99, 132)',
                 'rgb(54, 162, 235)',
@@ -56,6 +55,17 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-
+  getUsersCount(){
+    this._helperService.onGetUsresCount().subscribe({
+      next: (res)=>{
+        console.log(res);
+        this.usersCount=res
+        
+      }, error: (err)=>{
+        console.log(err);
+        
+      }, complete: ()=>{}
+    })
+  }
 
 }

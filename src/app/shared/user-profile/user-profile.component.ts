@@ -13,7 +13,7 @@ import { HelperService } from 'src/app/services/helper.service';
 export class UserProfileComponent {
   userId:number | any;
   user:Employee | any;
-  pathHttps: string = 'https://upskilling-egypt.com:443/';
+  pathHttps: string = 'https://upskilling-egypt.com/';
   Messgage:string='';
   isEmployee:boolean=false;
 
@@ -35,7 +35,7 @@ if(this._AuthService.role == 'Manager'){
 }
 }
 getUserById(){
-this._HelperService.getCurrentUser().subscribe({
+this._HelperService.onGetCurrentUser().subscribe({
   next: (res) => {
 console.log(res);
 this.user=res;
