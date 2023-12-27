@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LogoutComponent } from '../logout/logout.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from 'src/app/auth/Services/auth.service';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,19 +10,18 @@ import { AuthService } from 'src/app/auth/Services/auth.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
-  userName = localStorage.getItem('userName')
-  userEmail = localStorage.getItem('userEmail')
-  // role  = localStorage.getItem('role')
+  userData:any;
+  
   isEmployee:boolean=false;
 
 
 
-  constructor(public dialog: MatDialog,private _AuthService: AuthService) {
+  constructor(public dialog: MatDialog,private _AuthService: AuthService,private _HelperService:HelperService) {
 
   }
   ngOnInit() {
     this.isManger()
+    this.getCurrentUser()
   }
 isManger(){
   if(this._AuthService.role == 'Manager'){
@@ -44,5 +44,12 @@ isManger(){
   }
 sayHello(){
   console.log('hello')
+}
+getCurrentUser(){
+  this._HelperService.onGetCurrentUser().subscribe({
+    next:(res)=>{
+      this.userData=res
+    }
+  })
 }
 }

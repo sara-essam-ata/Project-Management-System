@@ -70,7 +70,11 @@ export class ManagerTasksComponent implements OnInit {
         this.tableData=res;
         console.log(this.searchValue);
         this.listTasks = this.tableData.data;
+<<<<<<< HEAD
         localStorage.setItem('TasksCount' , JSON.stringify(res.totalNumberOfRecords))
+=======
+        localStorage.setItem('tasksNumber',JSON.stringify(res.totalNumberOfRecords))
+>>>>>>> 3e98ebe8695420c98624883692e3767d3cc2b1ae
 
       }
     })
