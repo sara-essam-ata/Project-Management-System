@@ -1,7 +1,7 @@
 <section>
   <div class="page-header">
     <div>
-      <a routerLink="/dashboard/manager/tasks" >
+      <a routerLink="/dashboard/manager/tasks">
         <i class="fa-solid fa-angle-left"></i>
         <span>View All Tasks</span>
       </a>
@@ -13,7 +13,7 @@
     </div>
   </div>
 
-  <div class="container" >
+  <div class="container">
     <form [formGroup]="taskForm" (ngSubmit)="onSubmit(taskForm)">
       <div class="form-card ">
         <div class="mt-5">
@@ -36,7 +36,7 @@
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>User</mat-label>
               <mat-select formControlName="employeeId" class="text-dark">
-              <mat-option *ngFor="let user of listUsers" [value]="user.id" >{{user.userName}}</mat-option>
+                <mat-option *ngFor="let user of listUsers" [value]="user.id">{{user.userName}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -44,17 +44,17 @@
             <mat-form-field appearance="outline" class="w-100">
               <mat-label>Project</mat-label>
               <mat-select formControlName="projectId" class="text-dark">
-                <mat-option *ngFor="let project of listProjects" [value]="project.id" >{{project.title}}</mat-option>
+                <mat-option *ngFor="let project of listProjects" [value]="project.id">{{project.title}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
         </div>
-        
+
         <hr>
         <div class="d-flex justify-content-between">
           <button [routerLink]="['/dashboard/manager/tasks']" type="button" class="outline-primary w-25">Cancel</button>
-          <button  class="primary w-25"  *ngIf="isAddMode==true">Add</button>
-          <button class="primary w-25"   *ngIf="isEditMode==true">Update</button>
+          <button class="primary w-25" *ngIf="isAddMode==true">Add</button>
+          <button class="primary w-25" *ngIf="isEditMode==true">Update</button>
         </div>
 
       </div>
