@@ -4,7 +4,6 @@ import { IListProject, TableData } from 'src/app/Models/project';
 import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-
 import { ViewProjectComponent } from './components/view-project/view-project.component';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
@@ -52,6 +51,16 @@ export class ManagerProjectsComponent implements OnInit {
     this._ProjectsService.onGetManagerProjects(parms).subscribe({
       next: (res) => {
         console.log(res);
+        this.tableData=res;
+
+        this.listProjects = this.tableData.data;
+        localStorage.setItem('projectsCount' , JSON.stringify(res.totalNumberOfRecords))
+
+        this.listProjects = this.tableData.data
+        localStorage.setItem('projectsCount',res.totalNumberOfRecords)
+
+      }
+    })
         this.tableData = res;
         this.listProjects = this.tableData.data;
         localStorage.setItem('projectsCount', res.totalNumberOfRecords);
@@ -91,6 +100,20 @@ export class ManagerProjectsComponent implements OnInit {
     });
   }
 
+    // View
+    openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, listProjects:IListProject): void {
+      this.dialog.open(ViewProjectComponent, {
+        width: '60%',
+        data: listProjects,
+        enterAnimationDuration,
+        exitAnimationDuration,
+      });
+    }
+    // openViewDialog(listProjects: IListProject): void {
+    //   const dialogRef = this.dialog.open(ViewProjectComponent, {
+    //     data: listProjects,
+    //     width: '60%',
+    //   });
   // View
   openViewDialog(listProjects: any): void {
     const dialogRef = this.dialog.open(ViewProjectComponent, {

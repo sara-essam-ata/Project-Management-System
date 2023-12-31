@@ -36,8 +36,7 @@
             <span class="status" [ngClass]="{
                 ToDo: item.status == 'ToDo',
                 InProgress: item.status == 'InProgress',
-                Done: item.status == 'Done'
-              }">
+                Done: item.status == 'Done'}">
               {{ item.status }}
             </span>
           </td>
@@ -67,14 +66,12 @@
       </tbody>
     </table>
     <div>
-      <mat-paginator [length]="tableData?.totalNumberOfRecords "
-      [pageSizeOptions]="[5,10, 50, 100]"
-      aria-label="Select page"
-      [pageSize]="tableData?.pageSize"
-      (page)="handlePageEvent($event)"  
-      [pageIndex]="tableData?.pageNumber"
-       >
+      <mat-paginator [length]="tableData?.totalNumberOfRecords" 
+          [pageSizeOptions]="[5,10, 50, 100]" [pageSize]="tableData?.pageSize"
+           (page)="handlePageEvent($event)" [pageIndex]="pageIndex" 
+           aria-label="Select page">
       </mat-paginator>
+
     </div>
   </div>
 </section>

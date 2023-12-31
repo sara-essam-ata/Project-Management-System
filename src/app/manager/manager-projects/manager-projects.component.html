@@ -17,7 +17,7 @@
         </div>
     </div>
     <table class="table table-striped">
-      <thead >
+      <thead>
         <th>Title</th>
         <th>Description</th>
         <th>Creation Date</th>
@@ -33,22 +33,15 @@
           <td>{{ item.modificationDate | date : "dd-MM-yyyy" }}</td>
           <td>{{ item?.task?.length }}</td>
           <td>
-            <button
-              mat-icon-button
-              [matMenuTriggerFor]="menu"
-              aria-label="Example icon-button with a menu"
-            >
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="openViewDialog(item)" >
+              <button mat-menu-item (click)="openViewDialog('2000ms', '2000ms', item)">
                 <mat-icon>visibility</mat-icon>
                 <span>View</span>
               </button>
-              <button
-                mat-menu-item
-                [routerLink]="['/dashboard/manager/projects/edit', item.id]"
-              >
+              <button mat-menu-item [routerLink]="['/dashboard/manager/projects/edit', item.id]">
                 <mat-icon>edit-square</mat-icon>
                 <span>Edit</span>
               </button>

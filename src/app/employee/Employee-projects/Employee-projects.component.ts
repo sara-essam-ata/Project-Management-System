@@ -13,8 +13,10 @@ export class EmployeeProjectsComponent implements OnInit {
   searchValue:string='';
   tableData:TableData|any;
   listProjects: IListProject[] = [];
-  pageSize:number = 5;
-  pageNumber:number=1;
+  pageIndex: number = 0
+  pageSize: number = 5;
+  pageNumber: number | undefined = 1; 
+  
   constructor(
     private _EmployeeProjectsService:EmployeeProjectsService
   ) { }
@@ -39,13 +41,15 @@ export class EmployeeProjectsComponent implements OnInit {
       }
     })
   }
-  handlePageEvent(e:PageEvent){
+
+
+  handlePageEvent(e: PageEvent) {
     console.log(e);
+    this.pageSize = e.pageSize
+    this.pageNumber = e.pageIndex + 1
+    this.getMyProjects()
 
-      this.pageSize = e.pageSize;
-      this.pageNumber=e.pageIndex;
 
-      this.getMyProjects()
-  }
+  } 
 
 }
