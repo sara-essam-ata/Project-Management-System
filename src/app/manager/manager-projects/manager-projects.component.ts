@@ -18,8 +18,9 @@ export class ManagerProjectsComponent implements OnInit {
   searchValue:string='';
   tableData:TableData|any;
   listProjects: IListProject[] = [];
-  pageSize:number = 10;
-  pageNumber:number=1;
+  pageIndex: number = 0
+  pageSize: number = 5;
+  pageNumber: number | undefined = 1; 
   constructor(
     private _ProjectsService:ProjectsService,
     private dialog: MatDialog,
@@ -41,8 +42,13 @@ export class ManagerProjectsComponent implements OnInit {
       next: (res) => {
         console.log(res);
         this.tableData=res;
+
+        this.listProjects = this.tableData.data;
+        localStorage.setItem('projectsCount' , JSON.stringify(res.totalNumberOfRecords))
+
         this.listProjects = this.tableData.data
         localStorage.setItem('projectsCount',res.totalNumberOfRecords)
+
       }
     })
   }
@@ -78,47 +84,35 @@ export class ManagerProjectsComponent implements OnInit {
   }
 
     // View
-    openViewDialog(listProjects: any): void {
-      const dialogRef = this.dialog.open(ViewProjectComponent, {
-        data: listProjects,
+    openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, listProjects:IListProject): void {
+      this.dialog.open(ViewProjectComponent, {
         width: '60%',
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-        this.router.navigate(['/dashboard/manager/projects'])
+        data: listProjects,
+        enterAnimationDuration,
+        exitAnimationDuration,
       });
     }
-    handlePageEvent(e:PageEvent){
+    // openViewDialog(listProjects: IListProject): void {
+    //   const dialogRef = this.dialog.open(ViewProjectComponent, {
+    //     data: listProjects,
+    //     width: '60%',
+    //   });
+
+    //   dialogRef.afterClosed().subscribe(result => {
+    //     console.log('The dialog was closed');
+    //     this.router.navigate(['/dashboard/manager/projects'])
+    //   });
+    // }
+
+    handlePageEvent(e: PageEvent) {
       console.log(e);
+      this.pageSize = e.pageSize
+      this.pageNumber = e.pageIndex + 1
+      this.getMyProjects()
 
-        this.pageSize = e.pageSize;
-        this.pageNumber=e.pageIndex;
-
-        this.getMyProjects()
-    }
+    } 
 }
 
 
-
-
-
-
-  // openDeleteProject(projectData:any): void {
-  //   console.log(projectData);
-
-  //   const dialogRef = this.dialog.open(DeleteDialogComponent, {
-  //     data: projectData,
-  //     width:'40%'
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     // console.log(result);
-  //     if (result) {
-  //       this.getMyProjects();
-  //     }
-  //   });
-  // }
 
 

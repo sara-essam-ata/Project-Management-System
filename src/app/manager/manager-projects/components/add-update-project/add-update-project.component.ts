@@ -37,15 +37,16 @@ export class AddUpdateProjectComponent implements OnInit {
   })
 
   onSubmit(data: FormGroup) {
-
     if (this.projectId) {
       // Update
       this._ProjectsService.editProject(data.value, this.projectId).subscribe({
         next: (res) => {
           console.log(res);
         }, error: (err) => {
+
           this.toastr.error('upate failed');
         }, complete: () => {
+
           this.router.navigate(['/dashboard/manager/projects'])
           this.toastr.success('Project Updateed Successfully');
         }
@@ -58,6 +59,7 @@ export class AddUpdateProjectComponent implements OnInit {
           console.log(res);
 
         }, error: (err) => {
+
           this.toastr.error(err.error.message, 'Error');
         }, complete: () => {
           this.router.navigate(['dashboard/manager/projects'])

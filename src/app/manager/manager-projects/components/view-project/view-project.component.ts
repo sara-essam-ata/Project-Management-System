@@ -9,8 +9,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ViewProjectComponent implements OnInit {
 
-  projectId: any;
-
   constructor(public dialogRef: MatDialogRef<ViewProjectComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
 
