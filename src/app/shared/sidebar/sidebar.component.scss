@@ -3,9 +3,14 @@
   position: sticky;
   top: 0;
   z-index: 1071;
+  transition: height 0.3s ease; // Add a smooth transition for height changes
+
+
+  }
   * {
     transition: all 0.5s ease;
   }
+
   .item {
     cursor: pointer;
     padding: 10px 5px !important;
@@ -51,11 +56,19 @@
     color: #fff;
     cursor: pointer;
   }
-}
+
 @media (max-width: 425px) {
   .row > div {
     display: none;
   }
+}
+.max-height{
+
+  height: calc(100vh - 64px );
+}
+.v-height{
+height: 100vh;
+
 }
 // @media (max-width: 760px) {
 //     .icon-name{

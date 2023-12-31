@@ -1,0 +1,33 @@
+section{
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  justify-items: center;
+  height: 100vh;
+  color: #0E382F;
+
+  .text{
+    font-size: 10rem;
+    font-weight: bolder;
+    background-image: linear-gradient( 109.6deg,  rgba(239,155,40,1) 11.2%, rgba(14,56,47,1) 92.5% );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    filter: brightness(.9);
+  }
+  p{
+    max-width: 50rem;
+  }
+}
+}
