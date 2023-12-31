@@ -25,5 +25,11 @@
     height: 200px;
     border-radius: 50%;
     background-color: bisque;
+    border: 4px dashed #ef9b28;
   }
 
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

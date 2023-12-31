@@ -12,16 +12,13 @@
           </div>
           <div class="d-flex justify-content-center mb-4">
             <ngx-dropzone (change)="onSelect($event)" [multiple]="false" class="circle-preview">
-              <ngx-dropzone-label>
+              <ngx-dropzone-label class="text-main p-3">
                 <i class="fa-solid fa-upload fa-3x mb-3"></i>
                 <div>
-                  Drag & Drop or
-                  <span class="text-main">
-                    Choose a Item Image to Upload
-                  </span>
+                  choose your profile image
                 </div>
               </ngx-dropzone-label>
-              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true"
+              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" class="img-fluid" [removable]="true"
                 (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
 
               </ngx-dropzone-image-preview>
