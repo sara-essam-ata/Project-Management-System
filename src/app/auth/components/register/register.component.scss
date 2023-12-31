@@ -14,3 +14,7 @@
 ._nghost-ng-c2040221903{
   background: none;
   }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    color: #fff;
+  }
