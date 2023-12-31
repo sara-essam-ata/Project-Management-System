@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { ITask} from 'src/app/Models/project';
 
 @Injectable({
     providedIn: 'root'
