@@ -38,5 +38,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
   declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent, DeleteDialogComponent, UserProfileComponent, NotFoundComponent]
 
 
+
 })
 export class SharedModule { }
