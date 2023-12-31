@@ -17,11 +17,11 @@ import { Subject, debounceTime } from 'rxjs';
 export class ManagerProjectsComponent implements OnInit {
   searchValue: string = '';
   private searchSubject: Subject<string> = new Subject<string>();
-
   tableData: TableData | any;
   listProjects: IListProject[] = [];
-  pageSize: number = 10;
-  pageNumber: number = 1;
+  pageIndex: number = 0
+  pageSize: number = 5;
+  pageNumber: number | undefined = 1;
   constructor(
     private _ProjectsService: ProjectsService,
     private dialog: MatDialog,
@@ -60,13 +60,9 @@ export class ManagerProjectsComponent implements OnInit {
         localStorage.setItem('projectsCount',res.totalNumberOfRecords)
 
       }
-    })
-        this.tableData = res;
-        this.listProjects = this.tableData.data;
-        localStorage.setItem('projectsCount', res.totalNumberOfRecords);
-      },
-    });
-  }
+    })}
+
+
 
   // Delete
   openDeleteDialog(listProjects: any): void {
@@ -115,24 +111,12 @@ export class ManagerProjectsComponent implements OnInit {
     //     width: '60%',
     //   });
   // View
-  openViewDialog(listProjects: any): void {
-    const dialogRef = this.dialog.open(ViewProjectComponent, {
-      data: listProjects,
-      width: '60%',
-    });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      this.router.navigate(['/dashboard/manager/projects']);
-    });
-  }
   handlePageEvent(e: PageEvent) {
     console.log(e);
-
-    this.pageSize = e.pageSize;
-    this.pageNumber = e.pageIndex;
-
-    this.getMyProjects();
+    this.pageSize = e.pageSize
+    this.pageNumber = e.pageIndex + 1
+    this.getMyProjects()
   }
 
   onSearchInputChange() {
