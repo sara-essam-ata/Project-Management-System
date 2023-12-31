@@ -14,8 +14,9 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class ManagerTasksComponent implements OnInit {
    tableData:TableData|any;
-   pageSize:number=10;
-   pageNumber:number=1;
+   pageIndex: number = 0
+   pageSize: number = 5;
+   pageNumber: number | undefined = 1; 
    searchValue:string='';
    statusID:number =0;
    statusData=['All','ToDo','InProgress','Done']
@@ -70,17 +71,20 @@ export class ManagerTasksComponent implements OnInit {
         this.tableData=res;
         console.log(this.searchValue);
         this.listTasks = this.tableData.data;
+
         localStorage.setItem('tasksNumber',JSON.stringify(res.totalNumberOfRecords))
 
       }
     })
   }
-  handlePageEvent(e:PageEvent){
+
+  handlePageEvent(e: PageEvent) {
     console.log(e);
-      this.pageSize = e.pageSize;
-      this.pageNumber=e.pageIndex;  
-      this.getAllTasks();
-  }
+    this.pageSize = e.pageSize
+    this.pageNumber = e.pageIndex + 1
+    this.getAllTasks();
+
+  } 
 
     // Delete
   openDeleteDialog(data: ITask): void {
