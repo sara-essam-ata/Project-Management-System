@@ -21,6 +21,7 @@ export class UsersComponent implements OnInit {
 Messgage:string='';
   pageSize:number = 10;
   pageNumber:number=1;
+  pageIndex: number = 0;
   userData:Employee|any;
   userId:any
   isActive: any;
@@ -81,7 +82,8 @@ Messgage:string='';
     console.log(e);
 
       this.pageSize = e.pageSize;
-      this.pageNumber=e.pageIndex;
+      this.pageIndex  = e.pageIndex;
+      this.pageNumber = e.pageIndex + 1
 
       this.getAllUsers()
   }

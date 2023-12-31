@@ -93,7 +93,8 @@
                   </ngx-dropzone>
                 </div>
                 <div class="d-flex justify-content-end gap-2 my-4">
-                  <button *ngIf="isUpdate" type="submit" class="px-4 primary" [disabled]="editProfileForm.invalid">Update Profile</button>
+                  <button *ngIf="isUpdate" type="submit" class="px-4 primary" [disabled]="editProfileForm.invalid">Save</button>
+                  <button *ngIf="isView" class="px-4 primary" routerLink="/dashboard/updateProfile">Update Profile</button>
                   <button type="button" class="outline-primary" (click)="isManager()" [routerLink]="isEmployee? '/dashboard/manager/home/': '/dashboard/employee/home/'"> <i class="fa-solid fa-arrow-left pl-2"></i> Back To Home</button>
                 </div>
             </div>              
@@ -101,10 +102,10 @@
 
       </div>
       <div *ngIf="isView" class="col-md-4">
-        <div *ngIf="user?.imagePath">
+        <!-- <div *ngIf="user?.imagePath">
           <img class="img-fluid" [src]="pathHttps + user?.imagePath" alt="">
-        </div>
-        <div *ngIf="!user?.imagePath">
+        </div>*ngIf="!user?.imagePath" -->
+        <div >
           <img class="img-fluid" src="../../../assets/images/dummy-avatar-profile.jpg" alt="">
         </div>
       </div>

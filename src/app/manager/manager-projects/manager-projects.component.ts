@@ -93,8 +93,7 @@ export class ManagerProjectsComponent implements OnInit {
       console.log(e);
 
         this.pageSize = e.pageSize;
-        this.pageNumber=e.pageIndex;
-
+        this.pageNumber = e.pageIndex + 1
         this.getMyProjects()
     }
 }
