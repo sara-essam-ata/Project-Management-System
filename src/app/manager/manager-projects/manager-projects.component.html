@@ -7,25 +7,14 @@
     </button>
   </div>
   <div class="table-card container py-5">
-    <div>
-      <div class="bg-whiteColor p-3 d-flex">
-        <input [(ngModel)]="searchValue" (keyup.enter)="getMyProjects()" type="text"
-          class="form-control rounded-pill w-25" placeholder="Search Here" aria-label="search"
-          aria-describedby="basic-addon1" />
-        <div>
-          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>list</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>title</mat-icon> <span>Title</span>
-            </button>
-            <button mat-menu-item>
-              <mat-icon>schedule</mat-icon> <span>Date</span>
-            </button>
-          </mat-menu>
+
+      <div class="bg-whiteColor p-3">
+        <div class="w-100">
+          <mat-form-field appearance="fill" class="bg-gray rounded-pill w-50">
+            <mat-label>Search</mat-label>
+            <input [(ngModel)]="searchValue" (keyup)="onSearchInputChange()" matInput placeholder="Search Here by Title">
+        </mat-form-field>
         </div>
-      </div>
     </div>
     <table class="table table-striped">
       <thead>
@@ -65,14 +54,12 @@
         </tr>
       </tbody>
     </table>
-    
     <div>
-      <mat-paginator [length]="tableData?.totalNumberOfRecords" 
-          [pageSizeOptions]="[5,10, 50, 100]" [pageSize]="tableData?.pageSize"
-           (page)="handlePageEvent($event)" [pageIndex]="pageIndex" 
-           aria-label="Select page">
-      </mat-paginator>
-
+      <mat-paginator [length]="tableData?.totalNumberOfRecords"
+      [pageSizeOptions]="[5,10, 50, 100]" [pageSize]="tableData?.pageSize"
+       (page)="handlePageEvent($event)" [pageIndex]="pageIndex"
+       aria-label="Select page">
+  </mat-paginator>
     </div>
   </div>
 </section>

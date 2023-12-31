@@ -7,3 +7,9 @@ input{
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgb(239 155 40/ 21%);
 }
+.rounded-pill{
+  --bs-border-radius-pill: 1.5rem;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input{
+  color: black;
+}

@@ -26,7 +26,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CommonModule,
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,RouterLink,RouterLinkActive,RouterModule
-    ,NgxDropzoneModule,MatSelectModule,MatPaginatorModule
+    ,NgxDropzoneModule,MatSelectModule,MatPaginatorModule,
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
