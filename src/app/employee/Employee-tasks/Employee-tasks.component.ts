@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { OnInit} from '@angular/core';
 import { EmployeeTaskService } from './services/employee-task.service';
@@ -21,7 +20,7 @@ export class EmployeeTasksComponent implements OnInit {
   todo:any[]=[];
   done:any[]= [];
   inprogress:any[]= [];
-  
+
   constructor(
     private _EmployeeTaskService:EmployeeTaskService
   ){}
@@ -49,7 +48,7 @@ export class EmployeeTasksComponent implements OnInit {
     })
   }
 
-  drop(event: CdkDragDrop<string[]>) {    
+  drop(event: CdkDragDrop<string[]>) {
     const draggedItemId = event.item.data;
     this._EmployeeTaskService.onChangeStatus(draggedItemId,event.container.id).subscribe({
       next:(res)=>{
@@ -67,4 +66,4 @@ export class EmployeeTasksComponent implements OnInit {
     }
   }
   
-}
+})
