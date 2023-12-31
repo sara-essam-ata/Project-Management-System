@@ -20,3 +20,10 @@
   .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-text-field__input {
     color: #fff;
   }
+  .circle-preview {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: bisque;
+  }
+
