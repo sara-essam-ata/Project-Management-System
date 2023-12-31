@@ -7,20 +7,27 @@ import { Observable } from 'rxjs';
 })
 export class HelperService {
 
-constructor(
-    private _HttpClient:HttpClient
-) { }
+  constructor(
+      private _HttpClient:HttpClient
+  ) { }
 
-onGetUsers():Observable<any>{
-    return this._HttpClient.get('Users', {params: {pageSize:1000, pageNumber:1}})
-}
+  onGetUsers():Observable<any>{
+      return this._HttpClient.get('Users', {params: {pageSize:1000, pageNumber:1}})
+  }
 
-getTaskCount():Observable<any>
-{
-  return this._HttpClient.get('Task/count')
-}
-getCurrentUser():Observable<any>
-{
-  return this._HttpClient.get('Users/currentUser')
-}
+  onGetTasksCount():Observable<any>
+  {
+    return this._HttpClient.get('Task/count')
+  }
+  onGetUsresCount():Observable<any>
+  {
+    return this._HttpClient.get('Users/count')
+  }
+  onGetCurrentUser():Observable<any>
+  {
+    return this._HttpClient.get('Users/currentUser')
+  }
+  onUpdateCurrentUser(data:any):Observable<any>{
+    return this._HttpClient.put('Users/',data)
+  }
 }
