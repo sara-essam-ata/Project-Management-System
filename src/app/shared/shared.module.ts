@@ -36,10 +36,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
 
   declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent, DeleteDialogComponent, UserProfileComponent, NotFoundComponent]
-    MatMenuModule,MatDialogModule,FormsModule,RouterModule,MatSelectModule,MatPaginatorModule,UserProfileComponent,
 
-  ],
 
-  declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent, DeleteDialogComponent, UserProfileComponent,]
+
 })
 export class SharedModule { }

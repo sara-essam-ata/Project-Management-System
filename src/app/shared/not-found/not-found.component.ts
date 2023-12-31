@@ -29,7 +29,7 @@ export class NotFoundComponent {
   }
   }
   getUserById(){
-  this._HelperService.getCurrentUser().subscribe({
+  this._HelperService.onGetCurrentUser().subscribe({
     next: (res) => {
   console.log(res);
   this.user=res;
