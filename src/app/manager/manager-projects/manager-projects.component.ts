@@ -8,43 +8,55 @@ import { ToastrService } from 'ngx-toastr';
 import { ViewProjectComponent } from './components/view-project/view-project.component';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { Subject, debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-manager-projects',
   templateUrl: './manager-projects.component.html',
-  styleUrls: ['./manager-projects.component.scss']
+  styleUrls: ['./manager-projects.component.scss'],
 })
 export class ManagerProjectsComponent implements OnInit {
-  searchValue:string='';
-  tableData:TableData|any;
+  searchValue: string = '';
+  private searchSubject: Subject<string> = new Subject<string>();
+
+  tableData: TableData | any;
   listProjects: IListProject[] = [];
-  pageSize:number = 10;
-  pageNumber:number=1;
+  pageSize: number = 10;
+  pageNumber: number = 1;
   constructor(
-    private _ProjectsService:ProjectsService,
+    private _ProjectsService: ProjectsService,
     private dialog: MatDialog,
     private toastr: ToastrService,
-    private router:Router,
-  ) { }
+    private router: Router
+  ) {
+
+  }
 
   ngOnInit() {
-    this.getMyProjects()
+    this.getMyProjects();
+    this.searchSubject.pipe(debounceTime(1000)).subscribe({
+      next: (res) =>{
+        console.log(res);
+        this.getMyProjects();
+      }
+    })
+
   }
 
   getMyProjects() {
     let parms = {
       pageSize: this.pageSize,
       pageNumber: this.pageNumber,
-
-    }
+      title: this.searchValue,
+    };
     this._ProjectsService.onGetManagerProjects(parms).subscribe({
       next: (res) => {
         console.log(res);
-        this.tableData=res;
-        this.listProjects = this.tableData.data
-        localStorage.setItem('projectsCount',res.totalNumberOfRecords)
-      }
-    })
+        this.tableData = res;
+        this.listProjects = this.tableData.data;
+        localStorage.setItem('projectsCount', res.totalNumberOfRecords);
+      },
+    });
   }
 
   // Delete
@@ -54,7 +66,7 @@ export class ManagerProjectsComponent implements OnInit {
       width: '35%',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result) {
         console.log(result.id);
@@ -67,58 +79,42 @@ export class ManagerProjectsComponent implements OnInit {
     this._ProjectsService.deleteProject(id).subscribe({
       next: (res) => {
         console.log(res);
-      }, error: (err) => {
-        this.toastr.error(err.error.message,'Error!')
+      },
+      error: (err) => {
+        this.toastr.error(err.error.message, 'Error!');
         console.log(err);
-      }, complete: () => {
+      },
+      complete: () => {
         this.toastr.success('Project Deleted Successfully', 'Ok');
         this.getMyProjects();
-      }
-    })
+      },
+    });
   }
 
-    // View
-    openViewDialog(listProjects: any): void {
-      const dialogRef = this.dialog.open(ViewProjectComponent, {
-        data: listProjects,
-        width: '60%',
-      });
+  // View
+  openViewDialog(listProjects: any): void {
+    const dialogRef = this.dialog.open(ViewProjectComponent, {
+      data: listProjects,
+      width: '60%',
+    });
 
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-        this.router.navigate(['/dashboard/manager/projects'])
-      });
-    }
-    handlePageEvent(e:PageEvent){
-      console.log(e);
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.router.navigate(['/dashboard/manager/projects']);
+    });
+  }
+  handlePageEvent(e: PageEvent) {
+    console.log(e);
 
-        this.pageSize = e.pageSize;
-        this.pageNumber=e.pageIndex;
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex;
 
-        this.getMyProjects()
-    }
+    this.getMyProjects();
+  }
+
+  onSearchInputChange() {
+    this.searchSubject.next(this.searchValue);
+  }
 }
-
-
-
-
-
-
-  // openDeleteProject(projectData:any): void {
-  //   console.log(projectData);
-
-  //   const dialogRef = this.dialog.open(DeleteDialogComponent, {
-  //     data: projectData,
-  //     width:'40%'
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     // console.log(result);
-  //     if (result) {
-  //       this.getMyProjects();
-  //     }
-  //   });
-  // }
 
 
