@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
     private _Router:Router, private dialog:MatDialog) { }
 
     loginForm = new FormGroup({
-      email: new FormControl(null,[Validators.required,Validators.email]),
-      password: new FormControl(null,[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
+      email: new FormControl(null,[Validators.required,Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]),  
+       password: new FormControl(null,[Validators.required,Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
     })
 
   message:string=''
