@@ -25,7 +25,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     CommonModule,
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,RouterLink,RouterLinkActive,RouterModule
-    ,NgxDropzoneModule,MatSelectModule,MatPaginatorModule
+    ,NgxDropzoneModule,MatSelectModule,MatPaginatorModule,
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
