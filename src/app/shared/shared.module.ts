@@ -18,7 +18,6 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { ButtonLoaderComponent } from './button-loader/button-loader.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
@@ -31,10 +30,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,NgxDropzoneModule,
-    MatMenuModule,MatDialogModule,FormsModule,RouterModule,MatSelectModule,MatPaginatorModule,UserProfileComponent,ButtonLoaderComponent,NotFoundComponent
+    MatMenuModule,MatDialogModule,FormsModule,RouterModule,MatSelectModule,MatPaginatorModule,UserProfileComponent,NotFoundComponent
 
   ],
 
-  declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent, DeleteDialogComponent, UserProfileComponent, ButtonLoaderComponent, NotFoundComponent]
+  declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent, DeleteDialogComponent, UserProfileComponent, NotFoundComponent]
 })
 export class SharedModule { }
