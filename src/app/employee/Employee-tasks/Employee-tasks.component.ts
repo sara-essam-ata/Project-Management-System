@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit, TrackByFunction } from '@angular/core';
 import { EmployeeTaskService } from './services/employee-task.service';
@@ -7,7 +8,6 @@ import {
   CdkDropList,
   CdkDropListGroup,
 } from '@angular/cdk/drag-drop';
-
 
 @Component({
   selector: 'app-Employee-tasks',
@@ -65,6 +65,4 @@ export class EmployeeTasksComponent implements OnInit {
     }
   }
   
-  
-
-}
+})

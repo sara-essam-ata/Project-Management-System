@@ -17,23 +17,24 @@ export class UsersComponent implements OnInit {
   tableData:TableData|any;
   searchValue:string='';
 
+  pageIndex: number = 0
+  pageSize: number = 5;
+  pageNumber: number | undefined = 1; 
+
   listUsers: Employee[] = [];
-Messgage:string='';
   pageSize:number = 10;
   pageNumber:number=1;
   pageIndex: number = 0;
+  Messgage:string='';
   userData:Employee|any;
   userId:any
   isActive: any;
+
   constructor(
     private _UsersService:UsersService,
     private ActivatedRoute:ActivatedRoute,
     private dialog:MatDialog,
-    private toastr:ToastrService
-
-  ) {
-
-    }
+    private toastr:ToastrService) { }
 
   ngOnInit() {
     this.getAllUsers()
@@ -78,15 +79,13 @@ Messgage:string='';
     })
   }
 
-  handlePageEvent(e:PageEvent){
+  handlePageEvent(e: PageEvent) {
     console.log(e);
-
-      this.pageSize = e.pageSize;
-      this.pageIndex  = e.pageIndex;
-      this.pageNumber = e.pageIndex + 1
-
-      this.getAllUsers()
+    this.pageSize = e.pageSize
+    this.pageNumber = e.pageIndex + 1
+    this.getAllUsers()
   }
-  }
+
+ }
 
 

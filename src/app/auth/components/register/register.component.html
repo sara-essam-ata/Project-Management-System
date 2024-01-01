@@ -10,6 +10,20 @@
             <span>welcome to PMS</span>
             <h3>Create New Account</h3>
           </div>
+          <div class="d-flex justify-content-center mb-4">
+            <ngx-dropzone (change)="onSelect($event)" [multiple]="false" class="circle-preview">
+              <ngx-dropzone-label class="text-main p-3">
+                <i class="fa-solid fa-upload fa-3x mb-3"></i>
+                <div>
+                  choose your profile image
+                </div>
+              </ngx-dropzone-label>
+              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" class="img-fluid" [removable]="true"
+                (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
+
+              </ngx-dropzone-image-preview>
+            </ngx-dropzone>
+          </div>
           <div class="row">
             <div class="col-md-6">
               <mat-form-field appearance="fill" class="w-100">
@@ -24,6 +38,7 @@
                   numbers andcharacters</span>
               </span>
             </div>
+
             <div class="col-md-6">
               <mat-form-field appearance="fill" class="w-100">
                 <mat-label>E-mail</mat-label>
@@ -104,22 +119,7 @@
                 </span>
               </span>
             </div>
-            <div>
-              <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
-                <ngx-dropzone-label>
-                  <i class="fa-solid fa-upload fa-3x mb-3"></i>
-                  <div>
-                    Drag & Drop or
-                    <span class="text-main">
-                      Choose a Item Image to Upload
-                    </span>
-                  </div>
-                </ngx-dropzone-label>
-                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true"
-                  (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
-                </ngx-dropzone-image-preview>
-              </ngx-dropzone>
-            </div>
+
           </div>
           <div class="d-flex justify-content-between align-items-center my-3">
             <a [routerLink]="['/auth/login']" class="text-decoration-none text-white">Log in?</a>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -18,6 +18,8 @@ interface IMenu {
 export class SidebarComponent implements OnInit {
   @Output() isOpenedValue = new EventEmitter<boolean>();
   isOpened:boolean =true;
+  isMaxHeight:boolean=true;
+  is100vHeight:boolean=false;
 
   constructor(private _AuthService: AuthService, private router: Router,
     private toastr: ToastrService, public dialog: MatDialog) { }
@@ -88,5 +90,10 @@ export class SidebarComponent implements OnInit {
   this.isOpenedValue.emit(this.isOpened);
   console.log(this.isOpened)
 }
-
+@HostListener('window:scroll', [])
+  onWindowScroll() {
+    const offset = window.scrollY;
+    this.isMaxHeight = offset < 64;
+    this.is100vHeight= offset > 64;
+  }
 }

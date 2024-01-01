@@ -18,6 +18,7 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -25,15 +26,18 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     CommonModule,
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,RouterLink,RouterLinkActive,RouterModule
-    ,NgxDropzoneModule,MatSelectModule,MatPaginatorModule
+    ,NgxDropzoneModule,MatSelectModule,MatPaginatorModule,
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,NgxDropzoneModule,
-    MatMenuModule,MatDialogModule,FormsModule,RouterModule,MatSelectModule,MatPaginatorModule,UserProfileComponent,
+    MatMenuModule,MatDialogModule,FormsModule,RouterModule,MatSelectModule,MatPaginatorModule,UserProfileComponent,NotFoundComponent
 
   ],
 
-  declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent, DeleteDialogComponent, UserProfileComponent,]
+  declarations: [SharedComponent,NavbarComponent,SidebarComponent,LogoutComponent, DeleteDialogComponent, UserProfileComponent, NotFoundComponent]
+
+
+
 })
 export class SharedModule { }

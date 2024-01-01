@@ -14,11 +14,9 @@ const routes:Routes = [
     RouterModule.forChild(routes),
     SharedModule,
     DragDropModule,
-    CdkDropListGroup,
-    CdkDropList,
-    CdkDrag
-
   ],
   declarations: [EmployeeTasksComponent]
 })
-export class EmployeeTasksModule { }
+export class EmployeeTasksModule { 
+  
+}
