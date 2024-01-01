@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
 import { HelperService } from 'src/app/services/helper.service';
 import { ProjectsService } from 'src/app/manager/manager-projects/services/projects.service';
@@ -77,8 +77,8 @@ export class AddUpdateTaskComponent implements OnInit {
   }
 
   taskForm = new FormGroup({
-    title: new FormControl(null),
-    description: new FormControl(null),
+    title: new FormControl(null,[Validators.required,Validators.pattern('^[a-zA-Z]{6,10}$')]),
+    description: new FormControl(null,[Validators.required,Validators.pattern('^[a-zA-Z]{20,}$')]),
     employeeId: new FormControl(null),
     projectId: new FormControl(null),
   })

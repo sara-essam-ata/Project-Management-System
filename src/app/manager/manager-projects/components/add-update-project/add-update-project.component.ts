@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProjectsService } from '../../services/projects.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { IProject } from 'src/app/Models/project';
 
 @Component({
@@ -32,8 +32,8 @@ export class AddUpdateProjectComponent implements OnInit {
   }
 
   projectForm = new FormGroup({
-    title: new FormControl(null),
-    description: new FormControl(null),
+    title: new FormControl(null,[Validators.required,Validators.pattern('^[a-zA-Z]{6,10}$')]),
+    description: new FormControl(null,[Validators.required,Validators.pattern('^[a-zA-Z]{20,}$')]),
   })
 
   onSubmit(data: FormGroup) {

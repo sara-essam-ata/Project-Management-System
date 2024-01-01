@@ -22,8 +22,10 @@ export class UsersComponent implements OnInit {
   pageNumber: number | undefined = 1; 
 
   listUsers: Employee[] = [];
+  pageSize:number = 10;
+  pageNumber:number=1;
+  pageIndex: number = 0;
   Messgage:string='';
-
   userData:Employee|any;
   userId:any
   isActive: any;
@@ -82,9 +84,8 @@ export class UsersComponent implements OnInit {
     this.pageSize = e.pageSize
     this.pageNumber = e.pageIndex + 1
     this.getAllUsers()
-
-  } 
-
   }
+
+ }
 
 

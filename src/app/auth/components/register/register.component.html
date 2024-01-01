@@ -47,7 +47,7 @@
               <span class="text-danger  mb-3"
                 *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
                 <span *ngIf="registerForm.get('email')?.hasError('required')">Email is required</span>
-                <span *ngIf="registerForm.get('email')?.errors?.['email']">Email is invalid</span>
+                <span *ngIf="registerForm.get('email')?.hasError('pattern')">Email  must have capital,small letters,sympols,number and pass length(2)</span>
               </span>
             </div>
             <div class="col-md-6">

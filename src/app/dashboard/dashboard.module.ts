@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { managerGuard } from '../Guards/manager.guard';
-import { employeeGuard } from '../Guards/employee.guard';
+import { UserProfileComponent } from '../shared/user-profile/user-profile.component';
+import { managerGuard } from '../guards/manager.guard';
+import { employeeGuard } from '../guards/employee.guard';
 
 
 const routes:Routes = [
@@ -17,6 +18,9 @@ const routes:Routes = [
       path: 'employee', canActivate: [employeeGuard],
       loadChildren: () => import('../employee/employee.module').then(m => m.EmployeeModule)
     },
+    {path:'profile',component:UserProfileComponent},
+    {path:'updateProfile',component:UserProfileComponent},
+
   ]},
 ]
 @NgModule({

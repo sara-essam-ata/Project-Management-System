@@ -21,6 +21,10 @@
             <mat-label>Title</mat-label>
             <input formControlName="title" matInput class="text-dark">
           </mat-form-field>
+          <span *ngIf="taskForm.get('title')?.errors && taskForm.get('title')?.touched " class="text-danger mb-3"  >
+            <span *ngIf="taskForm.get('title')?.errors?.['required']">title is required</span>
+            <span *ngIf="taskForm.get('title')?.errors?.['pattern']">title must have capital,small letters length(6-10)</span>
+          </span>
         </div>
 
         <div class="my-3">
@@ -30,6 +34,10 @@
             <input formControlName="description" matInput class="text-dark">
             <textarea matInput></textarea>
           </mat-form-field>
+          <span *ngIf="taskForm.get('description')?.errors && taskForm.get('description')?.touched " class="text-danger mb-3"  >
+            <span *ngIf="taskForm.get('description')?.errors?.['required']">description is required</span>
+            <span *ngIf="taskForm.get('description')?.errors?.['pattern']">description must have capital,small letters length(20 or more)</span>
+          </span>
         </div>
         <div class="row">
           <div class="col-6">

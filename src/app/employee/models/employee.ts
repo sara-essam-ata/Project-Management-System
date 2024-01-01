@@ -5,3 +5,8 @@ export interface IListProjects {
   totalNumberOfRecords: number,
   totalNumberOfPages: number
 }
+export interface ITaskData {
+  id:null,
+  title:string,
+  status:string
+}

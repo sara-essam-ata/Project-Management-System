@@ -105,6 +105,7 @@ export class ManagerProjectsComponent implements OnInit {
         exitAnimationDuration,
       });
     }
+
     // openViewDialog(listProjects: IListProject): void {
     //   const dialogRef = this.dialog.open(ViewProjectComponent, {
     //     data: listProjects,
