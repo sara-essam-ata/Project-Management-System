@@ -79,7 +79,6 @@ export class ManagerTasksComponent implements OnInit {
   }
 
   handlePageEvent(e: PageEvent) {
-    console.log(e);
     this.pageSize = e.pageSize
     this.pageNumber = e.pageIndex + 1
     this.getAllTasks();

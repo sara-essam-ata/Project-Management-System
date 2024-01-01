@@ -141,6 +141,8 @@ export class UserProfileComponent {
         } else {
           this.router.navigate(['/dashboard/employee/home']);
         }
+//         this.getCurrentUser();
+//         this.router.navigate(['/dashboard/profile']);
       },
     });
   }

@@ -4,13 +4,10 @@ import { ManagerComponent } from './manager.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { HomeComponent } from './home/home.component';
-import { UserProfileComponent } from '../shared/user-profile/user-profile.component';
 
 const routes:Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
   {path:'home', component:HomeComponent},
-  {path:'profile',component:UserProfileComponent},
-  {path:'updateProfile',component:UserProfileComponent},
 
   {
     path: 'projects',

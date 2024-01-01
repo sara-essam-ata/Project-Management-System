@@ -14,7 +14,7 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
 
   ],
   imports: [
