@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   constructor(private _helperService:HelperService) { }
 
   ngOnInit(): void {
-    this.getTasksCount()    
+    this.getTasksCount()
     this.getUsersCount()
   }
 
@@ -27,10 +27,10 @@ export class HomeComponent implements OnInit {
     this._helperService.onGetTasksCount().subscribe({
       next: (res)=>{
         console.log(res);
-        this.tasksCount = res;   
+        this.tasksCount = res;
       }, error: (err)=>{
         console.log(err);
-        
+
       }, complete: ()=>{
         this.chart = new Chart('canvas', {
           type: 'doughnut',
@@ -44,9 +44,9 @@ export class HomeComponent implements OnInit {
               label: 'My First Dataset',
               data: [this.tasksCount?.toDo, this.tasksCount?.inProgress, this.tasksCount?.done],
               backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                'rgb(14,56,47)',
+                'rgb(239,155,40)',
+                'rgb(100,65,23)'
               ],
               hoverOffset: 4
             }]
@@ -60,10 +60,10 @@ export class HomeComponent implements OnInit {
       next: (res)=>{
         console.log(res);
         this.usersCount=res
-        
+
       }, error: (err)=>{
         console.log(err);
-        
+
       }, complete: ()=>{}
     })
   }
