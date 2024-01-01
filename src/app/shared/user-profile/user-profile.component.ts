@@ -115,12 +115,8 @@ constructor(
       },
       complete: () => {
         this.toastr.success('profile updated successfully');
-        if(localStorage.getItem('role')=='Manager'){
-          this.router.navigate(['/dashboard/manager/updateProfile'])
-        }
-        else{
-          this.router.navigate(['/dashboard/employee/updateProfile'])
-        }
+        this.getCurrentUser();
+        this.router.navigate(['/dashboard/profile']);
       },
     });
   }
