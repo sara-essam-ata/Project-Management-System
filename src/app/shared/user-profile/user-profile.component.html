@@ -1,138 +1,209 @@
 <section id="user-view" class="p-5">
   <div class="container">
     <form [formGroup]="ProfileForm" (ngSubmit)="onSubmit(ProfileForm)">
-    <div class="row">
-      <div class="col-md-8" [ngClass]="{'col-md-11 mx-auto': isUpdate}">
-              <div class="title my-4">
-                <h3>User Profile</h3>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <mat-form-field appearance="fill" class="w-100">
-                    <mat-label  class="text-secondry">User Name</mat-label>
-                    <input formControlName="userName" class="text-main" matInput/>
-                  </mat-form-field>
-
-                </div>
-                <div class="col-md-6">
-                  <mat-form-field appearance="fill" class="w-100">
-                    <mat-label  class="text-secondry">E-mail</mat-label>
-                    <input class="text-main"  matInput formControlName="email"/>
-                  </mat-form-field>
-
-                </div>
-                <div class="col-md-6">
-                  <mat-form-field appearance="fill" class="w-100">
-                    <mat-label  class="text-secondry">Country</mat-label>
-                    <input class="text-main" formControlName="country" matInput />
-                  </mat-form-field>
-                </div>
-                <div class="col-md-6">
-                  <mat-form-field appearance="fill" class="w-100">
-                    <mat-label  class="text-secondry">Phone Number</mat-label>
-                    <input class="text-main"  matInput formControlName="phoneNumber"/>
-                  </mat-form-field>
-                </div>
-                <div class="col-md-6">
-                  <mat-form-field *ngIf="isView" appearance="fill" class="w-100">
-                    <mat-label class="text-secondry">Join Date</mat-label>
-                    <input class="text-dark" [value]="user.creationDate" [disabled]="true" matInput/>
-                  </mat-form-field>
-
-                </div>
-                <div class="col-md-6">
-                  <mat-form-field *ngIf="isView" appearance="fill" class="w-100">
-                    <mat-label  class="text-secondry">Role</mat-label>
-                    <input class="text-dark"  [value]="user.group.name" [disabled]="true"  matInput />
-                  </mat-form-field>
-
-                </div>
-                <div  class="col-md-6" >
-                  <ng-container *ngIf="!isView">
-                    <mat-form-field appearance="fill" class="w-100">
-                      <mat-label>Confirm Password</mat-label>
-                      <input class="text-dark" formControlName="confirmPassword" matInput placeholder="Enter Your Password"
-                        [type]="hide ? 'password' : 'text'" />
-                      <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
-                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? "visibility_off" : "visibility"}}</mat-icon>
-                      </button>
-                    </mat-form-field>
-                    <span class="text-danger mb-3" *ngIf="ProfileForm.get('confirmPassword')?.errors &&
-                      ProfileForm.get('confirmPassword')?.touched ">
-                      <span *ngIf="ProfileForm.get('confirmPassword')?.errors?.['required']">
-                        confirmPassword is required
-                      </span>
-                      <span *ngIf="ProfileForm.get('confirmPassword')?.errors?.['pattern']">
-                        confirmPassword must have capital,small letters,sympols,number and pass length(8-16)
-                      </span>
-                      <span *ngIf="ProfileForm.get('confirmPassword')?.errors?.['invalid']">
-                        password and confirm password not match
-                      </span>
-                    </span>
-
-                  </ng-container>
-
-                
-<!--                 <div *ngIf="isUpdate" class="profile-image">
-                  <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
-                    <ngx-dropzone-label>
-                      <i class="fa-solid fa-upload fa-3x mb-3"></i>
-                      <div>
-                        Drag & Drop or
-                        <span class="text-main">
-                          Choose a Item Image to Upload
-                        </span>
-                      </div>
-                    </ngx-dropzone-label>
-                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" [removable]="true"
-                      (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
-                    </ngx-dropzone-image-preview>
-                  </ngx-dropzone>
-                </div>
-                <div class="d-flex justify-content-end gap-2 my-4">
-                  <button *ngIf="isUpdate" type="submit" class="px-4 primary" [disabled]="editProfileForm.invalid">Save</button>
-                  <button *ngIf="isView" class="px-4 primary" routerLink="/dashboard/updateProfile">Update Profile</button>
-                  <button type="button" class="outline-primary" (click)="isManager()" [routerLink]="isEmployee? '/dashboard/manager/home/': '/dashboard/employee/home/'"> <i class="fa-solid fa-arrow-left pl-2"></i> Back To Home</button>
--->
-                </div>
-
-
-            </div>
-
+      <div class="row">
+        <div class="col-md-8" [ngClass]="{ 'col-md-11 mx-auto': isUpdate }">
+          <div class="title my-4">
+            <h3>User Profile</h3>
           </div>
-          <div  class="col-md-4">
-            <div class="d-flex justify-content-center mb-4">
-              <ngx-dropzone (change)="onSelect($event)" [multiple]="false" class="circle-preview">
-                <ngx-dropzone-label class="text-main p-3" *ngIf="!imgSrc">
-                  <i class="fa-solid fa-upload fa-3x mb-3"></i>
-                  <div>
-                    choose your profile image
-                  </div>
-                </ngx-dropzone-label>
-                <ngx-dropzone-label *ngIf="imgSrc" >
-                  <img [src]="imgSrc" alt="" class="img-fluid" />
-                </ngx-dropzone-label>
-                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" class="img-fluid" [removable]="true"
-                (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label class="text-secondry">User Name</mat-label>
+                <input formControlName="userName" class="text-main" matInput />
+              </mat-form-field>
+              <span class="text-danger  mb-3" *ngIf="ProfileForm.get('userName')?.invalid &&
+              (ProfileForm.get('userName')?.dirty ||
+              ProfileForm.get('userName')?.touched)">
+            <span *ngIf="ProfileForm.get('userName')?.hasError('required')">userName is required</span>
+            <span *ngIf="ProfileForm.get('userName')?.hasError('pattern')">Invalid userName format must contains
+              numbers andcharacters</span>
+          </span>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label class="text-secondry">E-mail</mat-label>
+                <input class="text-main" matInput formControlName="email" />
+              </mat-form-field>
+              <span class="text-danger  mb-3"
+              *ngIf="ProfileForm.get('email')?.invalid && ProfileForm.get('email')?.touched">
+              <span *ngIf="ProfileForm.get('email')?.hasError('required')">Email is required</span>
+              <span *ngIf="ProfileForm.get('email')?.errors?.['email']">Email is invalid</span>
+            </span>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label class="text-secondry">Country</mat-label>
+                <input class="text-main" formControlName="country" matInput />
+              </mat-form-field>
+              <span class="text-danger  mb-3" *ngIf="
+              ProfileForm.get('country')?.invalid &&
+              (ProfileForm.get('country')?.dirty ||
+              ProfileForm.get('country')?.touched)">
+              <span *ngIf="ProfileForm.get('country')?.hasError('required')">country is required</span>
+            </span>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label class="text-secondry">Phone Number</mat-label>
+                <input
+                  class="text-main"
+                  matInput
+                  formControlName="phoneNumber"
+                />
+              </mat-form-field>
+              <span *ngIf="ProfileForm.get('phoneNumber')?.errors && ProfileForm.get('phoneNumber')?.touched "
+              class="text-danger  mb-3">
+              <span *ngIf="ProfileForm.get('phoneNumber')?.errors?.['required']" class="mb-0">phoneNumber is
+                required</span>
+              <span *ngIf="ProfileForm.get('phoneNumber')?.errors?.['pattern']" class="mb-0">phoneNumber starts with
+                011/012/015/010 and length 11 number </span>
+            </span>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field *ngIf="isView" appearance="fill" class="w-100">
+                <mat-label class="text-secondry">Join Date</mat-label>
+                <input
+                  class="text-dark"
+                  [value]="user.creationDate"
+                  [disabled]="true"
+                  matInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field *ngIf="isView" appearance="fill" class="w-100">
+                <mat-label class="text-secondry">Role</mat-label>
+                <input
+                  class="text-dark"
+                  [value]="user.group.name"
+                  [disabled]="true"
+                  matInput
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <ng-container *ngIf="!isView">
+                <mat-form-field appearance="fill" class="w-100">
+                  <mat-label>Confirm Password</mat-label>
+                  <input
+                    class="text-dark"
+                    formControlName="confirmPassword"
+                    matInput
+                    placeholder="Enter Your Password"
+                    [type]="hide ? 'password' : 'text'"
+                  />
+                  <button
+                    type="button"
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                  >
+                    <mat-icon>{{
+                      hide ? "visibility_off" : "visibility"
+                    }}</mat-icon>
+                  </button>
+                </mat-form-field>
+                <span
+                  class="text-danger mb-3"
+                  *ngIf="
+                    ProfileForm.get('confirmPassword')?.errors &&
+                    ProfileForm.get('confirmPassword')?.touched
+                  "
+                >
+                  <span
+                    *ngIf="ProfileForm.get('confirmPassword')?.errors?.['required']"
+                  >
+                    confirmPassword is required
+                  </span>
+                  <span
+                    *ngIf="ProfileForm.get('confirmPassword')?.errors?.['pattern']"
+                  >
+                    confirmPassword must have capital,small
+                    letters,sympols,number and pass length(8-16)
+                  </span>
+                  <span
+                    *ngIf="ProfileForm.get('confirmPassword')?.errors?.['invalid']"
+                  >
+                    password and confirm password not match
+                  </span>
+                </span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex justify-content-center mb-4" *ngIf="!isView">
+            <ngx-dropzone
+              (change)="onSelect($event)"
+              [multiple]="false"
+              class="circle-preview"
+            >
+              <ngx-dropzone-label class="text-main p-3 m-0" *ngIf="!imgSrc">
+                <i class="fa-solid fa-upload fa-3x mb-3"></i>
+                <div>choose your profile image</div>
+              </ngx-dropzone-label>
+              <ngx-dropzone-label *ngIf="imgSrc">
+                <img
+                  class="img-fluid"
+                  src="../../../assets/images/dummy-avatar-profile.jpg"
+                  alt=""
+                />
 
+                <!-- <img [src]="imgSrc" alt="" class="img-fluid" /> -->
+              </ngx-dropzone-label>
+              <ngx-dropzone-image-preview
+                ngProjectAs="ngx-dropzone-preview"
+                class="img-fluid"
+                [removable]="true"
+                (removed)="onRemove(f)"
+                *ngFor="let f of files"
+                [file]="f"
+              >
               </ngx-dropzone-image-preview>
             </ngx-dropzone>
           </div>
+          <div *ngIf="isView" class="circle-preview">
+            <img
+              class="img-fluid rounded-circle"
+              src="../../../assets/images/dummy-avatar-profile.jpg"
+              alt=""
+            />
+          </div>
         </div>
         <div class="d-flex justify-content-center gap-2 my-4">
-          <button *ngIf="isView" class="px-4 primary" (click)="enableFormControls()" [disabled]="ProfileForm.invalid">Update Profile</button>
-          <button type="submit" *ngIf="!isView" class="px-4 primary" [disabled]="ProfileForm.invalid">Update Profile</button>
-          <button type="button" class="outline-primary" (click)="isManager()" [routerLink]="isEmployee? '/dashboard/manager/home/': '/dashboard/employee/home/'"> <i class="fa-solid fa-arrow-left pl-2"></i> Back To Home</button>
-      </div>
-      <div *ngIf="isView" class="col-md-4">
-        <!-- <div *ngIf="user?.imagePath">
-          <img class="img-fluid" [src]="pathHttps + user?.imagePath" alt="">
-        </div>*ngIf="!user?.imagePath" -->
-        <div >
-          <img class="img-fluid" src="../../../assets/images/dummy-avatar-profile.jpg" alt="">
+          <button
+            *ngIf="isView"
+            class="px-4 primary"
+            (click)="enableFormControls()"
+            [disabled]="ProfileForm.invalid"
+          >
+            Update Profile
+          </button>
+          <button
+            type="submit"
+            *ngIf="!isView"
+            class="px-4 primary"
+            [disabled]="ProfileForm.invalid"
+          >
+            Update Profile
+          </button>
+          <button
+            type="button"
+            class="outline-primary"
+            (click)="isManager()"
+            [routerLink]="
+              isEmployee
+                ? '/dashboard/manager/home/'
+                : '/dashboard/employee/home/'
+            "
+          >
+            <i class="fa-solid fa-arrow-left pl-2"></i> Back To Home
+          </button>
         </div>
       </div>
     </form>
   </div>
-  </section>
+</section>

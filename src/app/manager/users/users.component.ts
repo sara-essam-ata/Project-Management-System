@@ -16,11 +16,6 @@ import { PageEvent } from '@angular/material/paginator';
 export class UsersComponent implements OnInit {
   tableData:TableData|any;
   searchValue:string='';
-
-  pageIndex: number = 0
-  pageSize: number = 5;
-  pageNumber: number | undefined = 1; 
-
   listUsers: Employee[] = [];
   pageSize:number = 10;
   pageNumber:number=1;
