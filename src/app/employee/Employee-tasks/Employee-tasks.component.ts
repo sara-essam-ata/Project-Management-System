@@ -1,4 +1,3 @@
-import { Component } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit, TrackByFunction } from '@angular/core';
 import { EmployeeTaskService } from './services/employee-task.service';
@@ -67,4 +66,4 @@ export class EmployeeTasksComponent implements OnInit {
     }
   }
   
-})
+}

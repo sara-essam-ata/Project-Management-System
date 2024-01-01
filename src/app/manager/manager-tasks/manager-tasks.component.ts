@@ -13,15 +13,15 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./manager-tasks.component.scss']
 })
 export class ManagerTasksComponent implements OnInit {
-   tableData:TableData|any;
-   pageIndex: number = 0
-   pageSize: number = 5;
-   pageNumber: number | undefined = 1; 
-   searchValue:string='';
-   statusID:number =0;
-   statusData=['All','ToDo','InProgress','Done']
+  tableData: TableData | any;
+  pageIndex: number = 0
+  pageSize: number = 5;
+  pageNumber: number | undefined = 1;
+  searchValue: string = '';
+  statusID: number = 0;
+  statusData = ['All', 'ToDo', 'InProgress', 'Done']
   listTasks: IListTasks[] = [];
-  constructor(private _TaskService:TaskService,
+  constructor(private _TaskService: TaskService,
     private toastr: ToastrService,
     private router: Router,
     private dialog: MatDialog,) { }
@@ -29,50 +29,50 @@ export class ManagerTasksComponent implements OnInit {
   ngOnInit() {
     this.getAllTasks()
   }
-  
-  getAllTasks(){
-    let parms = {}
-    parms ={
-      pageNumber:this.pageNumber,
-      pageSize:this.pageNumber,
-      status:this.searchValue
 
-  }
-     if(this.statusID==1){
-      parms ={
-        pageNumber:this.pageNumber,
-        pageSize:this.pageSize,
+  getAllTasks() {
+    let parms = {}
+    parms = {
+      pageNumber: this.pageNumber,
+      pageSize: this.pageNumber,
+      status: this.searchValue
+
+    }
+    if (this.statusID == 1) {
+      parms = {
+        pageNumber: this.pageNumber,
+        pageSize: this.pageSize,
         status: this.statusData[1]
       }
       console.log(this.statusData[1])
-    }else if(this.statusID==2){
-      parms ={
-        pageNumber:this.pageNumber,
-        pageSize:this.pageSize,
+    } else if (this.statusID == 2) {
+      parms = {
+        pageNumber: this.pageNumber,
+        pageSize: this.pageSize,
         status: this.statusData[2]
-    }
-    }else if(this.statusID==3){
-      parms ={
-        pageNumber:this.pageNumber,
-        pageSize:this.pageSize,
+      }
+    } else if (this.statusID == 3) {
+      parms = {
+        pageNumber: this.pageNumber,
+        pageSize: this.pageSize,
         status: this.statusData[3]
+      }
     }
+    else {
+      parms = {
+        pageNumber: this.pageNumber,
+        pageSize: this.pageSize,
+        status: this.searchValue
+      }
     }
-    else{
-      parms ={
-        pageNumber:this.pageNumber,
-        pageSize:this.pageSize,
-        status:this.searchValue
-    }
-  }
     this._TaskService.onGetManagerTasks(parms).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
-        this.tableData=res;
+        this.tableData = res;
         console.log(this.searchValue);
         this.listTasks = this.tableData.data;
 
-        localStorage.setItem('tasksNumber',JSON.stringify(res.totalNumberOfRecords))
+        localStorage.setItem('tasksNumber', JSON.stringify(res.totalNumberOfRecords))
 
       }
     })
@@ -83,13 +83,13 @@ export class ManagerTasksComponent implements OnInit {
     this.pageNumber = e.pageIndex + 1
     this.getAllTasks();
 
-  } 
+  }
 
-    // Delete
+  // Delete
   openDeleteDialog(data: ITask): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       data: data,
-      width: '35%',      
+      width: '35%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -100,13 +100,13 @@ export class ManagerTasksComponent implements OnInit {
         this.deleteTask(result.id);
       }
     });
-   } 
+  }
   deleteTask(id: number) {
     this._TaskService.onDeleteTask(id).subscribe({
       next: (res) => {
         console.log(res);
       }, error: (err) => {
-        this.toastr.error(err.error.message,'Error!')
+        this.toastr.error(err.error.message, 'Error!')
       }, complete: () => {
         this.toastr.success('Task Deleted Successfully');
         this.getAllTasks()

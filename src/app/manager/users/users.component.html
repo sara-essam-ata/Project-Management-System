@@ -3,17 +3,17 @@
     <h3>Users</h3>
   </div>
   <div class="table-card container py-5">
-<div class="header-table bg-whiteColor">
+    <div class="header-table bg-whiteColor">
 
-</div>
+    </div>
     <table class="table pt-5 table-striped">
       <thead>
-          <th>Title</th>
-          <th>Status</th>
-          <th>Phone Number</th>
-          <th>Email</th>
-          <th>Creation Date</th>
-          <th>Actions</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Creation Date</th>
+        <th>Actions</th>
       </thead>
       <tbody>
         <tr *ngFor="let user of listUsers">
@@ -31,11 +31,11 @@
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="openBlockDialog(user)" >
+              <button mat-menu-item (click)="openBlockDialog(user)">
                 <mat-icon>block</mat-icon>
                 <span>{{user.isActivated?'Block':'Unblock'}}</span>
               </button>
-              <button mat-menu-item [routerLink]="['/dashboard/manager/users/view/',user.id]" >
+              <button mat-menu-item [routerLink]="['/dashboard/manager/users/view/',user.id]">
                 <mat-icon color="text-main">visibility</mat-icon>
                 <span>View</span>
               </button>
@@ -46,15 +46,11 @@
     </table>
 
     <div>
-      <mat-paginator [length]="tableData?.totalNumberOfRecords" 
-          [pageSizeOptions]="[5,10, 50, 100]" [pageSize]="tableData?.pageSize"
-           (page)="handlePageEvent($event)" [pageIndex]="pageIndex" 
-           aria-label="Select page">
+      <mat-paginator [length]="tableData?.totalNumberOfRecords" [pageSizeOptions]="[5,10, 50, 100]"
+        [pageSize]="tableData?.pageSize" (page)="handlePageEvent($event)" [pageIndex]="pageIndex"
+        aria-label="Select page">
       </mat-paginator>
 
     </div>
   </div>
 </section>
-
-
-

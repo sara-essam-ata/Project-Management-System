@@ -56,8 +56,8 @@ export class ManagerProjectsComponent implements OnInit {
         this.listProjects = this.tableData.data;
         localStorage.setItem('projectsCount' , JSON.stringify(res.totalNumberOfRecords))
 
-        this.listProjects = this.tableData.data
-        localStorage.setItem('projectsCount',res.totalNumberOfRecords)
+        // this.listProjects = this.tableData.data
+        // localStorage.setItem('projectsCount',res.totalNumberOfRecords)
 
       }
     })}
@@ -105,13 +105,6 @@ export class ManagerProjectsComponent implements OnInit {
         exitAnimationDuration,
       });
     }
-
-    // openViewDialog(listProjects: IListProject): void {
-    //   const dialogRef = this.dialog.open(ViewProjectComponent, {
-    //     data: listProjects,
-    //     width: '60%',
-    //   });
-  // View
 
   handlePageEvent(e: PageEvent) {
     console.log(e);
