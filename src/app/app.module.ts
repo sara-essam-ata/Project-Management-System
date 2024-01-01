@@ -27,10 +27,10 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
     ({ type: 'ball-scale-multiple' }),
     ToastrModule.forRoot({
       closeButton: true,
-      timeOut: 1000,
+      timeOut: 4000,
       progressBar: true,
     }),
-    
+
   ],
   providers: [
     {

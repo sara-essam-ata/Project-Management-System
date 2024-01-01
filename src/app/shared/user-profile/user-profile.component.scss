@@ -6,10 +6,14 @@ input {
 //   display: none !important;
 // }
 
-img {
-  margin-top: 30px;
+
+.circle-preview {
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  box-shadow: 0 0 5px 5px #aaa;
+  background-color: bisque;
+  border: 4px dashed #ef9b28;
+  img{
+    object-fit: cover;
+  }
 }
-
-
