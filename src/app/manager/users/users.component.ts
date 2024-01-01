@@ -17,6 +17,9 @@ export class UsersComponent implements OnInit {
   tableData:TableData|any;
   searchValue:string='';
   listUsers: Employee[] = [];
+  pageSize:number = 10;
+  pageNumber:number=1;
+  pageIndex: number = 0;
   Messgage:string='';
   userData:Employee|any;
   userId:any
@@ -79,5 +82,4 @@ export class UsersComponent implements OnInit {
   }
 
  }
-
 

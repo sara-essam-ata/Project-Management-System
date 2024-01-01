@@ -67,10 +67,7 @@ export class EmployeeTasksComponent implements OnInit {
     }
   }
   
-<<<<<<< HEAD
-}
-=======
 }
 
 
->>>>>>> 65bf3b7fe2d480209a3fddfe72d13f3331f94e5b
+
