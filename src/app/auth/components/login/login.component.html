@@ -15,11 +15,13 @@
                   <input formControlName="email" matInput placeholder="Enter Your Email">
               </mat-form-field>
 
-              <span class="text-danger p-2" *ngIf="loginForm.controls.email.errors && loginForm.controls.email.touched">
-                <span *ngIf="loginForm.get('email')?.getError('required')" class="mb-0">Email Is Required</span>
-                <span *ngIf="loginForm.get('email')?.getError('email')" class="mb-0">Email Is Invalid</span>
+              <span class="text-danger p-2" *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
+                <span *ngIf="loginForm.get('email')?.errors?.['required']">Email Is Required</span>
+                <span *ngIf="loginForm.get('email')?.errors?.['pattern']">Email  must have capital,small letters,sympols,number and pass length(2)</span>
+
               </span>
               
+             
               <mat-form-field appearance="fill" class="w-100">
                   <mat-label>Password</mat-label>
                   <input formControlName="password" matInput placeholder="Enter Your Password" [type]="hide ? 'password' : 'text'">
