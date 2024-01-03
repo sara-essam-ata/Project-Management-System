@@ -124,7 +124,7 @@ export class UserProfileComponent {
     for (const [key, value] of myMap) {
       myData.append(key, data.value[key]);
     }
-    myData.append('profileImage', this.imgSrc, this.imgSrc['name']);
+    //myData.append('profileImage', this.imgSrc, this.imgSrc['name']);
     this._HelperService.onUpdateCurrentUser(myData).subscribe({
       next: (res: any) => {
         console.log(res);
