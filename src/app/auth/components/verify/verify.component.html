@@ -37,7 +37,7 @@
               <div class="text-end me-3">
                 <a  routerLink="/auth/login" class="text-decoration-none pointer text-white">Log in?</a>
               </div>
-              <button type="submit" class="primary mt-3 w-100">Verify</button>
+              <button type="submit" [disabled]="verifyForm.invalid" class="primary mt-3 w-100">Verify</button>
               </form>
         </div>
 

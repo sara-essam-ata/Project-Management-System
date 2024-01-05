@@ -21,14 +21,14 @@ export class ForgetPasswordComponent implements OnInit {
     
     this._AuthService.onRequestResetPassword(data).subscribe({
       next: (res: any)=>{
-        this.errorMessage = res.message;
+        // this.errorMessage = res.message;
+        localStorage.setItem('email' , data);
+        
       }, error: (err)=>{
         this._toastr.error(err.error.errorMessage, 'Error!');
       },complete: ()=>{
         this._toastr.success("Request Success", 'Successfully!');
         this._Router.navigate(['/auth/resetPassword']);
-        localStorage.setItem('email' , data);
-
       }
     })
   }

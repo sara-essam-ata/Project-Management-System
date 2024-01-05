@@ -25,7 +25,7 @@ export class RegisterComponent {
       Validators.required,
       Validators.pattern('([a-zA-Z]){3,12}([0-9]{1,3})')
     ]),
-    email: new FormControl(null,[Validators.required,Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]),  
+    email: new FormControl(null,[Validators.required,Validators.email]),  
 
     country: new FormControl(null, [
       Validators.required

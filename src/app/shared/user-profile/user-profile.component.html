@@ -82,7 +82,7 @@
                 />
               </mat-form-field>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
               <ng-container *ngIf="!isView">
                 <mat-form-field appearance="fill" class="w-100">
                   <mat-label>Confirm Password</mat-label>
@@ -134,8 +134,8 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="d-flex justify-content-center mb-4" *ngIf="!isView">
+        <div class="col-md-4 ">
+          <div class="d-flex justify-content-center m-5" *ngIf="!isView">
             <ngx-dropzone
               (change)="onSelect($event)"
               [multiple]="false"
@@ -146,17 +146,16 @@
                 <div>choose your profile image</div>
               </ngx-dropzone-label>
               <ngx-dropzone-label *ngIf="imgSrc">
-                <img
-                  class="img-fluid"
+                <!-- <img
+                  class="w-100"
                   src="../../../assets/images/dummy-avatar-profile.jpg"
                   alt=""
-                />
-
-                <!-- <img [src]="imgSrc" alt="" class="img-fluid" /> -->
+                /> -->
+                <img [src]="imgSrc" alt="" class="img-fluid" />
               </ngx-dropzone-label>
               <ngx-dropzone-image-preview
                 ngProjectAs="ngx-dropzone-preview"
-                class="img-fluid"
+                class="w-100"
                 [removable]="true"
                 (removed)="onRemove(f)"
                 *ngFor="let f of files"
@@ -165,11 +164,10 @@
               </ngx-dropzone-image-preview>
             </ngx-dropzone>
           </div>
-          <div *ngIf="isView" class="circle-preview">
+          <div *ngIf="isView" class="circle-preview m-5">
             <img
-              class="img-fluid rounded-circle"
+              class="w-100 rounded-circle"
               src="../../../assets/images/dummy-avatar-profile.jpg"
-              alt=""
             />
           </div>
         </div>

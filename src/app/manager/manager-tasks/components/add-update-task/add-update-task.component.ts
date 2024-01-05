@@ -77,10 +77,10 @@ export class AddUpdateTaskComponent implements OnInit {
   }
 
   taskForm = new FormGroup({
-    title: new FormControl(null,[Validators.required,Validators.pattern('^[a-zA-Z]{6,10}$')]),
-    description: new FormControl(null,[Validators.required,Validators.pattern('^[a-zA-Z]{20,}$')]),
-    employeeId: new FormControl(null),
-    projectId: new FormControl(null),
+    title: new FormControl(null,[Validators.required]),
+    description: new FormControl(null,[Validators.required]),
+    employeeId: new FormControl(null,[Validators.required]),
+    projectId: new FormControl(null,[Validators.required]),
   })
 
   onSubmit(data: FormGroup) {
