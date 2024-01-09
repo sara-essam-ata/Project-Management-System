@@ -17,8 +17,7 @@
 
               <span class="text-danger p-2" *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched">
                 <span *ngIf="loginForm.get('email')?.errors?.['required']">Email Is Required</span>
-                <span *ngIf="loginForm.get('email')?.errors?.['pattern']">Email  must have capital,small letters,sympols,number and pass length(2)</span>
-
+                <span *ngIf="loginForm.get('email')?.errors?.['pattern']">Email is invalid</span>
               </span>
               
              
@@ -40,7 +39,7 @@
                   <a [routerLink]="['/auth/register']" class="text-decoration-none text-white">Register Now ?</a>
                   <a [routerLink]="['/auth/forgetPassword']" class="text-decoration-none text-white">Forget Password ?</a>
               </div>
-              <button class="primary w-100">Login</button>
+              <button [disabled]="loginForm.invalid" class="primary w-100">Login</button>
           </div>
       </div>
     </form>

@@ -47,7 +47,7 @@
               <span class="text-danger  mb-3"
                 *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
                 <span *ngIf="registerForm.get('email')?.hasError('required')">Email is required</span>
-                <span *ngIf="registerForm.get('email')?.hasError('pattern')">Email  must have capital,small letters,sympols,number and pass length(2)</span>
+                <span *ngIf="registerForm.get('email')?.hasError('pattern')">Email is invalid</span>
               </span>
             </div>
             <div class="col-md-6">
@@ -126,7 +126,7 @@
             <a [routerLink]="['/auth/verify']" class="text-secondry text-decoration-none pointer">Have Code?</a>
           </div>
           <div class="text-center">
-            <button type="submit" class="primary w-75">Register</button>
+            <button type="submit" [disabled]="registerForm.invalid" class="primary w-75">Register</button>
           </div>
         </div>
       </div>
