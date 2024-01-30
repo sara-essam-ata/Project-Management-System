@@ -11,7 +11,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
-
 @NgModule({
   declarations: [
     AppComponent,

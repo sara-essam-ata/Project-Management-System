@@ -20,7 +20,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-
 @NgModule({
   imports: [
     CommonModule,

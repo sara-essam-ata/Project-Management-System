@@ -32,8 +32,6 @@ export class LoginComponent implements OnInit {
         console.log(res);
         this.message = res.message
         localStorage.setItem('userToken',res.token);
-        
-
 
       }, error: (err)=>{
         this._toastr.error(err.error.message , 'Error!');

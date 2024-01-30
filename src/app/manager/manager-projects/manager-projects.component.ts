@@ -56,9 +56,6 @@ export class ManagerProjectsComponent implements OnInit {
         this.listProjects = this.tableData.data;
         localStorage.setItem('projectsCount' , JSON.stringify(res.totalNumberOfRecords))
 
-        // this.listProjects = this.tableData.data
-        // localStorage.setItem('projectsCount',res.totalNumberOfRecords)
-
       }
     })}
 
