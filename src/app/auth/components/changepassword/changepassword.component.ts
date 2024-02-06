@@ -40,9 +40,7 @@ export class ChangepasswordComponent {
     if (newPassword.value == confirmNewPassword.value) {
       return null;
     } else {
-      control
-        .get('confirmNewPassword')
-        ?.setErrors({ invalid: 'password and confirm password not match' });
+        confirmNewPassword.setErrors({ invalid: 'password and confirm password not match' });
       return { invalid: 'password and confirm password not match' };
     }
   }

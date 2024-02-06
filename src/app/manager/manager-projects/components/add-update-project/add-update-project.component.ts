@@ -21,7 +21,6 @@ export class AddUpdateProjectComponent implements OnInit {
     private router: Router,
     private _ActivatedRoute: ActivatedRoute) {
 
-    // console.log(_ActivatedRoute.snapshot.params['id']);
     this.projectId = _ActivatedRoute.snapshot.params['id'];
     if (this.projectId) {
       this.isUpdatePage = true;
@@ -32,8 +31,8 @@ export class AddUpdateProjectComponent implements OnInit {
   }
 
   projectForm = new FormGroup({
-    title: new FormControl(null,[Validators.required,Validators.pattern('^[a-zA-Z]{6,10}$')]),
-    description: new FormControl(null,[Validators.required,Validators.pattern('^[a-zA-Z]{20,}$')]),
+    title: new FormControl(null,[Validators.required]),
+    description: new FormControl(null,[Validators.required]),
   })
 
   onSubmit(data: FormGroup) {

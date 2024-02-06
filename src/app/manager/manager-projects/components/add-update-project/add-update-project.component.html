@@ -23,7 +23,6 @@
           
           <span *ngIf="projectForm.get('title')?.errors && projectForm.get('title')?.touched " class="text-danger mb-3"  >
             <span *ngIf="projectForm.get('title')?.errors?.['required']">title is required</span>
-            <span *ngIf="projectForm.get('title')?.errors?.['pattern']">title must have capital,small letters length(6-10)</span>
           </span>
         </div>
 
@@ -36,7 +35,6 @@
           </mat-form-field>
           <span *ngIf="projectForm.get('description')?.errors && projectForm.get('description')?.touched " class="text-danger mb-3"  >
             <span *ngIf="projectForm.get('description')?.errors?.['required']">description is required</span>
-            <span *ngIf="projectForm.get('description')?.errors?.['pattern']">description must have capital,small letters length(20 or more)</span>
           </span>
         </div>
         <hr>

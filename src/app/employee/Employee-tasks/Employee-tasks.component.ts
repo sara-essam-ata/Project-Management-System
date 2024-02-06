@@ -52,6 +52,7 @@ export class EmployeeTasksComponent implements OnInit {
     const draggedItemId = event.item.data;
     this._EmployeeTaskService.onChangeStatus(draggedItemId,event.container.id).subscribe({
       next:(res)=>{
+        
       }
     })
     if (event.previousContainer === event.container) {
@@ -67,5 +68,6 @@ export class EmployeeTasksComponent implements OnInit {
   }
   
 }
+
 
 

@@ -19,6 +19,7 @@ import { MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -26,12 +27,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CommonModule,
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,RouterLink,RouterLinkActive,RouterModule
-    ,NgxDropzoneModule,MatSelectModule,MatPaginatorModule,
+    ,NgxDropzoneModule,MatSelectModule,MatPaginatorModule,DragDropModule,
   ],
   exports: [
     MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
     NavbarComponent,SidebarComponent, MatMenuModule,MatDialogModule,NgxDropzoneModule,
-    MatMenuModule,MatDialogModule,FormsModule,RouterModule,MatSelectModule,MatPaginatorModule,UserProfileComponent,NotFoundComponent
+    MatMenuModule,MatDialogModule,FormsModule,RouterModule,DragDropModule,MatSelectModule,MatPaginatorModule,UserProfileComponent,NotFoundComponent
 
   ],
 
