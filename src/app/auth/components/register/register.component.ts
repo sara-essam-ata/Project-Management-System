@@ -64,6 +64,7 @@ export class RegisterComponent {
       return { invalid: 'password and confirm password not match' };
     }
   }
+  
   onSubmit(data: FormGroup) {
     console.log(data.value);
     let myData = new FormData();

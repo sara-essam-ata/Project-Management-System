@@ -10,6 +10,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    SharedModule,
     NgxSpinnerModule,
     HttpClientModule,
     NgxSpinnerModule.forRoot

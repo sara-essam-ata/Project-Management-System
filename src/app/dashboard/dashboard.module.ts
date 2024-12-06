@@ -4,9 +4,8 @@ import { DashboardComponent } from './dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { UserProfileComponent } from '../shared/user-profile/user-profile.component';
-import { managerGuard } from '../guards/manager.guard';
-import { employeeGuard } from '../guards/employee.guard';
-
+import { managerGuard } from '../Guards/manager.guard';
+import { employeeGuard } from '../Guards/employee.guard';
 
 const routes:Routes = [
   {path: '', component: DashboardComponent, children: [

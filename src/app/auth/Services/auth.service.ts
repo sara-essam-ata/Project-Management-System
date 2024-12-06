@@ -44,7 +44,7 @@ export class AuthService {
     }
   }
 
-  onLogin(data: ILogin):Observable<any>
+  onLogin(data: any):Observable<any>
   {
     return this._HttpClient.post('Users/Login' , data)
   }

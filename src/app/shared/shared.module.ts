@@ -23,7 +23,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 @NgModule({
   imports: [
     CommonModule,
-    MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule,
+    MatInputModule, MatFormFieldModule, MatButtonModule, MatIconModule, ReactiveFormsModule, FormsModule,
     ToastrModule.forRoot({}), MatMenuModule,MatDialogModule,RouterLink,RouterLinkActive,RouterModule
     ,NgxDropzoneModule,MatSelectModule,MatPaginatorModule,
   ],

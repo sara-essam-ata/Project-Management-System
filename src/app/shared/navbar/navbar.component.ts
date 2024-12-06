@@ -14,8 +14,6 @@ export class NavbarComponent implements OnInit {
   
   isEmployee:boolean=false;
 
-
-
   constructor(public dialog: MatDialog,private _AuthService: AuthService,private _HelperService:HelperService) {
 
   }
